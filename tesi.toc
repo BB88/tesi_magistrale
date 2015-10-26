@@ -1,9 +1,10 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Stereoscopic Video}{2}{chapter.2}
+\contentsline {chapter}{Introduction}{1}{section*.5}
+\contentsline {chapter}{\numberline {1}Stereoscopic Video}{4}{chapter.1}
+\contentsline {chapter}{Oris Model Rewards}{4}{section*.9}
 \contentsline {chapter}{\numberline {3}Stereoscopic video watermarking: state of art}{3}{chapter.3}
 \contentsline {section}{\numberline {3.1}State of art}{3}{section.3.1}
 \contentsline {chapter}{\numberline {4}Disparity-coherent watermarking in the spatial domain}{4}{chapter.4}
 \contentsline {chapter}{\numberline {5}Disparity-coherent watermarking in the Fourier domain}{5}{chapter.5}
 \contentsline {chapter}{\numberline {6}Conclusions}{6}{chapter.6}
-\contentsline {chapter}{Bibliografia}{7}{section*.9}
+\contentsline {chapter}{Bibliografia}{7}{section*.13}

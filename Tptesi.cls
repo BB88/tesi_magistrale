@@ -180,21 +180,38 @@
   \vspace*{-25mm}
 %  \centerline{ %\includegraphics[height=30mm]{images/stemma.png}}
   \begin{center}
-    \textsc{\Large Universiy of Florence}\medskip\\
-    { Faculty of Engineering}\medskip\\
-    \rule{50mm}{0.01mm}\medskip\\
-    {Department of Software Engineering}\medskip\\
-    
-    \vfill
-    {\huge \bf \@title \par}
-    \bigskip\bigskip
-     \par\bigskip
-    {\large \@author} \par\bigskip
-    \@dataTesi \par
+    \textsc{\Large University of Florence}\medskip\\
+    {Faculty of Engineering}\medskip\\
+     \rule{50mm}{0.01mm}\medskip\\
+       {\small Master degree program in}\medskip\\
+       \textsc{\@titolocorso}\medskip\\
+     \vfill
+     {\huge \bf \@title \par}
+     \bigskip\bigskip
+     Master Thesis of \par\bigskip
+     {\large \@author} \par\bigskip
+     \@dataTesi \par
   \end{center}\par
   \vfill
-  
-  
+   \ifnum \@numberofmembers > 1
+      Supervisors:
+    \else
+      Supervisor:
+    \fi
+    \begin{quote}
+      {\large \@chair}\newline
+      \ifnum \@numberofmembers > 1
+        {\large \@othermembers}
+      \fi
+    \end{quote}\vspace{5mm}\par
+    \ifnum \@numerocorrelatori > 1
+      Advisors:
+    \else
+      Advisor:
+    \fi
+    \begin{quote}
+      {\large \@correlatori}
+    \end{quote}  
   \vfill
   \begin{center}
     \rule{40mm}{0.01mm}\\
