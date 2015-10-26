@@ -1,0 +1,98 @@
+\documentclass[oneside]{Tptesi}
+\usepackage[]{babel}
+\usepackage[T1]{fontenc} % Usa la nuova codifica standard dei caratteri in LaTeX
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{minted}
+\usepackage{eurosym}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\newcommand\Chapter[2]{
+  \chapter[#1: {#2}]{#1\\[2ex]\Large#2}
+}
+\newminted{rb}{baselinestretch=auto,tabsize=4,fontsize=\footnotesize,frame=lines,samepage=true}
+\usepackage{pifont}
+\usepackage{epstopdf}
+\usepackage[italian]{varioref}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}[2011/08/13]
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs} 
+\usepackage{multirow}
+\usepackage{url}
+\hypersetup{urlcolor=black}
+\usepackage{imakeidx}
+\makeindex[title=Ciao]
+				
+% ------------------------------------------------------------------------------
+% Metadata (Change this)
+% ------------------------------------------------------------------------------
+	\title{Disparity coherent stereo video watermarking}
+	\author{Benedetta Barbetti, Michaela Servi}
+	\titolocorso{Ingegneria Informatica}
+	\chair{Prof. Alessandro Piva}
+	\numberofmembers{1} %numero dei relatori
+	\othermembers{Prof. Paolo Nesi}
+	\degreeyear{2014/2015}
+	\numerocorrelatori{1} %numero dei correlatori
+	\correlatori{Prof. Carlo Colombo} 
+	\dataTesi{December 2015}
+
+
+
+% ---- Inclusioni separate da virgole e senza spazi  --------------
+\includeonly 
+{abstract, introduction, stereo_video, stereo_watermark, spat_wat, freq_wat, conclusions, bibliografia}
+%
+%%//// document ///////////////////////////////////////////////////////////////
+
+\begin{document}
+\hyphenation{}
+%
+%
+\maketitle % crea il frontespizio(ricordati di copiare "stemma.eps" nella tuadirectory)%
+
+\thispagestyle{empty}
+\begin{flushright}
+\large\em \vspace*{2cm}
+
+   
+\end{flushright}
+
+%----- Abstract
+\include{abstract}
+% --- Crea la pagina dei ringraziamenti (se ti va) ---
+
+%% --- Fine ringraziamenti ----------------
+%%
+\pagenumbering{arabic}
+\pagestyle{plain}
+\tableofcontents % inserisce indice generale
+\listoffigures   % inserisce indice figure
+\listoftables    % inserisce indice tabelle
+%\listoflistings	 % inserisce indice di codici
+%%
+%%--------------- Inizio del testo vero e proprio
+%%
+
+\cleardoublepage
+\pagenumbering{arabic}
+\pagestyle{headings}
+
+%% ////////////////////////////////////////////////////////////////////////////
+\include{introduction}
+\include{stereo_video}
+\include{stereo_wat}
+\include{spat_wat}
+\include{freq_wat}
+\include{conclusions}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibliographystyle{plain}
+\include{bibliografia}
+\end{document}
