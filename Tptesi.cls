@@ -181,7 +181,7 @@
 %  \centerline{ %\includegraphics[height=30mm]{images/stemma.png}}
   \begin{center}
     \textsc{\Large University of Florence}\medskip\\
-    {Faculty of Engineering}\medskip\\
+    {School of Engineering}\medskip\\
      \rule{50mm}{0.01mm}\medskip\\
        {\small Master degree program in}\medskip\\
        \textsc{\@titolocorso}\medskip\\

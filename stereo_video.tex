@@ -6,12 +6,13 @@
 
 
 
-
-
-
-
-
-
+In a wide variety of image processing applications, explicit depth information is required in
+addition to general image informations, such as intensities, color, densities.\\
+Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
+magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames.\\
+In each of these cases, depth information is essential for accurate image analysis or for enhancing the
+realism.\\
+In remote sensing the terrain's elevation needs to be accurately determined for map production, in remote handling an operator needs to have precise knowledge of the threedimensional organization of the area to avoid collisions and misplacements.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.5\textwidth}
@@ -28,10 +29,6 @@
 \caption{\small{Stereoscopy in medical and industrial field}}
 \end{figure}
 
-
-
-
-
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.5\textwidth}
@@ -47,16 +44,9 @@
 \end{subfigure} 
 \caption{\small{Stereoscopy application's fields}}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
+Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound.
+However it's usually undesirable to have separate systems for acquiring the intensity and the depth
+information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -81,3 +71,35 @@
 \end{subfigure} 
 \caption{\small{Stereoscopy in 3D video games}}
 \end{figure}
+
+\section{Stereo vision}
+In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene. \\
+The 3D information can be obtained from a pair of images, also known as a stereo pair, by estimating the relative depth of points in the scene.\\
+From the anatomic point of view, the human brain calculates the depth in a visual scene mainly by
+processing the information brought by the images seen by the left and the right eyes. These left and right images are slightly different because the eyes have biologically different emplacements.\\
+Consequently, the straightforward way of achieving stereoscopic digital imaging is to emulate the
+Human Visual System (HSV) by setting-up (under controlled geometric positions), two traditional 2D
+cameras.\\
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{./img/hvs.png}
+         \caption{\scriptsize{Binocular human visual system}}
+         \label{fig:hvs}
+\end{subfigure}
+\begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{./img/stereo.png}
+        \caption{\scriptsize{Stereoscopic system}}
+        \label{fig:stereo}
+\end{subfigure} 
+\caption{\small{ Binocular human vision vs. stereoscopic content acquisition.}}
+\end{figure}
+
+
+
+
+
+\section{Acquisition of stereo images}
+
+
+\section{Display 3D video}
