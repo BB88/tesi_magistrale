@@ -4,8 +4,6 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{Stereoscopic Video}
 
-
-
 In a wide variety of image processing applications, explicit depth information is required in
 addition to general image informations, such as intensities, color, densities.\\
 Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
@@ -92,9 +90,29 @@ cameras.\\
         \caption{\scriptsize{Stereoscopic system}}
         \label{fig:stereo}
 \end{subfigure} 
-\caption{\small{ Binocular human vision vs. stereoscopic content acquisition.}}
+\caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
 \end{figure}
 
+\subsection{Stereo Vision Geometry}
+
+In order to be able to perceive depth using recorded images, a stereoscopic camera is required
+which consists of two cameras that capture two different, horizontally shifted perspective
+viewpoints. The camera setup should be geometrically
+calibrated such that the two cameras capture the same part of the real world scene.\\
+Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space.\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
+\caption{\scriptsize{Stereo camera model}}
+\label{fig:rt}
+\end{figure}
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel. The rectified images are then used to compute the disparity map.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
+\caption{\scriptsize{Rectified stereo cameras}}
+\label{fig:rect_stereo}
+\end{figure}
 
 
 
