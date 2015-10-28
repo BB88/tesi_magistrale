@@ -97,16 +97,23 @@ cameras.\\
 
 In order to be able to perceive depth using recorded images, a stereoscopic camera is required
 which consists of two cameras that capture two different, horizontally shifted perspective
-viewpoints. The camera setup should be geometrically
+viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/correspondance.png}
+\caption{\scriptsize{Triangulation: with two cameras the depth of }}
+\label{fig:corr}
+\end{figure}
+ The camera setup should be geometrically
 calibrated such that the two cameras capture the same part of the real world scene.\\
-Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space.\\
+Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
 \caption{\scriptsize{Stereo camera model}}
 \label{fig:rt}
 \end{figure}
-These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel. The rectified images are then used to compute the disparity map.
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure). The rectified images are then used to find corresponding points and compute the disparity map.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
@@ -114,6 +121,9 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \label{fig:rect_stereo}
 \end{figure}
 
+\subsection{Disparity map computation}
+
+After the images have been rectify
 
 
 
