@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.26)  28 OCT 2015 12:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.26)  2 NOV 2015 15:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1292,14 +1292,14 @@ l.87 \include{introduction}
 
  (./stereo_video.tex
 Chapter 1.
-<./img/bin_pick.png, id=120, 461.47406pt x 346.29375pt>
+<./img/bin_pick.png, id=131, 461.47406pt x 346.29375pt>
 File: ./img/bin_pick.png Graphic file (type png)
 
 <use ./img/bin_pick.png>
 Package pdftex.def Info: ./img/bin_pick.png used on input line 18.
 (pdftex.def)             Requested size: 136.4994pt x 102.43053pt.
 
-<./img/da_vinci.jpg, id=122, 461.47406pt x 346.29375pt>
+<./img/da_vinci.jpg, id=133, 461.47406pt x 346.29375pt>
 File: ./img/da_vinci.jpg Graphic file (type jpg)
 
 <use ./img/da_vinci.jpg>
@@ -1313,13 +1313,13 @@ Overfull \hbox (16.96811pt too wide) in paragraph at lines 16--27
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/tracking.jpg, id=123, 243.309pt x 148.3944pt>
+<./img/tracking.jpg, id=134, 243.309pt x 148.3944pt>
 File: ./img/tracking.jpg Graphic file (type jpg)
  <use ./img/tracking.jpg>
 Package pdftex.def Info: ./img/tracking.jpg used on input line 34.
 (pdftex.def)             Requested size: 136.4994pt x 83.25426pt.
 
-<./img/little_ben.jpg, id=124, 562.1pt x 338.26375pt>
+<./img/little_ben.jpg, id=135, 562.1pt x 338.26375pt>
 File: ./img/little_ben.jpg Graphic file (type jpg)
 
 <use ./img/little_ben.jpg>
@@ -1333,25 +1333,25 @@ Overfull \hbox (16.96811pt too wide) in paragraph at lines 32--43
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/games1.png, id=125, 247.67531pt x 133.24782pt>
+<./img/games1.png, id=136, 247.67531pt x 133.24782pt>
 File: ./img/games1.png Graphic file (type png)
  <use ./img/games1.png>
 Package pdftex.def Info: ./img/games1.png used on input line 52.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games2.png, id=126, 247.67531pt x 133.24782pt>
+<./img/games2.png, id=137, 247.67531pt x 133.24782pt>
 File: ./img/games2.png Graphic file (type png)
  <use ./img/games2.png>
 Package pdftex.def Info: ./img/games2.png used on input line 57.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games3.png, id=127, 247.67531pt x 133.24782pt>
+<./img/games3.png, id=138, 247.67531pt x 133.24782pt>
 File: ./img/games3.png Graphic file (type png)
  <use ./img/games3.png>
 Package pdftex.def Info: ./img/games3.png used on input line 62.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games4.png, id=128, 247.67531pt x 133.24782pt>
+<./img/games4.png, id=139, 247.67531pt x 133.24782pt>
 File: ./img/games4.png Graphic file (type png)
  <use ./img/games4.png>
 Package pdftex.def Info: ./img/games4.png used on input line 67.
@@ -1369,13 +1369,13 @@ l.72
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/hvs.png, id=133, 281.55188pt x 281.55188pt>
+<./img/hvs.png, id=144, 281.55188pt x 281.55188pt>
 File: ./img/hvs.png Graphic file (type png)
  <use ./img/hvs.png>
 Package pdftex.def Info: ./img/hvs.png used on input line 84.
 (pdftex.def)             Requested size: 136.50238pt x 136.50093pt.
 
-<./img/stereo.png, id=134, 281.55188pt x 281.55188pt>
+<./img/stereo.png, id=145, 281.55188pt x 281.55188pt>
 File: ./img/stereo.png Graphic file (type png)
  <use ./img/stereo.png>
 Package pdftex.def Info: ./img/stereo.png used on input line 89.
@@ -1386,37 +1386,104 @@ _ben.jpg>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./img/correspondance.png, id=141, 432.86719pt x 277.78781pt>
+<./img/correspondance.png, id=153, 432.86719pt x 277.78781pt>
 File: ./img/correspondance.png Graphic file (type png)
 
 <use ./img/correspondance.png>
 Package pdftex.def Info: ./img/correspondance.png used on input line 103.
 (pdftex.def)             Requested size: 234.00238pt x 150.16847pt.
 
-<./img/stereo_system.png, id=142, 308.15125pt x 171.64125pt>
+<./img/stereo_system.png, id=154, 308.15125pt x 171.64125pt>
 File: ./img/stereo_system.png Graphic file (type png)
 
 <use ./img/stereo_system.png>
 Package pdftex.def Info: ./img/stereo_system.png used on input line 112.
 (pdftex.def)             Requested size: 234.00238pt x 130.34392pt.
 
-<./img/rect_stereo.png, id=143, 499.8675pt x 341.77687pt>
+<./img/rect_stereo.png, id=155, 499.8675pt x 341.77687pt>
 File: ./img/rect_stereo.png Graphic file (type png)
 
 <use ./img/rect_stereo.png>
 Package pdftex.def Info: ./img/rect_stereo.png used on input line 119.
 (pdftex.def)             Requested size: 234.00238pt x 159.99368pt.
+
+<./img/standard.png, id=156, 442.65375pt x 307.1475pt>
+File: ./img/standard.png Graphic file (type png)
+
+<use ./img/standard.png>
+Package pdftex.def Info: ./img/standard.png used on input line 125.
+(pdftex.def)             Requested size: 234.00238pt x 162.37027pt.
  [5 <./img/games1.png> <./img/games2.png> <./img/games3.png> <./img/games4.png>
 ] [6 <./img/hvs.png> <./img/stereo.png> <./img/correspondance.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [7 <./img/stereo_system.png>] [8 <./img/rect_stereo.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./img/stereo_system.png>]
+<./img/depth.png, id=181, 389.95688pt x 313.17pt>
+File: ./img/depth.png Graphic file (type png)
+ <use ./img/depth.png>
+Package pdftex.def Info: ./img/depth.png used on input line 145.
+(pdftex.def)             Requested size: 234.00238pt x 187.92255pt.
+
+<./img/left.png, id=182, 642.4pt x 481.8pt>
+File: ./img/left.png Graphic file (type png)
+ <use ./img/left.png>
+Package pdftex.def Info: ./img/left.png used on input line 154.
+(pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
+
+<./img/right.png, id=183, 642.4pt x 481.8pt>
+File: ./img/right.png Graphic file (type png)
+ <use ./img/right.png>
+Package pdftex.def Info: ./img/right.png used on input line 161.
+(pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
+
+<./img/disparity.png, id=184, 642.4pt x 481.8pt>
+File: ./img/disparity.png Graphic file (type png)
+ <use ./img/disparity.png>
+Package pdftex.def Info: ./img/disparity.png used on input line 167.
+(pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
+
+<./img/occl.png, id=185, 848.4197pt x 418.56375pt>
+File: ./img/occl.png Graphic file (type png)
+ <use ./img/occl.png>
+Package pdftex.def Info: ./img/occl.png used on input line 176.
+(pdftex.def)             Requested size: 234.00238pt x 115.44069pt.
+
+[8 <./img/rect_stereo.png> <./img/standard.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 182.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
+
+<./img/local.png, id=195, 825.83531pt x 416.30531pt>
+File: ./img/local.png Graphic file (type png)
+ <use ./img/local.png>
+Package pdftex.def Info: ./img/local.png used on input line 189.
+(pdftex.def)             Requested size: 272.99881pt x 137.62256pt.
+
+[9 <./img/depth.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./img/left.png> <./img/right.png> <./img/disparity.png (PNG copy)> <./img/
+occl.png>]) [11 <./img/local.png>]
 \openout2 = `watermark.aux'.
 
  (./watermark.tex
 Chapter 2.
-) [9
+) [12
 
 
 
@@ -1425,7 +1492,7 @@ Chapter 2.
 
  (./conclusions.tex
 Chapter 3.
-) [10
+) [13
 
 
 
@@ -1442,7 +1509,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 [][]$\T1/cmtt/m/n/12 http : / / googleresearch . blogspot . it / 2014 / 04 /
  []
 
-[11
+[14
 
 
 
@@ -1454,7 +1521,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 348C1116082DB6D057A15D04D88A3B22;726.
+(rerunfilecheck)             Checksum: 260C9AF818032AD1EEE5210E15D446AD;738.
 
 
 LaTeX Warning: There were undefined references.
@@ -1462,29 +1529,33 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 16172 strings out of 495017
- 270598 string characters out of 6181020
- 355240 words of memory out of 5000000
- 18976 multiletter control sequences out of 15000+600000
- 20538 words of font info for 50 fonts, out of 8000000 for 9000
+ 16237 strings out of 495017
+ 271711 string characters out of 6181020
+ 356774 words of memory out of 5000000
+ 19025 multiletter control sequences out of 15000+600000
+ 21222 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,9n,92p,10477b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/be
-ne/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/bene/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/bene/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ecti0800.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecsl1200.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm08
-00.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </
-home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/bene/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/bene/.texmf-var/fon
-ts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/bene/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecrm1095.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecrm1200.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.60
-0pk>
-Output written on tesi.pdf (17 pages, 1382125 bytes).
+ne/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/bene/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/bene/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecbx1728.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecti0800.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm08
+00.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </
+home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/bene/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/bene/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/bene/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/eccc1200.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1095.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.60
+0pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tesi.pdf (20 pages, 3607354 bytes).
 PDF statistics:
- 602 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 41 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 683 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

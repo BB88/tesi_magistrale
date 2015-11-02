@@ -93,15 +93,15 @@ cameras.\\
 \caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
 \end{figure}
 
-\subsection{Stereo Vision Geometry}
+\subsection{Acquisition of stereoscopic images}
 
-In order to be able to perceive depth using recorded images, a stereoscopic camera is required
+In order to be able to perceive depth using recorded images, a stereoscopic camera is required,
 which consists of two cameras that capture two different, horizontally shifted perspective
 viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/correspondance.png}
-\caption{\scriptsize{Triangulation: with two cameras the depth of }}
+\caption{\small{Triangulation: with two cameras the depth of }}
 \label{fig:corr}
 \end{figure}
  The camera setup should be geometrically
@@ -110,20 +110,91 @@ Calibration of a stereo camera system involves the estimation of the intrinsic a
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
-\caption{\scriptsize{Stereo camera model}}
+\caption{\small{Stereo camera model}}
 \label{fig:rt}
 \end{figure}
-These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure). The rectified images are then used to find corresponding points and compute the disparity map.\\
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
-\caption{\scriptsize{Rectified stereo cameras}}
+\caption{\small{Rectified stereo cameras}}
 \label{fig:rect_stereo}
 \end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/standard.png}
+\caption{\small{Rectified images: corresponding points (p, p'), projection of the same 3D point (P) are constrained on the same image horizontal line, the epipolar line}}
+\label{fig:std}
+\end{figure}
 
+\newpage
 \subsection{Disparity map computation}
 
-After the images have been rectify
+With the stereo rig in standard form and by considering similar triangles in Figure XX (PO$_{L}$O$_{R}$ and Ppp'): 
+$$
+\frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
+$$ 
+so
+$$
+Z = \frac{b \cdot f}{x_{L} - x_{R}} = \frac{b \cdot f}{d}
+$$ 
+
+where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/depth.png}
+\caption{\small{Geometry of standard form}}
+\label{fig:depth}
+\end{figure}
+Disparity is, therefore, the difference between the $x$ coordinates of two corresponding points and it is usually encoded with greyscale image (Figure XX), where points closer to the cameras are brighter and correspond to a higher disparity.\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/left.png}
+\caption{\scriptsize{Left image}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/right.png}
+\caption{\scriptsize{Right image}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/disparity.png}
+\caption{\scriptsize{Disparity map}}
+\label{disparity}
+\end{subfigure}%
+\caption{\small{Stereo pair and disparity map}}
+\end{figure}
+In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure XX).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/occl.png}
+\caption{\small{Stereo matching general problems}}
+\label{fig:occl}
+\end{figure}
+In general, stereo matching algorithms can be categorized into two major classes:
+\begin{itemize}
+\item local methods
+\item global methods.
+\end{itemize}
+Local stereo algorithms estimate the correspondence using a local support region or a window. Local algorithms generally rely on an approximation of the smoothness constraint assuming that all pixels within the matching region have the same disparity. However, this assumption is not valid for highly curved surfaces or around disparity discontinuities.\\
+A naive approach consists of comparing each  pixel or window in the left image with every pixel or window on the same epipolar line in right image and picking position with minimum match cost (e.g., SSD, SAD, normalized correlation).\\ 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{./img/local.png}
+\caption{\small{Local stereo matching, window based}}
+\label{fig:local}
+\end{figure}
+Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.
+
+
+
+
 
 
 
