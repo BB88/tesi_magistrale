@@ -179,8 +179,8 @@ In order to compute the disparity map is necessary to find corresponding points;
 \end{figure}
 In general, stereo matching algorithms can be categorized into two major classes:
 \begin{itemize}
-\item local methods
-\item global methods.
+\item[-] local methods 
+\item[-] global methods.
 \end{itemize}
 Local stereo algorithms estimate the correspondence using a local support region or a window. Local algorithms generally rely on an approximation of the smoothness constraint assuming that all pixels within the matching region have the same disparity. However, this assumption is not valid for highly curved surfaces or around disparity discontinuities.\\
 A naive approach consists of comparing each  pixel or window in the left image with every pixel or window on the same epipolar line in right image and picking position with minimum match cost (e.g., SSD, SAD, normalized correlation).\\ 
@@ -194,15 +194,97 @@ Global stereo methods consider stereo matching as a labeling problem where the p
 Even if this class of algorithms is significantly slow, the results, especially when textures and discontinuities are present, are much accurate.\\
 \newline
 In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying regard to the ground trouth.\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf1.png}
+\caption{\scriptsize{Left image}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf2.png}
+\caption{\scriptsize{Graph cuts' disparity map}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf3.png}
+\caption{\scriptsize{Ground truth disparity map}}
+\label{disparity}
+\end{subfigure}%
+\caption{\small{Results of the Kolmogorov and Zabih's graph cuts algorithm on the Tsukuba pair}}
+\end{figure}
+\newline
+\section{3D capturing devices}
+For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
+The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/interaxial-separation.png}
+\caption{\small{Interaxial separation between lenses}}
+\label{fig:interaxial}
+\end{figure}
+To hold and align the cameras, a stereo-rig is used; the rigs can be of two main types:\\
+\begin{itemize}
+\item[-] the side-by-side rig, where the cameras are placed side by side (Figure XX). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
+\item[-] the beamsplitter rig (Figure XX), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
+Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
+and are perfectly aligned, which avoids cameras desynchronization (Figure XX).\\
+\end{itemize}
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/syderig.png}
+\caption{\scriptsize{Syde-by-syde rig}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.25\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/mirrorrig.png}
+\caption{\scriptsize{Beamsplitter rig}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/monorig.png}
+\caption{\scriptsize{Monoblock camera}}
+\label{disparity}
+\end{subfigure}%
+\caption{\small{Professional technologies for 3D TV }}
+\end{figure}
+A second category of 3D shooting devices is presented in Figure XX. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices1.png}
+\caption{\scriptsize{Mobile phones}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.25\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices2.png}
+\caption{\scriptsize{Digital cameras}}
+\end{subfigure} 
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices3.png}
+\caption{\scriptsize{Camcorders}}
+\label{disparity}
+\end{subfigure}%
+\caption{\small{ Digital personal stereo vision systems}}
+\end{figure}
+
+
+\newpage
+\section{3D video displays}
 
 
 
 
-
-
-
-
-\section{Acquisition of stereo images}
-
-
-\section{Display 3D video}
