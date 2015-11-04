@@ -279,7 +279,7 @@ A second category of 3D shooting devices is presented in Figure XX. These electr
 \caption{\scriptsize{Camcorders}}
 \label{disparity}
 \end{subfigure}%
-\caption{\small{ Digital personal stereo vision systems}}
+\caption{\small{Digital personal stereo vision systems}}
 \end{figure}
 An other important category of 3D image capture devices it's the one employed in the robotics and automation field. They are usually impressively precise, cost-efficient and fast.
 \begin{figure}[h!]
@@ -296,9 +296,36 @@ An other important category of 3D image capture devices it's the one employed in
 \end{subfigure}
 \caption{\small{Industrial and robotic stereo cameras}}
 \end{figure}
-\newpage
 \section{3D video displays}
-
-
-
-
+The basic technique of stereo displays is to present offset images that are displayed separately to the left and right eye. Both of these 2D offset images are then combined in the brain to give the perception of 3D depth.\\
+For stereoscopic 3D displays the viewer needs to wear special glasses which separate the views of the stereoscopic image for the left and the right eye. These 3D glasses can be active or passive.\\
+On the one hand, active glasses are controlled by a timing signal that allows to alternatively darken one
+eye glass, and then the other, in synchronization with the refresh rate of the screen. Hence presenting
+the image intended for the left eye while blocking the right eye's view, then presenting the right-eye
+image while blocking the left eye, and repeating the process at a high speed which gives the perception
+of a single 3D image. This technology generally uses liquid crystal shutter glasses(Figure XX).\\
+On the other hand, passive glasses are polarization-based systems and contain a pair of opposite polarizing filters; each of them passes light with similar polarization and blocks the opposite polarized light (Figure XX). The polarized glasses are associated with a display with polarized filters, providing each eye with the appropriate image.\\
+The color anaglyph-based systems are a particular case of the passive glasses and use a color filter for
+each eye, typically red and cyan, Figure XX. The anaglyph 3D image contains two images encoded using the same color filter, thus ensuring that each image reaches only one eye.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/glass1.png}
+\caption{\scriptsize{LCD shutter glasses}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/glass2.png}
+\caption{\scriptsize{Polarized glasses}}
+\end{subfigure} 
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/glass3.png}
+\caption{\scriptsize{Anaglyph glasses}}
+\label{glass}
+\end{subfigure}%
+\caption{\small{Passive and active glasses for 3D viewer technologies}}
+\end{figure}
