@@ -220,20 +220,17 @@ In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm h
 \newline
 \section{3D capturing devices}
 For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
-The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/interaxial-separation.png}
+\includegraphics[width=0.3\textwidth]{./img/interaxial-separation.png}
 \caption{\small{Interaxial separation between lenses}}
 \label{fig:interaxial}
 \end{figure}
+The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
 To hold and align the cameras, a stereo-rig is used; the rigs can be of two main types:\\
 \begin{itemize}
 \item[-] the side-by-side rig, where the cameras are placed side by side (Figure XX). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
-\item[-] the beamsplitter rig (Figure XX), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
-Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
-and are perfectly aligned, which avoids cameras desynchronization (Figure XX).\\
-\end{itemize}
+
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -257,7 +254,11 @@ and are perfectly aligned, which avoids cameras desynchronization (Figure XX).\\
 \end{subfigure}%
 \caption{\small{Professional technologies for 3D TV }}
 \end{figure}
-A second category of 3D shooting devices is presented in Figure XX. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.
+\item[-] the beamsplitter rig (Figure XX), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
+Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
+and are perfectly aligned, which avoids cameras desynchronization (Figure XX).\\
+\end{itemize}
+A second category of 3D shooting devices is presented in Figure XX. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -280,8 +281,21 @@ A second category of 3D shooting devices is presented in Figure XX. These electr
 \end{subfigure}%
 \caption{\small{ Digital personal stereo vision systems}}
 \end{figure}
-
-
+An other important category of 3D image capture devices it's the one employed in the robotics and automation field. They are usually impressively precise, cost-efficient and fast.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/bumble.jpg}
+\caption{\scriptsize{The Bumblebee series from Point Grey}}
+\end{subfigure}
+\begin{subfigure}[]{0.3\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/stereodevices.png}
+\caption{\scriptsize{Human wearable stereo device}}
+\end{subfigure}
+\caption{\small{Industrial and robotic stereo cameras}}
+\end{figure}
 \newpage
 \section{3D video displays}
 
