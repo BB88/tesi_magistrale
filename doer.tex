@@ -1,0 +1,36 @@
+\chapter{Spatial disparity-coherent watermarking}
+\markright{Spatial disparity-coherent watermarking}
+\label{doer}
+\phantomsection
+
+As said in the previous chapter a number of articles focused on how to incorporate depth information into the perceptual shaping process of the embedded watermark. This process allows to achive disparity-coherence and makes sure that a physical point of the captured scene carries the same watermark sample regardless of where it appears in the left and right view.
+
+This process brings two advantages: it produces stereoscopic views more in line with reality therefore yields less visual discomfort; and is expected to have superior robustness against view synthesis.
+
+3.1 Prior work
+
+A prior work, that's based on the disparity coherent technique is the one carried on by Doerr et al in "Blind Detection for Disparity-Coherent
+Stereo Video Watermarking" []. 
+The watermark strategy  assume that the key-seeded reference watermark pattern w K ∼ N (0, 1) is embedded spatially in the left view and subsequently transferred to the right one.
+The watermark embedding and detection operations for the left view are therefore given by the conventional spread-spectrum equations:
+FORMULA LEFT 
+For the right view, the watermarking equation is the same, except that the watermark pattern w K is warped according to the depth information prior to insertion.
+FORMULA RIGHT
+The watermark detection on the right view rilies on the computation of a horizontal cross-correlation array. 
+FORMULA
+The correlation array is then mapped into a scalar value in order to compare it with a threshold and decide whether the tested content contains the watermark, three possible mapping functions are proposed:
+FORMULA
+
+
+3.2 Gaussian-noise disparity-coherent watermarking
+
+Based on the described technique a spatial watermarking technique is proposed.
+For the spatial watermark it been taken under consideration the insertion of a Gaussia-noise reference watermark in an additive way.
+As in Doerr et al, the left view is processed in the conventional way, with spred-spectrum equations (riferimento all'equazione); the watermark is then warped according to the disparity value and inserted in the right view (rif all'eq).
+
+In the detection process, we apply a conventional correlation-based detector to the left view (ref to eq). 
+On the other hand to detect the watermark in the right view two differet correlation-based strategies are proposed:
+in the first strategy its computed the correlation value between the non-distorted watermark and the right view warped according to the right-to-left disparity: this way the priviously warped watermark is restore, even if there will be discontinuities due the occluded zones.
+FORMULA
+The second strategy is again a simple correlation-based detector, but the correlation value is computed between the right view and the warped watermark instead of the original one.
+FORMULA  
