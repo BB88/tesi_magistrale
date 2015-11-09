@@ -7,7 +7,7 @@
 \section{Watermaking}
 
 Digital watermarking consists in imperceptiby and persistently associating some extra information with some original content. \\
-The basic watermarking workflow is presented in Figure XX.\\
+The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.3\textwidth]{./img/wat_workflow.png}
@@ -29,10 +29,36 @@ Three parameters are required to evaluate watermarking technique performances:
 \label{fig:properties}
 \end{figure}
 
+To evaluate the quality of the watermarking technique in terms of transparency the measures in \cite{QMETRICS} have been used.\\
+In Chaminda et al.'s study a Reduced-Reference
+(RR) quality metric for color plus depth 3D video compression and transmission is proposed, using the extracted edge information of color plus depth map 3D video.\\ 
+The work is motivated by the fact that the edges/contours of the depth map can represent different depth levels and this can be considered for measuring structural degradations. Since depth map boundaries are also coincident with the corresponding color image object boundaries, edge information of the color image and of the depth map is compared to obtain a quality index (structural degradation) for the corresponding color image sequence.\\
+In order to quantify structural comparison, luminance comparison and contrast comparison parameters for the depth map and corresponding watermarked views, a modified version of the
+commonly used SSIM metric is adopted:
+\begin{equation}
+Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{Depth}(x',y')]^{\gamma}
+\end{equation}
+where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original depth maps and the ones computed after watermarking,
+respectively, and $\mathnormal{S}_{Depth}(x',y')$  is the structural comparison between the gradient/edge maps of original and post-watermarking computed depth map images.\\
+Then the overall depth map quality is calculated as
+\begin{equation}
+MQ_{Depth}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{Depth}(x_{j},y_{j}).
+\end{equation}
+The SSIM-based quality index for the color image can be described as follows:
+\begin{equation}
+Q_{View}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{View}(x',y')]^{\gamma}
+\end{equation}
+where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original and watermarked views, respectively, and $\mathnormal{S}_{View}(x',y')$  is the structural comparison between the gradient/edge maps of the gradient maps of the corresponding original depth map and the watermarked views.\\
+Hence, the overall color image quality is calculated as
+\begin{equation}
+MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
+\end{equation}
+As in \cite{QMETRICS}, the Sobel
+operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
 
-Trasparenza articolo
-\newline
-Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.
+Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
+In this thesis a disparity-coherent method has been implemented since this class of watermarking technique are expected to exhibit superior robustness against view synthesis.
+
 
 
 \subsection{Embedding techniques}
@@ -48,6 +74,15 @@ content as a signal and the watermark as a noise that is spread over very many f
 The latter takes advantage of the fact that the original content is known at the
 embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of
 inserted data can be maximed.\\
+
+Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread
+spectrum methods and the increased data payload of the side information methods.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{./img/si.png}
+\caption{\small{Side information technique scheme}}
+\label{fig:si}
+\end{figure}
 
 \subsection{Embedding domains}
 Host features modified during embedding can
@@ -83,7 +118,7 @@ In stereoscopic video context the studies can also be structured in two other ca
 \item[-] disparity-based methods
 \end{itemize}
 according to the reference image in which the mark is actually inserted.\\
-In Figures XX and XX the workflows of both methods are presented.
+In Figure \ref{stereo_method} the workflows of both methods are presented.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -100,14 +135,8 @@ In Figures XX and XX the workflows of both methods are presented.
 \caption{\small{Disparity-based watermarking workflow}}
 \label{fig:disp}
 \end{subfigure}
-\caption{\small{Stereoscopic video watermarking workflow}}
+\caption{\small{Stereoscopic video watermarking workflow}\label{stereo_method}}
 \end{figure}
-
-
-\section{Stereoscopic video watermarking}
-
-\subsection{State of the art}
-
 
 
 \newpage

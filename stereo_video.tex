@@ -97,7 +97,7 @@ cameras.\\
 
 In order to be able to perceive depth using recorded images, a stereoscopic camera is required,
 which consists of two cameras that capture two different, horizontally shifted perspective
-viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure).\\
+viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure \ref{fig:corr}).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/correspondance.png}
@@ -106,14 +106,14 @@ viewpoints; with two (or more) cameras we can infer depth, by means of triangula
 \end{figure}
  The camera setup should be geometrically
 calibrated such that the two cameras capture the same part of the real world scene.\\
-Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure).\\
+Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure \ref{fig:rt}).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
 \caption{\small{Stereo camera model}}
 \label{fig:rt}
 \end{figure}
-These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.\\
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure \ref{fig:rect_stereo}); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
@@ -130,7 +130,7 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \newpage
 \subsection{Disparity map computation}
 
-With the stereo rig in standard form and by considering similar triangles in Figure XX (PO$_{L}$O$_{R}$ and Ppp'): 
+With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp'): 
 $$
 \frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
 $$ 
@@ -146,7 +146,7 @@ where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
 \caption{\small{Geometry of standard form}}
 \label{fig:depth}
 \end{figure}
-Disparity is, therefore, the difference between the $x$ coordinates of two corresponding points and it is usually encoded with greyscale image (Figure XX), where points closer to the cameras are brighter and correspond to a higher disparity.\\
+Disparity is, therefore, the difference between the $x$ coordinates of two corresponding points and it is usually encoded with greyscale image (Figure \ref{fig:disparity}), where points closer to the cameras are brighter and correspond to a higher disparity.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -166,11 +166,11 @@ Disparity is, therefore, the difference between the $x$ coordinates of two corre
 \centering
 \includegraphics[width=0.7\textwidth]{./img/disparity.png}
 \caption{\scriptsize{Disparity map}}
-\label{disparity}
+\label{fig:disparity}
 \end{subfigure}%
 \caption{\small{Stereo pair and disparity map}}
 \end{figure}
-In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure XX).\\
+In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure \ref{fig:occl}).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/occl.png}
@@ -193,7 +193,7 @@ A naive approach consists of comparing each  pixel or window in the left image w
 Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.\\
 Even if this class of algorithms is significantly slow, the results, especially when textures and discontinuities are present, are much accurate.\\
 \newline
-In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying regard to the ground trouth.\\
+In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying with regard to the ground trouth.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -229,14 +229,14 @@ For stereoscopic shooting, two synchronized cameras must be used. The distance b
 The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
 To hold and align the cameras, a stereo-rig is used; the rigs can be of two main types:\\
 \begin{itemize}
-\item[-] the side-by-side rig, where the cameras are placed side by side (Figure XX). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
-
+\item[-] the side-by-side rig, where the cameras are placed side by side (Figure \ref{fig:sbs}). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
 \includegraphics[width=0.7\textwidth]{./img/syderig.png}
 \caption{\scriptsize{Syde-by-syde rig}}
+\label{fig:sbs}
 \end{subfigure}% 
 ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
   %(or a blank line to force the subfigure onto a new line)
@@ -244,21 +244,22 @@ To hold and align the cameras, a stereo-rig is used; the rigs can be of two main
 \centering
 \includegraphics[width=0.7\textwidth]{./img/mirrorrig.png}
 \caption{\scriptsize{Beamsplitter rig}}
+\label{fig:beam}
 \end{subfigure} 
 ~\quad
 \begin{subfigure}[]{0.4\textwidth}
 \centering
 \includegraphics[width=0.7\textwidth]{./img/monorig.png}
 \caption{\scriptsize{Monoblock camera}}
-\label{disparity}
+\label{fig:mono}
 \end{subfigure}%
 \caption{\small{Professional technologies for 3D TV }}
 \end{figure}
-\item[-] the beamsplitter rig (Figure XX), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
+\item[-] the beamsplitter rig (Figure \ref{fig:beam}), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
 \end{itemize}
 Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
-and are perfectly aligned, which avoids cameras desynchronization (Figure XX).\\
-A second category of 3D shooting devices is presented in Figure XX. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
+and are perfectly aligned, which avoids cameras desynchronization (Figure \ref{fig:mono}).\\
+A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -277,9 +278,8 @@ A second category of 3D shooting devices is presented in Figure XX. These electr
 \centering
 \includegraphics[width=0.7\textwidth]{./img/devices3.png}
 \caption{\scriptsize{Camcorders}}
-\label{disparity}
 \end{subfigure}%
-\caption{\small{Digital personal stereo vision systems}}
+\caption{\small{Digital personal stereo vision systems}}\label{fig:mobile}
 \end{figure}
 An other important category of 3D image capture devices it's the one employed in the robotics and automation field. They are usually impressively precise, cost-efficient and fast.
 \begin{figure}[h!]
@@ -303,16 +303,18 @@ On the one hand, active glasses are controlled by a timing signal that allows to
 eye glass, and then the other, in synchronization with the refresh rate of the screen. Hence presenting
 the image intended for the left eye while blocking the right eye's view, then presenting the right-eye
 image while blocking the left eye, and repeating the process at a high speed which gives the perception
-of a single 3D image. This technology generally uses liquid crystal shutter glasses(Figure XX).\\
-On the other hand, passive glasses are polarization-based systems and contain a pair of opposite polarizing filters; each of them passes light with similar polarization and blocks the opposite polarized light (Figure XX). Passive 3D TV screens sport a filter with alternating horizontal and vertical stripes, separated by a black, picture-blanking bars. When used with glasses which have corresponding polarising lenses, alternate frames are presented to each eye to create a 3D image.\\
+of a single 3D image. This technology generally uses liquid crystal shutter glasses(Figure \ref{fig:glass1}).\\
+On the other hand, passive glasses are polarization-based systems and contain a pair of opposite polarizing filters; each of them passes light with similar polarization and blocks the opposite polarized light (Figure \ref{fig:glass2}). Passive 3D TV screens sport a filter with alternating horizontal and vertical stripes, separated by a black, picture-blanking bars. When used with glasses which have corresponding polarising lenses, alternate frames are presented to each eye to create a 3D image.\\
 The color anaglyph-based systems are a particular case of the passive glasses and use a color filter for
-each eye, typically red and cyan, Figure XX. The anaglyph 3D image contains two images encoded using the same color filter, thus ensuring that each image reaches only one eye.
+each eye, typically red and cyan, Figure \ref{fig:glass3} . The anaglyph 3D image contains two images encoded using the same color filter, thus ensuring that each image reaches only one eye.
 \begin{figure}[h!]
 \centering
+\label{fig:glass}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
 \includegraphics[width=0.7\textwidth]{./img/glass1.png}
 \caption{\scriptsize{LCD shutter glasses}}
+\label{fig:glass1}
 \end{subfigure}% 
 ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
   %(or a blank line to force the subfigure onto a new line)
@@ -320,12 +322,13 @@ each eye, typically red and cyan, Figure XX. The anaglyph 3D image contains two 
 \centering
 \includegraphics[width=0.7\textwidth]{./img/glass2.png}
 \caption{\scriptsize{Polarized glasses}}
+\label{fig:glass2}
 \end{subfigure} 
 \begin{subfigure}[]{0.4\textwidth}
 \centering
 \includegraphics[width=0.7\textwidth]{./img/glass3.png}
 \caption{\scriptsize{Anaglyph glasses}}
-\label{glass}
+\label{fig:glass3}
 \end{subfigure}%
 \caption{\small{Passive and active glasses for 3D viewer technologies}}
 \end{figure}

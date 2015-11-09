@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.26)  9 NOV 2015 12:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.26)  9 NOV 2015 15:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -361,6 +361,59 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@tempdima=\dimen125
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \BeginSingle \sbox \@tempboxa {{\small #1: #2}}\ifdim \wd \@tempboxa >\hsize 
+{\small #1: #2}\par \else \global \@minipagefalse \hbox to\hsize {\hfil \box \@
+tempboxa \hfil }\fi \EndSingle \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count121
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count122
+\c@subtable=\count123
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2230.
+LaTeX Info: Redefining \cref on input line 2230.
+LaTeX Info: Redefining \Cref on input line 2230.
+LaTeX Info: Redefining \crefrange on input line 2230.
+LaTeX Info: Redefining \Crefrange on input line 2230.
+LaTeX Info: Redefining \cpageref on input line 2230.
+LaTeX Info: Redefining \Cpageref on input line 2230.
+LaTeX Info: Redefining \cpagerefrange on input line 2230.
+LaTeX Info: Redefining \Cpagerefrange on input line 2230.
+LaTeX Info: Redefining \labelcref on input line 2230.
+LaTeX Info: Redefining \labelcpageref on input line 2230.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
@@ -392,7 +445,7 @@ e
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2011/10/02 v1.4z package for extended references (FMi)
-\c@vrcnt=\count121
+\c@vrcnt=\count124
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
@@ -622,7 +675,7 @@ Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
-\XKV@depth=\count122
+\XKV@depth=\count125
 File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -636,65 +689,31 @@ Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box36
 )
-\tc@llx=\dimen122
-\tc@lly=\dimen123
-\tc@urx=\dimen124
-\tc@ury=\dimen125
+\tc@llx=\dimen129
+\tc@lly=\dimen130
+\tc@urx=\dimen131
+\tc@ury=\dimen132
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen126
-\adjbox@Height=\dimen127
-\adjbox@Depth=\dimen128
-\adjbox@Totalheight=\dimen129
+\adjbox@Width=\dimen133
+\adjbox@Height=\dimen134
+\adjbox@Depth=\dimen135
+\adjbox@Totalheight=\dimen136
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
-\c@checkoddpage=\count123
+\c@checkoddpage=\count126
 )
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box37
-\sift@deathcycles=\count124
-\@vwid@loff=\dimen130
-\@vwid@roff=\dimen131
+\sift@deathcycles=\count127
+\@vwid@loff=\dimen137
+\@vwid@roff=\dimen138
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen132
-\captionmargin@=\dimen133
-\captionwidth=\dimen134
-\caption@tempdima=\dimen135
-\caption@indent=\dimen136
-\caption@parindent=\dimen137
-\caption@hangindent=\dimen138
-Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used.
-)
-
-Package caption Warning: Unsupported document class (or package) detected,
-(caption)                usage of the caption package is not recommended.
-See the caption package documentation for explanation.
-
-Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
-p \BeginSingle \sbox \@tempboxa {{\small #1: #2}}\ifdim \wd \@tempboxa >\hsize 
-{\small #1: #2}\par \else \global \@minipagefalse \hbox to\hsize {\hfil \box \@
-tempboxa \hfil }\fi \EndSingle \vskip \belowcaptionskip .
-\c@ContinuedFloat=\count125
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: rotating package is loaded.
-) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
-\c@subfigure=\count126
-\c@subtable=\count127
-)
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen139
@@ -1150,43 +1169,24 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 
 
 Writing index file tesi.idx
-(./tesi.aux (./abstract.aux) (./introduction.aux) (./stereo_video.aux
-
-LaTeX Warning: Label `disparity' multiply defined.
-
-
-LaTeX Warning: Label `sub@disparity' multiply defined.
-
-
-LaTeX Warning: Label `disparity' multiply defined.
-
-
-LaTeX Warning: Label `sub@disparity' multiply defined.
-
-
-LaTeX Warning: Label `disparity' multiply defined.
-
-
-LaTeX Warning: Label `sub@disparity' multiply defined.
-
-) (./watermark.aux) (./doer.aux) (./dft.aux) (./conclusions.aux)
-(./bibliografia.aux))
+(./tesi.aux (./abstract.aux) (./introduction.aux) (./stereo_video.aux)
+(./watermark.aux) (./dft.aux) (./conclusions.aux) (./bibliografia.aux))
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1203,7 +1203,7 @@ LaTeX Font Info:    ... okay on input line 53.
 \everyMPtoPDFconversion=\toks29
 )
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 53.
+Package hyperref Info: Link coloring ON on input line 57.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1213,22 +1213,22 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 \c@section@level=\count178
 LaTeX Info: Redefining \Ref on input line 513.
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
+LaTeX Info: Redefining \nameref on input line 57.
 
 (./tesi.out) (./tesi.out)
 \@outlinefile=\write6
 \openout6 = `tesi.out'.
 
-LaTeX Info: Redefining \Ref on input line 53.
+LaTeX Info: Redefining \Ref on input line 57.
 runsystem(pygmentize -S default -f latex > tesi.pyg)...executed.
 
  (./tesi.pyg)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
 
  []
 
@@ -1239,7 +1239,7 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.67 \include{abstract}
+l.71 \include{abstract}
                         [1]
 \openout2 = `abstract.aux'.
 
@@ -1260,30 +1260,30 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.19 ...e {chapter}{Bibliografia}{27}{section*.36}
-                                                   [1
-
-
-])
+))
 \tf@toc=\write7
 \openout7 = `tesi.toc'.
 
- [2] (./tesi.lof
-[3
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.79 \listoffigures
+                      % inserisce indice figure [1
+
+
+] (./tesi.lof [2
 
 ])
 \tf@lof=\write8
 \openout8 = `tesi.lof'.
 
- [4] (./tesi.lot)
+ [3]
+(./tesi.lot)
 \tf@lot=\write9
 \openout9 = `tesi.lot'.
 
- [5
+ [4
 
 ]
 \openout2 = `introduction.aux'.
@@ -1296,7 +1296,7 @@ LaTeX Warning: Reference `' on page 1 undefined on input line 18.
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.87 \include{introduction}
+l.91 \include{introduction}
                             [1
 
 
@@ -1305,20 +1305,20 @@ l.87 \include{introduction}
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.87 \include{introduction}
+l.91 \include{introduction}
                             [2]
 \openout2 = `stereo_video.aux'.
 
  (./stereo_video.tex
 Chapter 1.
-<./img/bin_pick.png, id=197, 461.47406pt x 346.29375pt>
+<./img/bin_pick.png, id=180, 461.47406pt x 346.29375pt>
 File: ./img/bin_pick.png Graphic file (type png)
 
 <use ./img/bin_pick.png>
 Package pdftex.def Info: ./img/bin_pick.png used on input line 18.
 (pdftex.def)             Requested size: 136.4994pt x 102.43053pt.
 
-<./img/da_vinci.jpg, id=199, 461.47406pt x 346.29375pt>
+<./img/da_vinci.jpg, id=182, 461.47406pt x 346.29375pt>
 File: ./img/da_vinci.jpg Graphic file (type jpg)
 
 <use ./img/da_vinci.jpg>
@@ -1332,13 +1332,13 @@ Overfull \hbox (16.96811pt too wide) in paragraph at lines 16--27
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/tracking.jpg, id=200, 243.309pt x 148.3944pt>
+<./img/tracking.jpg, id=183, 243.309pt x 148.3944pt>
 File: ./img/tracking.jpg Graphic file (type jpg)
  <use ./img/tracking.jpg>
 Package pdftex.def Info: ./img/tracking.jpg used on input line 34.
 (pdftex.def)             Requested size: 136.4994pt x 83.25426pt.
 
-<./img/little_ben.jpg, id=201, 562.1pt x 338.26375pt>
+<./img/little_ben.jpg, id=184, 562.1pt x 338.26375pt>
 File: ./img/little_ben.jpg Graphic file (type jpg)
 
 <use ./img/little_ben.jpg>
@@ -1352,25 +1352,25 @@ Overfull \hbox (16.96811pt too wide) in paragraph at lines 32--43
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/games1.png, id=202, 247.67531pt x 133.24782pt>
+<./img/games1.png, id=185, 247.67531pt x 133.24782pt>
 File: ./img/games1.png Graphic file (type png)
  <use ./img/games1.png>
 Package pdftex.def Info: ./img/games1.png used on input line 52.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games2.png, id=203, 247.67531pt x 133.24782pt>
+<./img/games2.png, id=186, 247.67531pt x 133.24782pt>
 File: ./img/games2.png Graphic file (type png)
  <use ./img/games2.png>
 Package pdftex.def Info: ./img/games2.png used on input line 57.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games3.png, id=204, 247.67531pt x 133.24782pt>
+<./img/games3.png, id=187, 247.67531pt x 133.24782pt>
 File: ./img/games3.png Graphic file (type png)
  <use ./img/games3.png>
 Package pdftex.def Info: ./img/games3.png used on input line 62.
 (pdftex.def)             Requested size: 109.19785pt x 58.74713pt.
 
-<./img/games4.png, id=205, 247.67531pt x 133.24782pt>
+<./img/games4.png, id=188, 247.67531pt x 133.24782pt>
 File: ./img/games4.png Graphic file (type png)
  <use ./img/games4.png>
 Package pdftex.def Info: ./img/games4.png used on input line 67.
@@ -1388,13 +1388,13 @@ l.72
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/hvs.png, id=210, 281.55188pt x 281.55188pt>
+<./img/hvs.png, id=193, 281.55188pt x 281.55188pt>
 File: ./img/hvs.png Graphic file (type png)
  <use ./img/hvs.png>
 Package pdftex.def Info: ./img/hvs.png used on input line 84.
 (pdftex.def)             Requested size: 136.50238pt x 136.50093pt.
 
-<./img/stereo.png, id=211, 281.55188pt x 281.55188pt>
+<./img/stereo.png, id=194, 281.55188pt x 281.55188pt>
 File: ./img/stereo.png Graphic file (type png)
  <use ./img/stereo.png>
 Package pdftex.def Info: ./img/stereo.png used on input line 89.
@@ -1409,40 +1409,35 @@ little_ben.jpg>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./img/correspondance.png, id=218, 432.86719pt x 277.78781pt>
+<./img/correspondance.png, id=202, 432.86719pt x 277.78781pt>
 File: ./img/correspondance.png Graphic file (type png)
 
 <use ./img/correspondance.png>
 Package pdftex.def Info: ./img/correspondance.png used on input line 103.
 (pdftex.def)             Requested size: 234.00238pt x 150.16847pt.
 
-<./img/stereo_system.png, id=219, 308.15125pt x 171.64125pt>
+<./img/stereo_system.png, id=204, 308.15125pt x 171.64125pt>
 File: ./img/stereo_system.png Graphic file (type png)
 
 <use ./img/stereo_system.png>
 Package pdftex.def Info: ./img/stereo_system.png used on input line 112.
 (pdftex.def)             Requested size: 234.00238pt x 130.34392pt.
 
-<./img/rect_stereo.png, id=220, 499.8675pt x 341.77687pt>
+<./img/rect_stereo.png, id=206, 499.8675pt x 341.77687pt>
 File: ./img/rect_stereo.png Graphic file (type png)
 
 <use ./img/rect_stereo.png>
 Package pdftex.def Info: ./img/rect_stereo.png used on input line 119.
 (pdftex.def)             Requested size: 234.00238pt x 159.99368pt.
 
-<./img/standard.png, id=221, 442.65375pt x 307.1475pt>
+<./img/standard.png, id=207, 442.65375pt x 307.1475pt>
 File: ./img/standard.png Graphic file (type png)
 
 <use ./img/standard.png>
 Package pdftex.def Info: ./img/standard.png used on input line 125.
 (pdftex.def)             Requested size: 234.00238pt x 162.37027pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.129 
-       [5 <./img/games1.png> <./img/games2.png> <./img/games3.png> <./img/games
-4.png>] [6 <./img/hvs.png> <./img/stereo.png> <./img/correspondance.png>]
+ [5 <./img/games1.png> <./img/games2.png> <./img/games3.png> <./img/games4.png>
+] [6 <./img/hvs.png> <./img/stereo.png> <./img/correspondance.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1450,31 +1445,31 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7 <./img/stereo_system.png>]
-<./img/depth.png, id=244, 389.95688pt x 313.17pt>
+<./img/depth.png, id=232, 389.95688pt x 313.17pt>
 File: ./img/depth.png Graphic file (type png)
  <use ./img/depth.png>
 Package pdftex.def Info: ./img/depth.png used on input line 145.
 (pdftex.def)             Requested size: 234.00238pt x 187.92255pt.
 
-<./img/left.png, id=245, 642.4pt x 481.8pt>
+<./img/left.png, id=234, 642.4pt x 481.8pt>
 File: ./img/left.png Graphic file (type png)
  <use ./img/left.png>
 Package pdftex.def Info: ./img/left.png used on input line 154.
 (pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
 
-<./img/right.png, id=246, 642.4pt x 481.8pt>
+<./img/right.png, id=235, 642.4pt x 481.8pt>
 File: ./img/right.png Graphic file (type png)
  <use ./img/right.png>
 Package pdftex.def Info: ./img/right.png used on input line 161.
 (pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
 
-<./img/disparity.png, id=247, 642.4pt x 481.8pt>
+<./img/disparity.png, id=236, 642.4pt x 481.8pt>
 File: ./img/disparity.png Graphic file (type png)
  <use ./img/disparity.png>
 Package pdftex.def Info: ./img/disparity.png used on input line 167.
 (pdftex.def)             Requested size: 109.19785pt x 81.89755pt.
 
-<./img/occl.png, id=248, 848.4197pt x 418.56375pt>
+<./img/occl.png, id=238, 848.4197pt x 418.56375pt>
 File: ./img/occl.png Graphic file (type png)
  <use ./img/occl.png>
 Package pdftex.def Info: ./img/occl.png used on input line 176.
@@ -1487,25 +1482,25 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/local.png, id=258, 825.83531pt x 416.30531pt>
+<./img/local.png, id=248, 825.83531pt x 416.30531pt>
 File: ./img/local.png Graphic file (type png)
  <use ./img/local.png>
 Package pdftex.def Info: ./img/local.png used on input line 189.
 (pdftex.def)             Requested size: 272.99881pt x 137.62256pt.
 
-<./img/gf1.png, id=259, 213.79875pt x 163.3603pt>
+<./img/gf1.png, id=249, 213.79875pt x 163.3603pt>
 File: ./img/gf1.png Graphic file (type png)
  <use ./img/gf1.png>
 Package pdftex.def Info: ./img/gf1.png used on input line 201.
 (pdftex.def)             Requested size: 109.19785pt x 83.43478pt.
 
-<./img/gf2.png, id=260, 215.30438pt x 163.3603pt>
+<./img/gf2.png, id=250, 215.30438pt x 163.3603pt>
 File: ./img/gf2.png Graphic file (type png)
  <use ./img/gf2.png>
 Package pdftex.def Info: ./img/gf2.png used on input line 208.
 (pdftex.def)             Requested size: 109.19785pt x 82.85399pt.
 
-<./img/gf3.png, id=261, 216.05719pt x 163.3603pt>
+<./img/gf3.png, id=251, 216.05719pt x 163.3603pt>
 File: ./img/gf3.png Graphic file (type png)
  <use ./img/gf3.png>
 Package pdftex.def Info: ./img/gf3.png used on input line 214.
@@ -1529,7 +1524,7 @@ occl.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./img/interaxial-separation.png, id=275, 372.39125pt x 248.93pt>
+<./img/interaxial-separation.png, id=265, 372.39125pt x 248.93pt>
 File: ./img/interaxial-separation.png Graphic file (type png)
 
 <use ./img/interaxial-separation.png>
@@ -1543,78 +1538,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--231
 
 [11 <./img/local.png>] [12 <./img/gf1.png> <./img/gf2.png> <./img/gf3.png> <./i
 mg/interaxial-separation.png>]
-<./img/syderig.png, id=289, 252.945pt x 165.61874pt>
+<./img/syderig.png, id=280, 252.945pt x 165.61874pt>
 File: ./img/syderig.png Graphic file (type png)
  <use ./img/syderig.png>
-Package pdftex.def Info: ./img/syderig.png used on input line 238.
+Package pdftex.def Info: ./img/syderig.png used on input line 237.
 (pdftex.def)             Requested size: 109.19785pt x 71.50023pt.
 
-<./img/mirrorrig.png, id=290, 211.79124pt x 240.9pt>
+<./img/mirrorrig.png, id=281, 211.79124pt x 240.9pt>
 File: ./img/mirrorrig.png Graphic file (type png)
  <use ./img/mirrorrig.png>
 Package pdftex.def Info: ./img/mirrorrig.png used on input line 245.
 (pdftex.def)             Requested size: 68.2497pt x 77.62991pt.
 
-<./img/monorig.png, id=291, 180.675pt x 116.68594pt>
+<./img/monorig.png, id=282, 180.675pt x 116.68594pt>
 File: ./img/monorig.png Graphic file (type png)
  <use ./img/monorig.png>
-Package pdftex.def Info: ./img/monorig.png used on input line 251.
+Package pdftex.def Info: ./img/monorig.png used on input line 252.
 (pdftex.def)             Requested size: 109.19785pt x 70.52309pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
-<./img/devices1.png, id=292, 114.4275pt x 87.32625pt>
+<./img/devices1.png, id=286, 114.4275pt x 87.32625pt>
 File: ./img/devices1.png Graphic file (type png)
  <use ./img/devices1.png>
-Package pdftex.def Info: ./img/devices1.png used on input line 266.
+Package pdftex.def Info: ./img/devices1.png used on input line 267.
 (pdftex.def)             Requested size: 109.19785pt x 83.33789pt.
 
-<./img/devices2.png, id=293, 133.24782pt x 87.32625pt>
+<./img/devices2.png, id=287, 133.24782pt x 87.32625pt>
 File: ./img/devices2.png Graphic file (type png)
 
 <use ./img/devices2.png>
-Package pdftex.def Info: ./img/devices2.png used on input line 273.
+Package pdftex.def Info: ./img/devices2.png used on input line 274.
 (pdftex.def)             Requested size: 68.2497pt x 44.73033pt.
 
-<./img/devices3.png, id=294, 176.15813pt x 87.32625pt>
+<./img/devices3.png, id=288, 176.15813pt x 87.32625pt>
 File: ./img/devices3.png Graphic file (type png)
 
 <use ./img/devices3.png>
-Package pdftex.def Info: ./img/devices3.png used on input line 278.
+Package pdftex.def Info: ./img/devices3.png used on input line 279.
 (pdftex.def)             Requested size: 109.19785pt x 54.13239pt.
- <./img/bumble.jpg, id=295, 300.12125pt x 169.63374pt>
+ <./img/bumble.jpg, id=289, 300.12125pt x 169.63374pt>
 File: ./img/bumble.jpg Graphic file (type jpg)
 
 <use ./img/bumble.jpg>
 Package pdftex.def Info: ./img/bumble.jpg used on input line 289.
 (pdftex.def)             Requested size: 109.19785pt x 61.72037pt.
 
-<./img/stereodevices.png, id=296, 147.55125pt x 117.43875pt>
+<./img/stereodevices.png, id=290, 147.55125pt x 117.43875pt>
 File: ./img/stereodevices.png Graphic file (type png)
 
 <use ./img/stereodevices.png>
 Package pdftex.def Info: ./img/stereodevices.png used on input line 294.
 (pdftex.def)             Requested size: 81.90047pt x 65.18643pt.
  [13 <./img/syderig.png> <./img/mirrorrig.png> <./img/monorig.png>] <./img/glas
-s1.png, id=302, 132.495pt x 80.55093pt>
+s1.png, id=299, 132.495pt x 80.55093pt>
 File: ./img/glass1.png Graphic file (type png)
 
 <use ./img/glass1.png>
-Package pdftex.def Info: ./img/glass1.png used on input line 314.
+Package pdftex.def Info: ./img/glass1.png used on input line 315.
 (pdftex.def)             Requested size: 109.19785pt x 66.38773pt.
- <./img/glass2.png, id=303, 139.27031pt x 82.80937pt>
+ <./img/glass2.png, id=300, 139.27031pt x 82.80937pt>
 File: ./img/glass2.png Graphic file (type png)
 
 <use ./img/glass2.png>
-Package pdftex.def Info: ./img/glass2.png used on input line 321.
+Package pdftex.def Info: ./img/glass2.png used on input line 323.
 (pdftex.def)             Requested size: 109.19785pt x 64.92967pt.
- <./img/glass3.png, id=304, 128.73094pt x 72.27pt>
+ <./img/glass3.png, id=301, 128.73094pt x 72.27pt>
 File: ./img/glass3.png Graphic file (type png)
 
 <use ./img/glass3.png>
-Package pdftex.def Info: ./img/glass3.png used on input line 326.
+Package pdftex.def Info: ./img/glass3.png used on input line 329.
 (pdftex.def)             Requested size: 109.19785pt x 61.30516pt.
 ) [14 <./img/devices1.png> <./img/devices2.png> <./img/devices3.png> <./img/bum
 ble.jpg> <./img/stereodevices.png>]
@@ -1627,7 +1622,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./watermark.tex
 Chapter 2.
-<./img/wat_workflow.png, id=324, 599.23875pt x 828.09375pt>
+<./img/wat_workflow.png, id=322, 599.23875pt x 828.09375pt>
 File: ./img/wat_workflow.png Graphic file (type png)
 
 <use ./img/wat_workflow.png>
@@ -1638,101 +1633,84 @@ Package pdftex.def Info: ./img/wat_workflow.png used on input line 13.
 
 
  <./img/wat_workflow.png>]
-<./img/properties.png, id=332, 663.22781pt x 377.91188pt>
+<./img/properties.png, id=329, 663.22781pt x 377.91188pt>
 File: ./img/properties.png Graphic file (type png)
 
 <use ./img/properties.png>
 Package pdftex.def Info: ./img/properties.png used on input line 27.
 (pdftex.def)             Requested size: 155.99762pt x 88.88426pt.
- <./img/ss.png, id=333, 331.99031pt x 267.24844pt>
-File: ./img/ss.png Graphic file (type png)
-
-<use ./img/ss.png>
-Package pdftex.def Info: ./img/ss.png used on input line 42.
-(pdftex.def)             Requested size: 155.99762pt x 125.57823pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--51
+ [18 <./img/properties.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 55--58
 
  []
 
-[18 <./img/properties.png>]
-<./img/domain1.png, id=339, 420.06938pt x 115.93312pt>
+[19] <./img/ss.png, id=351, 331.99031pt x 267.24844pt>
+File: ./img/ss.png Graphic file (type png)
+ <use ./img/ss.png>
+Package pdftex.def Info: ./img/ss.png used on input line 68.
+(pdftex.def)             Requested size: 155.99762pt x 125.57823pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--77
+
+ []
+
+[20 <./img/ss.png>] <./img/si.png, id=357, 459.96844pt x 151.3153pt>
+File: ./img/si.png Graphic file (type png)
+
+<use ./img/si.png>
+Package pdftex.def Info: ./img/si.png used on input line 82.
+(pdftex.def)             Requested size: 195.0pt x 64.14998pt.
+ <./img/domain1.png, id=358, 420.06938pt x 115.93312pt>
 File: ./img/domain1.png Graphic file (type png)
- <use ./img/domain1.png>
-Package pdftex.def Info: ./img/domain1.png used on input line 59.
+
+<use ./img/domain1.png>
+Package pdftex.def Info: ./img/domain1.png used on input line 94.
 (pdftex.def)             Requested size: 155.99762pt x 43.05202pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./img/domain2.png, id=340, 520.19344pt x 98.61844pt>
+ <./img/domain2.png, id=359, 520.19344pt x 98.61844pt>
 File: ./img/domain2.png Graphic file (type png)
- <use ./img/domain2.png>
-Package pdftex.def Info: ./img/domain2.png used on input line 66.
+
+<use ./img/domain2.png>
+Package pdftex.def Info: ./img/domain2.png used on input line 101.
 (pdftex.def)             Requested size: 155.99762pt x 29.57372pt.
-
-[19 <./img/ss.png>] <./img/domain3.png, id=346, 536.0025pt x 132.495pt>
+ [21 <./img/si.png> <./img/domain1.png>]
+<./img/domain3.png, id=366, 536.0025pt x 132.495pt>
 File: ./img/domain3.png Graphic file (type png)
-
-<use ./img/domain3.png>
-Package pdftex.def Info: ./img/domain3.png used on input line 74.
+ <use ./img/domain3.png>
+Package pdftex.def Info: ./img/domain3.png used on input line 109.
 (pdftex.def)             Requested size: 155.99762pt x 38.56003pt.
 
-<./img/views_domain.jpeg, id=347, 409.53pt x 567.62062pt>
+<./img/views_domain.jpeg, id=368, 409.53pt x 567.62062pt>
 File: ./img/views_domain.jpeg Graphic file (type jpg)
 
 <use ./img/views_domain.jpeg>
-Package pdftex.def Info: ./img/views_domain.jpeg used on input line 91.
+Package pdftex.def Info: ./img/views_domain.jpeg used on input line 126.
 (pdftex.def)             Requested size: 124.79857pt x 172.97246pt.
 
-Underfull \hbox (badness 7504) in paragraph at lines 92--92
+Underfull \hbox (badness 7504) in paragraph at lines 127--127
 []\T1/cmr/m/n/10.95 (a) |View-based wa-ter-mark-ing
  []
 
-<./img/disparity_domain.png, id=348, 534.49687pt x 553.31718pt>
+<./img/disparity_domain.png, id=369, 534.49687pt x 553.31718pt>
 File: ./img/disparity_domain.png Graphic file (type png)
 
 <use ./img/disparity_domain.png>
-Package pdftex.def Info: ./img/disparity_domain.png used on input line 99.
+Package pdftex.def Info: ./img/disparity_domain.png used on input line 134.
 (pdftex.def)             Requested size: 163.79797pt x 169.5678pt.
 
-Overfull \hbox (7.80035pt too wide) in paragraph at lines 99--100
+Overfull \hbox (7.80035pt too wide) in paragraph at lines 134--135
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20 <./img/domain1.png> <./img/domain2.png> <./img/domain3.png>] [21 <./img/vie
-ws_domain.jpeg> <./img/disparity_domain.png>]) [22]
-\openout2 = `doer.aux'.
-
- (./doer.tex
-Chapter 3.
-
-! Package inputenc Error: Unicode char \u8:∼ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 ...seeded reference watermark pattern w K ∼
-                                                   N (0, 1) is embedded spat...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[23
-
-
-
-]) [24]
+[22 <./img/domain2.png> <./img/domain3.png>]) [23 <./img/views_domain.jpeg> <./
+img/disparity_domain.png>]
 \openout2 = `dft.aux'.
 
  (./dft.tex
-Chapter 4.
-) [25
+Chapter 3.
+) [24
 
 
 
@@ -1740,8 +1718,8 @@ Chapter 4.
 \openout2 = `conclusions.aux'.
 
  (./conclusions.tex
-Chapter 5.
-) [26
+Chapter 4.
+) [25
 
 
 
@@ -1758,37 +1736,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 [][]$\T1/cmtt/m/n/12 http : / / googleresearch . blogspot . it / 2014 / 04 /
  []
 
-[27
+[26
 
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
  (./tesi.aux (./abstract.aux) (./introduction.aux) (./stereo_video.aux)
-(./watermark.aux) (./doer.aux) (./dft.aux) (./conclusions.aux)
-(./bibliografia.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+(./watermark.aux) (./dft.aux) (./conclusions.aux) (./bibliografia.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 73F08EFD8073B729B475F1580FCFA017;1177.
+(rerunfilecheck)             Checksum: 7AF16C589D319126DD99D2929CBE69A7;954.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 101.
  ) 
 Here is how much of TeX's memory you used:
- 16408 strings out of 495017
- 274650 string characters out of 6181020
- 358846 words of memory out of 5000000
- 19128 multiletter control sequences out of 15000+600000
+ 17927 strings out of 495017
+ 308388 string characters out of 6181020
+ 404147 words of memory out of 5000000
+ 20645 multiletter control sequences out of 15000+600000
  21222 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 53i,9n,92p,10477b,645s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,9n,77p,10477b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/be
 ne/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/bene/.texmf-va
 r/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/bene/.texmf-var/fonts/pk/l
@@ -1801,14 +1775,17 @@ ts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/bene/.texmf-var/fonts/pk/ljfour
 /jknappen/ec/eccc1200.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec
 /ecrm1095.600pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.60
 0pk> </home/bene/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tesi.pdf (35 pages, 5303631 bytes).
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb>
+Output written on tesi.pdf (33 pages, 5352303 bytes).
 PDF statistics:
- 898 PDF objects out of 1000 (max. 8388607)
- 353 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 500000)
- 360 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 906 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 
