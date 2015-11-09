@@ -57,7 +57,19 @@ As in \cite{QMETRICS}, the Sobel
 operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
 
 Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
-In this thesis a disparity-coherent method has been implemented since this class of watermarking technique are expected to exhibit superior robustness against view synthesis.
+In this thesis a disparity-coherent method has been implemented since this class of watermarking technique are expected to exhibit superior robustness against view synthesis.\\
+
+Finally, a watermarking technique can be:
+\begin{itemize}
+\item[-] non-blind/blind, if at the decoder side the original content is available or not, respectively;
+\item[-] private, if only authorized users
+can recover it, otherwise it's public;
+\item[-] detectable, if it is only possible to decide whether a given watermark is embedded in the content, privateness is automatically achieved; otherwise the watermark readable watermark the bits hidden in the content can be read without
+knowing them in advance
+
+
+\end{itemize}
+
 
 
 
@@ -138,6 +150,11 @@ In Figure \ref{stereo_method} the workflows of both methods are presented.
 \end{subfigure}
 \caption{\small{Stereoscopic video watermarking workflow}\label{stereo_method}}
 \end{figure}
+
+
+
+
+
 
 
 \newpage
