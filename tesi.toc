@@ -14,6 +14,14 @@
 \contentsline {section}{\numberline {2.2}Stereoscopic video watermarking}{21}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}State of the art}{21}{subsection.2.2.1}
 \contentsline {chapter}{\numberline {3}Spatial disparity-coherent watermarking}{23}{chapter.3}
-\contentsline {chapter}{\numberline {4}Frequency disparity-coherent watermarking}{25}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclusions}{26}{chapter.5}
-\contentsline {chapter}{Bibliografia}{27}{section*.36}
+\contentsline {section}{\numberline {3.1}Spatial disparity-coherent watermarking}{23}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Prior work}{24}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2} Gaussian-noise disparity-coherent watermarking}{25}{subsection.3.1.2}
+\contentsline {chapter}{\numberline {4}Frequency disparity-coherent watermarking}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}ALGORITMO DEL PROF}{28}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Watermark embedding}{29}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Watermark detection}{29}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Stereo watermarking algorithm}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Stereo detection algorithm}{32}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusions}{34}{chapter.5}
+\contentsline {chapter}{Bibliografia}{35}{section*.36}

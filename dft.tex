@@ -3,65 +3,59 @@
 \label{dft}
 \phantomsection
 
- 4 Disparity-coherent watermarking in the frequency domain
 
- Is now proposed a variant of the described watermarking process, which works in the frequency domain.
+Is now proposed a variant of the described watermarking process, which works in the frequency domain.
 
-4.1 ALGORITMO DEL PROF
+\section{ALGORITMO DEL PROF}
 
- The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum
-detection and synchronisation" [], where a watermarking algorithm
-for digital images operating in the frequency domain is pre-
-sented: the method embeds a pseudo-random sequence of
-real numbers in a selected set of DFT coefficients of the
-image. Moreover, a synchronisation pattern is embedded
-into the watermarked image, to cope with geometrical at-
-tacks, like resizing and rotation. After embedding, the wa-
-termark is adapted to the image by exploiting the masking
-characteristics of the Human Visual System, thus ensuring
-the watermark invisibility. (COPIATO DALL'INTRO DEL PROF, È LEGALE?)
+The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" [], where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility. (COPIATO DALL'INTRO DEL PROF, È LEGALE?)\newline
 (immagine a blocchi del prof)
 
 For the stereo watermarking task this process has been simplified and cut to the basic frequency watermaking.
 
-4.1.1 watermark embedding
+\subsection{Watermark embedding}
 
-In [] the watermark is embedded in a subset of DFT coefficients of the luminance Y. Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.
-To garantee a blind detection system the number and position of the coefficient are fixed a priori: based on the size of the image to watermark, the coefficient are choosen in the medium frequencies of the spectrum to achieve a compromise between robustness and invisibillity. 
+In [] the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
+To garantee a blind detection system the number and position of the coefficient are fixed a priori: based on the size of the image to watermark, the coefficient are choosen in the medium frequencies of the spectrum to achieve a compromise between robustness and invisibillity.\newline 
 The watermark embedding rule is the following:
-FORMULA
-where y’ i represents the watermarked DFT magnitude coefficient, y_i the corresponding original, m_i is a sample of the watermark sequence, and α is the watermark energy.
-The inverted DFT is then applied to the obtained matrix to obtain the watermarked luminance Y'.
+$$y_{i}^{'} = y_{i}+\alpha m_{i}y_{i} $$
+where $y_{i}^{'}$ represents the watermarked DFT magnitude coefficient, $y_{i}$ the corresponding original, $m_{i}$ is a sample of the watermark sequence, and $\alpha$ is the watermark energy.\newline
+The inverted DFT is then applied to the obtained matrix to obtain the watermarked luminance $Y^{'}$.
 
+\subsection{Watermark detection}
 
-4.1.2 watermark detection
+To determine if a given image luminance $Y$ either embedds or not the reference watermark in [] is used a threshold-based detection.\newline
+From the received image is extracted the luminance of which is computed the DFT transform; from the obtained magnitude matrix the right coefficents can be selected since their position is fixed a priori as said above.\newline
+Knowing the seed (in the shape of two strings, one numeric one alphanumeric) the watermark can be reproduced.\newline
 
-To determine if a given image luminance Y either embedds or not the reference watermark in [] is used a threshold-based detection.
-From the received image is extracted the luminance of which is computed the DFT transform; from the obtained magnitude matrix the right coefficents can be selected since their position is fixed a priori as said above.
-Knowing the seed (in the shape of two strings, one numeric one alphanumeric) the watermark can be reproduced.
+To verify if the selected coefficients have been altered with the watermark its used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses H1) or the image does not contain this mark (hypotheses H0). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is minimum Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:\newline
+\begin{itemize}
+\item if $L > \lambda$ ,  the watermark $m^{*}$ is present;
+\item if $L < \lambda$ , the watermark  $m^{*}$ is absent.
+\end{itemize}
 
-To verify if the selected coefficients have been altered with the watermark its used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses H1) or the image does not contain this mark (hypotheses H0). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is minimum Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:
-• if L > λ ,  the watermark m* is present;
-• if L < λ , the watermark m* is absent.
-To choose a proper threshold, its been chosen to fix a constraint on the maximum false positive probability and the optimum decoder is designed refferring to the to the Neyman-Pearson criterion: 
+To choose a proper threshold, its been chosen to fix a constraint on the maximum false positive probability and the optimum decoder is designed refferring to the to the Neyman-Pearson criterion: \newline
 
-FORMULA
+$$ L(y)=\sum_{i=0}^{N-1} [-\beta ln(1+\alpha_{m}m_{i}^{*})]+\sum_{i=0}^{N-1}[-(\frac{y_{i}}{\alpha_{i}(1+\alpha_{m}m_{i}^{*})}))^{\beta_{i}}+(\frac{y_{i}}{\alpha_{i}})^{\beta_{i}}] $$
+and
+$$\lambda=3.3\sqrt{2\sum_{i=0}^{N-1}[\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}]} + \sum_{i=0}^{N-1}\{\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}-1]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}\} - \sum_{i=0}^{N-1}[\beta_{i}ln(1+\alpha_{m}m_{i}^{*})]$$
 
-In ()  m* = {m* i } i= 0,1,...N-1 is the watermark, α_m the mean watermark energy, α_i and β_i are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficient, y_i. 
+In ()  $m^{*} = \{ m^{*}_{i} \} i= 0,1,...N-1$ is the watermark, $\alpha_{m}$ the mean watermark energy, $\alpha_{i}$ and $\beta_{i}$ are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficient, $y_{i}$.\newline 
 The values of this parameters are choosen by means of Maximum Likelihood criterion, based on the the fact that the coefficients belonging to small
-sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution.
-In summary, the detection process can be decomposed in
-the following steps:
-• generation of the watermark m*;
-• estimation of the parameters α , β into the regions
-composing the watermarked area of the spectrum;
-• computation of L(y) and λ ;
-• comparison between L(y) and λ ;
-• decision.
-The decoder can detect the watermark presence also in highly degraded images. In particular, the system is robust to sequences of different attacks, such as otation, resizing, and JPEG compression, or such as cropping, resizing and
-median filtering.
+sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution:
+$$ f(y_{i}) = \frac{\beta}{\alpha}(\frac{y_{i}}{\alpha})^{\beta-1}\exp\{-(\frac{y_{i}}{\alpha})^{\beta}\}$$
+In summary, the detection process can be decomposed in the following steps:
+\begin{itemize}
+\item generation of the watermark $m^{*}$;
+\item estimation of the parameters $\alpha,\beta$ into the regions composing the watermarked area of the spectrum;
+\item computation of $L(y)$ and $\lambda$ ;
+\item comparison between $L(y)$ and $\lambda$ ;
+\item decision.
+\end{itemize}
 
-4.2 stereo watermarking algorithm
+The decoder can detect the watermark presence also in highly degraded images. In particular, the system is robust to sequences of different attacks, such as otation, resizing, and JPEG compression, or such as cropping, resizing and median filtering.
+
+\section{Stereo watermarking algorithm}
 
 For the stero-marking process its been taken under consideration a 512x512 subset of pixel of the image, in particular we focused in marking the part of the scene which is common to both the left and right view.
 
@@ -77,8 +71,7 @@ FORMULA CON TRASFORMATA DELLA SINISTRA MARCHIATA E POI DEL MARCHIO COSTRUITO PER
 
 The watermark is then brought back in the spatial domain with the inverse Fourier trasform, the image is warped according to the left-to-right disparity and added spatially to the right view.
 
-
-4.3 stereo detection algorithm
+\section{Stereo detection algorithm}
 
 The detection of the watermark is performed with the detector implemented by Piva et al.
 
