@@ -29,7 +29,11 @@ Three parameters are required to evaluate watermarking technique performances:
 \label{fig:properties}
 \end{figure}
 
-In the stereoscopic video watermarking context it
+
+Trasparenza articolo
+\newline
+Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.
+
 
 \subsection{Embedding techniques}
 The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
@@ -73,6 +77,31 @@ into blocks and for each block a mathematical transformation is computed, some c
 \end{figure}
 \end{itemize}
 
+In stereoscopic video context the studies can also be structured in two other categories:
+\begin{itemize}
+\item[-] view-based methods;
+\item[-] disparity-based methods
+\end{itemize}
+according to the reference image in which the mark is actually inserted.\\
+In Figures XX and XX the workflows of both methods are presented.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/views_domain.jpeg}
+\caption{\small{View-based watermarking workflow}}
+\label{fig:view}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=1.05\textwidth]{./img/disparity_domain.png}
+\caption{\small{Disparity-based watermarking workflow}}
+\label{fig:disp}
+\end{subfigure}
+\caption{\small{Stereoscopic video watermarking workflow}}
+\end{figure}
 
 
 \section{Stereoscopic video watermarking}
