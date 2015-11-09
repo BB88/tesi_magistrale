@@ -29,12 +29,50 @@ Three parameters are required to evaluate watermarking technique performances:
 \label{fig:properties}
 \end{figure}
 
+In the stereoscopic video watermarking context it
+
 \subsection{Embedding techniques}
-
-
-
+The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ss.png}
+\caption{\small{Spread spectrum technique}}
+\label{fig:ss}
+\end{figure}
+As in spread spectrum communications, the former approach considers the original
+content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable.\\
+The latter takes advantage of the fact that the original content is known at the
+embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of
+inserted data can be maximed.\\
 
 \subsection{Embedding domains}
+Host features modified during embedding can
+belong to 
+\begin{itemize}
+\item[-] spatial domain: the watermark is embedded by directly modifying the pixel values;
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/domain1.png}
+\caption{\small{Spatial domain watermark insertion}}
+\label{fig:dom1}
+\end{figure}
+\item[-] frequency domain: the image is transformed through a mathematical transformation, some coefficients are modified and finally the inverse transform is carried out;
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/domain2.png}
+\caption{\small{Frequency domain watermark insertion}}
+\label{fig:dom2}
+\end{figure}
+\item[-] hybrid techniques: a block wise transform is applied, the image is divided
+into blocks and for each block a mathematical transformation is computed, some coefficients are modified and the inverse transform is done.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/domain3.png}
+\caption{\small{Hybrid technique}}
+\label{fig:dom3}
+\end{figure}
+\end{itemize}
+
 
 
 \section{Stereoscopic video watermarking}
