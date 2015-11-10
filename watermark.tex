@@ -28,73 +28,15 @@ Three parameters are required to evaluate watermarking technique performances:
 \caption{\small{Watermark properties trade-off}}
 \label{fig:properties}
 \end{figure}
-
-To evaluate the quality of the watermarking technique in terms of transparency the measures in \cite{QMETRICS} have been used.\\
-In Chaminda et al.'s study a Reduced-Reference
-(RR) quality metric for color plus depth 3D video compression and transmission is proposed, using the extracted edge information of color plus depth map 3D video.\\ 
-The work is motivated by the fact that the edges/contours of the depth map can represent different depth levels and this can be considered for measuring structural degradations. Since depth map boundaries are also coincident with the corresponding color image object boundaries, edge information of the color image and of the depth map is compared to obtain a quality index (structural degradation) for the corresponding color image sequence.\\
-In order to quantify structural comparison, luminance comparison and contrast comparison parameters for the depth map and corresponding watermarked views, a modified version of the
-commonly used SSIM metric is adopted:
-\begin{equation}
-Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{Depth}(x',y')]^{\gamma}
-\end{equation}
-where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original depth maps and the ones computed after watermarking,
-respectively, and $\mathnormal{S}_{Depth}(x',y')$  is the structural comparison between the gradient/edge maps of original and post-watermarking computed depth map images.\\
-Then the overall depth map quality is calculated as
-\begin{equation}
-MQ_{Depth}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{Depth}(x_{j},y_{j}).
-\end{equation}
-The SSIM-based quality index for the color image can be described as follows:
-\begin{equation}
-Q_{View}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{View}(x',y')]^{\gamma}
-\end{equation}
-where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original and watermarked views, respectively, and $\mathnormal{S}_{View}(x',y')$  is the structural comparison between the gradient/edge maps of the gradient maps of the corresponding original depth map and the watermarked views.\\
-Hence, the overall color image quality is calculated as
-\begin{equation}
-MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
-\end{equation}
-As in \cite{QMETRICS}, the Sobel
-operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
-
-Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
-In this thesis a disparity-coherent method has been implemented since this class of watermarking technique are expected to exhibit superior robustness against view synthesis.\\
-
 Finally, a watermarking technique can be:
 \begin{itemize}
 \item[-] non-blind/blind, if at the decoder side the original content is available or not, respectively;
-\item[-] private, if only authorized users
-can recover it, otherwise it's public;
-\item[-] detectable, if it is only possible to decide whether a given watermark is embedded in the content, privateness is automatically achieved; otherwise the watermark readable watermark the bits hidden in the content can be read without
-knowing them in advance
-
-
+\item[-] private/public if only authorized users
+can recover it or if anyone to read the watermark, respectively;
+\item[-] detectable/readable, if it is only possible to decide whether a given watermark is embedded in the content or if the bits hidden in the content can be read without knowing them in advance, respectively.
 \end{itemize}
 
 
-
-
-\subsection{Embedding techniques}
-The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/ss.png}
-\caption{\small{Spread spectrum technique}}
-\label{fig:ss}
-\end{figure}
-As in spread spectrum communications, the former approach considers the original
-content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable.\\
-The latter takes advantage of the fact that the original content is known at the
-embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of
-inserted data can be maximed.\\
-
-Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread
-spectrum methods and the increased data payload of the side information methods.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{./img/si.png}
-\caption{\small{Side information technique scheme}}
-\label{fig:si}
-\end{figure}
 
 
 \subsection{Embedding domains}
@@ -125,7 +67,36 @@ into blocks and for each block a mathematical transformation is computed, some c
 \end{figure}
 \end{itemize}
 
-In stereoscopic video context the studies can also be structured in two other categories:
+\subsection{Embedding techniques}
+The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ss.png}
+\caption{\small{Spread spectrum technique}}
+\label{fig:ss}
+\end{figure}
+As in spread spectrum communications, the former approach considers the original
+content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable.\\
+The latter takes advantage of the fact that the original content is known at the
+embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of
+inserted data can be maximed.\\
+
+Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread
+spectrum methods and the increased data payload of the side information methods.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{./img/si.png}
+\caption{\small{Side information technique scheme}}
+\label{fig:si}
+\end{figure}
+
+\section{Stereoscopic video watermarking}
+
+In the literature, stereoscopic video watermarking has been initially approached as a direct extension of still image watermarking, i.e. by considering the right and the left views as two independent images. This way, the stereo data can be straightforward exploited with basic 2D methods. However, such straightforward application does not consider the peculiarities of the stereoscopic video content, therefore a second modality considers derived representations from the stereo pair, as a disparity map.\\ 
+A new approach, however, has been recently introduced in stereoscopic view-based methods: disparity-coherent watermarking \cite{DOER}.
+
+\subsection{Embedding domain}
+In stereoscopic video context the studies can be structured in two other categories in addition to spacial and frequency domain:
 \begin{itemize}
 \item[-] view-based methods;
 \item[-] disparity-based methods
@@ -151,21 +122,55 @@ In Figure \ref{stereo_method} the workflows of both methods are presented.
 \caption{\small{Stereoscopic video watermarking workflow}\label{stereo_method}}
 \end{figure}
 
+The predilection direction in the literature is represented by the view-based watermarking approaches, which are currently deployed for stereoscopic still images.\\ 
+In this context disparity-coherent watermarking has been introduced,\cite{DOER}, to provide superior robustness against virtual view synthesis, as well as to improve perceived fidelity.\\
+Disparity-coherence refers to the fact that a physical point of the captured scene should carry the
+same watermark sample regardless of where it appears in the left/right view.\\
+The advantages of producing disparity-coherent watermarks are two: first it produces pairs of stereoscopic views that are more in line with
+what would naturally occur in reality and thereby yields less visual discomfort, second  disparity-coherent watermarks are expected to exhibit superior robustness against view synthesis, \cite{DOER}.\\
+View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
+
+\subsection{Transparency evaluation}
+The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM .\\
+
+In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of transparency.\\
+In Chaminda et al.'s study a Reduced-Reference
+(RR) quality metric for color plus depth 3D video compression and transmission is proposed, using the extracted edge information of color plus depth map 3D video.\\ 
+The work is motivated by the fact that the edges/contours of the depth map can represent different depth levels and this can be considered for measuring structural degradations. Since depth map boundaries are also coincident with the corresponding color image object boundaries, edge information of the color image and of the depth map is compared to obtain a quality index (structural degradation) for the corresponding color image sequence.\\
+In order to quantify structural comparison, luminance comparison and contrast comparison parameters for the depth map and corresponding watermarked views, a modified version of the
+commonly used SSIM metric is adopted:
+\begin{equation}
+Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{Depth}(x',y')]^{\gamma}
+\end{equation}
+where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original depth maps and the ones computed after watermarking,
+respectively, and $\mathnormal{S}_{Depth}(x',y')$  is the structural comparison between the gradient/edge maps of original and post-watermarking computed depth map images.\\
+Then the overall depth map quality is calculated as
+\begin{equation}
+MQ_{Depth}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{Depth}(x_{j},y_{j}).
+\end{equation}
+The SSIM-based quality index for the color image can be described as follows:
+\begin{equation}
+Q_{View}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathnormal{S}_{View}(x',y')]^{\gamma}
+\end{equation}
+where $l(x,y)$ and $c(x,y)$ are luminance and contrast comparisons performed on original and watermarked views, respectively, and $\mathnormal{S}_{View}(x',y')$  is the structural comparison between the gradient/edge maps of the gradient maps of the corresponding original depth map and the watermarked views.\\
+Hence, the overall color image quality is calculated as
+\begin{equation}
+MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
+\end{equation}
+As in \cite{QMETRICS}, the Sobel operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
+
+\subsection{Robustness}
+\subsubsection{View synthesis}
+Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
+
+
+In this thesis a disparity-coherent watermarking algorithm has been implemented. It works in the frequency and spatial domain: a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image then  the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\
+It has shown good results in quality measure tests and roubustness test against view synthesis.\\
+An optimum criterion to verify if a given mark is present in an image is derived based on statistical decision theory, \cite{STAT}, allowing a robust watermark detection without resorting to the original uncorrupted image.\\
 
 
 
 
-
-
-\newpage
-In this thesis ....
-due algoritmi di marchiatura presentati; il primo spaziale ss con rumore gaussiano etc.. 
-il secondo ss nella frequenza additivo moltiplicativo...
-
-
-data payload è ...
-la trasparenza è stata valutata con ...
-la robustezza è stata provata per view synthesis e compressione
 
 
 
