@@ -193,7 +193,7 @@ A naive approach consists of comparing each  pixel or window in the left image w
 Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.\\
 Even if this class of algorithms is significantly slow, the results, especially when textures and discontinuities are present, are much accurate.\\
 \newline
-In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying with regard to the ground trouth.\\
+In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm, \cite{KZ}, has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying with regard to the ground trouth.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
