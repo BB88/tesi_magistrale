@@ -25,5 +25,11 @@
 \contentsline {subsection}{\numberline {4.1.2}Watermark detection}{32}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Stereo watermarking algorithm}{34}{section.4.2}
 \contentsline {section}{\numberline {4.3}Stereo detection algorithm}{35}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusions}{36}{chapter.5}
-\contentsline {chapter}{Bibliografia}{37}{section*.41}
+\contentsline {chapter}{\numberline {5}Experimental Results}{36}{chapter.5}
+\contentsline {section}{\numberline {5.1}Robustness against compression}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Robusteness in spatial watermarking}{37}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Robustess in DFT watermaking}{37}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Robustness to View Synthesis}{39}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Transparency}{39}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusions}{40}{chapter.6}
+\contentsline {chapter}{Bibliografia}{41}{section*.46}
