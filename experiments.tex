@@ -1,0 +1,105 @@
+\chapter{Experimental Results}
+\markright{experiments}
+\label{exp}
+\phantomsection
+%\addcontentsline{toc}{chapter}{experiments}
+
+The proposed method has been tested to verify its validity in terms of robustness and transpaency.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the image due to compression, view synthesis etc.\newline 
+Another important feature of a good watermarking method is transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test the algorithm performances.\newline
+
+The marking process its been applied to a 1 minute stereo-video sequence created starting from the left and right view of the new Tzukuba dataset, with GOP of 60 frames and 30 fps.\newline 
+Its been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
+The frames of the reference video has been marked with different power and new marked videos has been created with different levels of compression.\newline 
+
+\section{Robustness against compression}
+
+In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-of between robustness and transparency.
+
+
+\subsection{Robusteness in spatial watermarking}
+
+In spatial domain watermarking systems, the watermark is embedded directly in the spatial domain (pixel domain).\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
+
+The evaluation of this detection system has been studied through the ROC curve has said in chapter 3. The results are shown below.
+
+\subsection{Robustess in DFT watermaking}
+
+In transform domain watermarking systems, watermark insertion is done by transforming the image into the frequency domain using a discrete Fourier transform (DFT), full-image DCT, block-wise DCT, wavelet, Hadamard, Fourier-Mellin, or other transforms.\newline  It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security.\newline 
+
+Two studies are presented in this section: the first one concernes the power of the watermark needed in order to achieve robustness against different levels of compression; the second one focus on youtube, and tries to find the right power to achive robustness in a downloaded video.\newline 
+
+Each test has been made with both the ground truth and graph-cuts disparities.\newline 
+
+The table xx shows how the algorithm manage to find the watermark in a compressed video, in particular its shown if the mark is detected in the left/right view or both images.
+
+
+\begin{table}[htbp]
+ \label{Tab:compgt}
+ \begin{center}
+ \scalebox{0.6}{ 
+ \begin{tabular}{c|c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+
+ \hline
+ \end{tabular}
+ }
+ \caption{}
+ \end{center}
+ \end{table}
+ 
+ \begin{table}[htbp]
+  \label{Tab:compkz}
+  \begin{center}
+  \scalebox{0.6}{ 
+  \begin{tabular}{c|c|c c c }
+  \hline\hline
+  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ 
+  \hline
+  \end{tabular}
+  }
+  \caption{}
+  \end{center}
+  \end{table}
+ 
+In the table xx its shown how a video uploaded on youtube and subsequentially downloaded can preserve the watermark.
+
+\begin{table}[htbp]
+ \label{Tab:ytgt}
+ \begin{center}
+ \scalebox{0.6}{ 
+ \begin{tabular}{c|c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+
+ \hline
+ \end{tabular}
+ }
+ \caption{}
+ \end{center}
+ \end{table}
+\begin{table}[htbp]
+ \label{Tab:ytkz}
+ \begin{center}
+ \scalebox{0.6}{ 
+ \begin{tabular}{c|c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+
+ \hline
+ \end{tabular}
+ }
+ \caption{}
+ \end{center}
+ \end{table}
+ 
+\subsection{Robustness to View Synthesis}
+
+In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances
+of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced
+apart between the left (reference) view and the right one, using ***(nome sw).\newline
+
+
+
+\section{Transparency}
