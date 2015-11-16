@@ -80,7 +80,30 @@ $$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)||w|\exp\{j(\phi_{l}+\phi_{w})\
 
 
 The watermark is then brought back in the spatial domain with the inverse Fourier trasform, the image is warped according to the left-to-right disparity and added spatially to the right view.
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_03_DFT.png}
+\caption{\small{stereo image marked with DFT algorithm with power equal to 0.3}}
+\label{fig:dft03}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_05_DFT.png}
+\caption{\small{stereo image marked with DFT algorithm with power equal to 0.5}}
+\label{fig:dft05}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_06_DFT.png}
+\caption{\small{stereo image marked with DFT algorithm with power equal to 0.6}}
+\label{fig:dft06}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_07_DFT.png}
+\caption{\small{stereo image marked with DFT algorithm with power equal to 0.7}}
+\label{fig:dft07}
+\end{figure}
 \section{Stereo detection algorithm}
 
 The detection of the watermark is performed with the detector implemented by Piva et al.\newline

@@ -61,6 +61,19 @@ The second strategy is again a simple correlation-based detector, but the correl
 $$\rho(f_{r}+\epsilon\alpha w_{K}^{*},w_{K}^{*})= \frac{1}{wh}\sum_{x,y}(f_{r}(x,y)+\epsilon\alpha w_{K}^{*}(x,y))w_{K}^{*}(x,y)\approx\epsilon\alpha $$
 
 To illustrates the performance of the binary classifier system as its discrimination threshold is varied it has been drawn the corresponding ROC curve.\newline  The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings.\newline The true-positive rate is also known as sensitivity and the false-positive rate is also known as the fall-out.\newline  The ROC curve is thus the sensitivity as a function of fall-out ROC analysis provides tools to select possibly optimal models and to discard suboptimal ones independently from (and prior to specifying) the cost context or the class distribution.\newline 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_1_gauss.png}
+\caption{\small{stereo image marked with spatial algorithm with power equal to 1}}
+\label{fig:gauss1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/marked_3_gauss.png}
+\caption{\small{stereo image marked with spatial algorithm with power equal to 1}}
+\label{fig:gauss3}
+\end{figure}
   
 Has said before the disparity-coherent watermarking have the ability to detect the embedded watermark in synthetized views: to performe the detection on a random right view, that might be synthetized, the detector will need to calculate the disparity map between the analyzed view and the recieved left, and warp it accordingly, to recompose the original watermark.\newline 
 There is then a tight bond between the watermarking process and the evaluation of the disparity maps; with the graph-cuts algorithm its possible to compute accurate maps and to know the occluded zones in a Non-real time way. 

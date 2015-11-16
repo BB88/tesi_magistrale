@@ -15,7 +15,24 @@ The frames of the reference video has been marked with different power and new m
 
 In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-of between robustness and transparency.
 
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/03_crf1_gt.png}
+\caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 1 }}
+\label{fig:03crf1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/03_crf30_gt.png}
+\caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 30 }}
+\label{fig:03crf30}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/03_crf25_gt.png}
+\caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 25 }}
+\label{fig:03crf25}
+\end{figure}
 \subsection{Robusteness in spatial watermarking}
 
 In spatial domain watermarking systems, the watermark is embedded directly in the spatial domain (pixel domain).\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
@@ -131,7 +148,24 @@ One can notice that, at a global level, detection  statistics gradually degrade 
 In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances
 of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced
 apart between the left (reference) view and the right one, using ***(nome sw).\newline
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_25.png}
+\caption{\small{synthetized view at distance 1/4 of the baseline from the left image }}
+\label{fig:synt1/4}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_50.png}
+\caption{\small{synthetized view at distance 1/2 of the baseline from the left image }}
+\label{fig:synt1/2}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_75.png}
+\caption{\small{synthetized view at distance 3/4 of the baseline from the left image }}
+\label{fig:synt3/4}
+\end{figure}
 The views have been synthetized for both the spatial and frequency method, the result are shown below.\newline
 The table contains the results for the frequency marking: the first column is the distance between the left view and the synthetized one, in terms of fraction of the baseline, then its show in how many synthetized images the mark is detected.
 
@@ -160,3 +194,4 @@ The same study is proposed for the spatial marking: from a video marked with add
 It can be noted that the watermark is always detected in the synthetized views, we can therefore expect the synthetized views to behave like the other against compression.
  
 \section{Transparency}
+
