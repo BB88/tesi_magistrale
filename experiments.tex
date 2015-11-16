@@ -30,7 +30,7 @@ Two studies are presented in this section: the first one concernes the power of 
 
 Each test has been made with both the ground truth and graph-cuts disparities.\newline 
 
-The table xx shows how the algorithm manage to find the watermark in a compressed video, in particular its shown if the mark is detected in the left/right view or both images.
+The tables xxs shows how the algorithm manage to find the watermark in a compressed video, in particular its shown if the mark is detected in the left/right view or both images. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
 
 
 \begin{table}[htbp]
@@ -40,7 +40,44 @@ The table xx shows how the algorithm manage to find the watermark in a compresse
  \begin{tabular}{c|c|c c c }
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ 
+ 0.3 & 1 & 30 & 0 & 0 \\
+ 0.3 & 15 & 30 & 0 & 0 \\
+ 0.3 & 25 & 10 & 5 & 0 \\
+ 0.3 & 30 & 1 & 1 & 0 \\
+ 0.6 & 1 & 30 & 0 & 0 \\
+ 0.6 & 15 & 30 & 0 & 0 \\
+ 0.6 & 25 & 28 & 0 & 0 \\
+ 0.6 & 30 & 16 & 2 & 0 \\
+           
+ \hline
+ \end{tabular}
+ }
+ \caption{}
+ \end{center}
+ \end{table}
 
+\begin{table}[htbp]
+ \label{Tab:compkz}
+ \begin{center}
+ \scalebox{0.6}{ 
+ \begin{tabular}{c|c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ 
+ 0.3 & 1 & 30 & 0 & 0 \\
+ 0.3 & 15 & 29 & 1 & 0 \\
+ 0.3 & 25 & 11 & 1 & 0 \\
+ 0.3 & 30 & 2 & 1 & 0 \\
+ 0.5 & 1 & 30 & 0 & 0 \\
+ 0.5 & 15 & 30 & 0 & 0 \\
+ 0.5 & 25 & 24 & 2 & 0 \\
+ 0.5 & 30 & 9 & 2 & 0 \\
+ 0.6 & 1 & 30 & 0 & 0 \\
+ 0.6 & 15 & 30 & 0 & 0 \\
+ 0.6 & 25 & 26 & 1 & 1 \\
+ 0.6 & 30 & 15 & 4 & 0 \\
+           
  \hline
  \end{tabular}
  }
@@ -48,14 +85,19 @@ The table xx shows how the algorithm manage to find the watermark in a compresse
  \end{center}
  \end{table}
  
+ The tables xxs show how a video uploaded on youtube and subsequentially downloaded can preserve the watermark, respecrively when the watermark is iserted with the ground truth disparity and with graph cuts.\newline
+ 
  \begin{table}[htbp]
-  \label{Tab:compkz}
+  \label{Tab:ytgt}
   \begin{center}
   \scalebox{0.6}{ 
-  \begin{tabular}{c|c|c c c }
+  \begin{tabular}{c|c c c }
   \hline\hline
-  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
- 
+  \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ 0.3 & 1 & 0 & 0\\
+ 0.6 & 9 & 1 & 0\\
+ 0.7 & 12& 2 & 0\\
+ 0.8 & 16& 0 & 1\\ 
   \hline
   \end{tabular}
   }
@@ -63,30 +105,47 @@ The table xx shows how the algorithm manage to find the watermark in a compresse
   \end{center}
   \end{table}
  
-In the table xx its shown how a video uploaded on youtube and subsequentially downloaded can preserve the watermark.
-
 \begin{table}[htbp]
- \label{Tab:ytgt}
+ \label{Tab:ytkz}
  \begin{center}
  \scalebox{0.6}{ 
- \begin{tabular}{c|c|c c c }
+ \begin{tabular}{c|c c c }
  \hline\hline
- \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
 
+0.3& 1& 0& 0\\
+0.5& 6 & 1& 0\\
+0.6& 11 & 0 & 0\\
  \hline
  \end{tabular}
  }
  \caption{}
  \end{center}
  \end{table}
+
+
+One can notice that, at a global level, detection  statistics gradually degrade with the compression ratio. The embedded watermark becomes hardly detectable at the crudest compression levels even with if embedded with a strong power. 
+ 
+\section{Robustness to View Synthesis}
+
+In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances
+of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced
+apart between the left (reference) view and the right one, using ***(nome sw).\newline
+
+The views have been synthetized for both the spatial and frequency method, the result are shown below.\newline
+The table contains the results for the frequency marking: the first column is the distance between the left view and the synthetized one, in terms of fraction of the baseline, then its show in how many synthetized images the mark is detected.
+
 \begin{table}[htbp]
- \label{Tab:ytkz}
+ \label{Tab:syntDFT}
  \begin{center}
  \scalebox{0.6}{ 
- \begin{tabular}{c|c|c c c }
+ \begin{tabular}{c|c c c }
  \hline\hline
- \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ \multirow{1}{2.5cm}{\textbf{position}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
 
+1/2 & 30& 0& 0\\
+1/4 & 30& 0& 0\\
+3/4 & 29 & 1 & 0\\
  \hline
  \end{tabular}
  }
@@ -94,12 +153,10 @@ In the table xx its shown how a video uploaded on youtube and subsequentially do
  \end{center}
  \end{table}
  
-\subsection{Robustness to View Synthesis}
+  
+The same study is proposed for the spatial marking: from a video marked with additive gaussian noise distribuited with zero mean and unit variance, added with power equal to 1, have been generated three synthetized views for each pair of marked frames, respectively one in the middle and the other two at 1/4 and 3/4 of distance from the left (OMG CHE DISCORSO BRUTTO) .\newline The ROC curves below show the results for the different intermediate synthetic views.\newline
+ 
 
-In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances
-of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced
-apart between the left (reference) view and the right one, using ***(nome sw).\newline
-
-
-
+It can be noted that the watermark is always detected in the synthetized views, we can therefore expect the synthetized views to behave like the other against compression.
+ 
 \section{Transparency}
