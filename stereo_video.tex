@@ -217,7 +217,27 @@ In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm, 
 \end{subfigure}%
 \caption{\small{Results of the Kolmogorov and Zabih's graph cuts algorithm on the Tsukuba pair}}
 \end{figure}
-\newline
+
+\newpage
+In this algorithm the correspondence problem is addressed by constructing a problem representation
+and an energy function that takes into account the \textit{uniqueness} of a configuration.\\
+A configuration $\mathnormal{f}$ is any map $\mathnormal{f}: \mathcal{A} \rightarrow \{0,1\}$, where $ \mathcal{A}$ is the set of pair of pixels $(p,q)$, (p pixel of left image and q pixel of right image), which may potentially correspond. If $a = (p,q)$ is an assigment, then $\mathnormal{f}(a) = 1$ means that $p$  and $q$ correspond under the configuration $\mathnormal{f}$.\\
+A configuration is \textit{unique} if for all pixels $p$ (resp. $q$), there is at
+most one active assignment involving $p$ (resp. $q$): for instance, considering $p$, if $\mathnormal{f}(p, q1) = \mathnormal{f}(p, q2) = 1$,
+then $q1 = q2$ . A pixel that correspond to no
+pixel in the other image is labeled as occluded.\\
+The energy of a configuration  $\mathnormal{f}$ is  defined as: 
+\begin{equation}
+\mathnormal{E}(\mathnormal{f}) = \mathnormal{E}_{data}(\mathnormal{f}) + \mathnormal{E}_{occlusion}(\mathnormal{f}) +\mathnormal{E}_{smoothness}(\mathnormal{f}) +\mathnormal{E}_{uniqueness}(\mathnormal{f})
+\end{equation}
+where each term promotes a desired property of the configuration: the data term measures how well matched pairs fit, the occlusion term minimizes the number of occluded pixels, the smoothness term penalizes the nonregularity of the configuration,
+and the last term enforces the uniqueness.\\
+Since this energy funtion is not graph-representable, his minimization can be approximated by an iterated constrained minimization, given by so-called expansion moves \cite{}]; given this changes, the energy assumes a new expression, $\mathnormal{E}_{\mathnormal{f},\alpha}$
+.\\
+The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnormal{f},\alpha}$ is then found. The problem is NP-hard, so a local minimum is computed. 
+
+
+
 \section{3D capturing devices}
 For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
 \begin{figure}[h!]
