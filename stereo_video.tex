@@ -4,12 +4,11 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{Stereoscopic Video}
 
+Depth information is essential for an accurate image analysis or for enhancing the realism.\\
 In a wide variety of image processing applications, explicit depth information is required in
 addition to general image informations, such as intensities, color, densities.\\
 Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
 magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames.\\
-In each of these cases, depth information is essential for accurate image analysis or for enhancing the
-realism.\\
 In remote sensing the terrain's elevation needs to be accurately determined for map production, in remote handling an operator needs to have precise knowledge of the threedimensional organization of the area to avoid collisions and misplacements.\\
 \begin{figure}[h!]
 \centering
@@ -42,9 +41,7 @@ In remote sensing the terrain's elevation needs to be accurately determined for 
 \end{subfigure} 
 \caption{\small{Stereoscopy application's fields}}
 \end{figure}
-Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound.
-However it's usually undesirable to have separate systems for acquiring the intensity and the depth
-information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
+Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound. However it's usually undesirable to have separate systems for acquiring the intensity and the depth information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -70,6 +67,85 @@ information because of the relative low resolution of the range sensing devices 
 \caption{\small{Stereoscopy in 3D video games}}
 \end{figure}
 
+\section{3D capturing devices}
+For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{./img/interaxial-separation.png}
+\caption{\small{Interaxial separation between lenses}}
+\label{fig:interaxial}
+\end{figure}
+The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
+To hold and align the cameras, a stereo-rig is used; the rigs can be of two main types:\\
+\begin{itemize}
+\item[-] the side-by-side rig, where the cameras are placed side by side (Figure \ref{fig:sbs}). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/syderig.png}
+\caption{\scriptsize{Syde-by-syde rig}}
+\label{fig:sbs}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.25\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/mirrorrig.png}
+\caption{\scriptsize{Beamsplitter rig}}
+\label{fig:beam}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/monorig.png}
+\caption{\scriptsize{Monoblock camera}}
+\label{fig:mono}
+\end{subfigure}%
+\caption{\small{Professional technologies for 3D TV }}
+\end{figure}
+\item[-] the beamsplitter rig (Figure \ref{fig:beam}), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
+\end{itemize}
+Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
+and are perfectly aligned, which avoids cameras desynchronization (Figure \ref{fig:mono}).\\
+A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices1.png}
+\caption{\scriptsize{Mobile phones}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.25\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices2.png}
+\caption{\scriptsize{Digital cameras}}
+\end{subfigure} 
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/devices3.png}
+\caption{\scriptsize{Camcorders}}
+\end{subfigure}%
+\caption{\small{Digital personal stereo acquisition systems}}\label{fig:mobile}
+\end{figure}
+An other important category of 3D image capture devices it's the one employed in the robotics and automation field, Figure \ref{industrial}. They are usually impressively precise, cost-efficient and fast.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/bumble.jpg}
+\caption{\scriptsize{The Bumblebee series from Point Grey}}
+\end{subfigure}
+\begin{subfigure}[]{0.3\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/stereodevices.png}
+\caption{\scriptsize{Human wearable stereo device}}
+\end{subfigure}
+\caption{\small{Industrial and robotic stereo cameras}\label{industrial}}
+\end{figure}
+
 \section{Stereo vision}
 In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene. \\
 The 3D information can be obtained from a pair of images, also known as a stereo pair, by estimating the relative depth of points in the scene.\\
@@ -93,7 +169,7 @@ cameras.\\
 \caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
 \end{figure}
 
-\subsection{Acquisition of stereoscopic images}\label{sec:acquisition-of-stereoscopic-images}
+\subsection{Background}
 
 In order to be able to perceive depth using recorded images, a stereoscopic camera is required,
 which consists of two cameras that capture two different, horizontally shifted perspective
@@ -130,7 +206,7 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \newpage
 \subsection{Disparity map computation}
 
-With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp'): 
+With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp') the following relations hold: 
 $$
 \frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
 $$ 
@@ -238,84 +314,7 @@ The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnorm
 
 
 
-\section{3D capturing devices}
-For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.3\textwidth]{./img/interaxial-separation.png}
-\caption{\small{Interaxial separation between lenses}}
-\label{fig:interaxial}
-\end{figure}
-The two cameras must be correctly aligned, identically calibrated (i.e. brightness, color, etc...) and perfectly synchronized (frame-rate and scan-wise).\\
-To hold and align the cameras, a stereo-rig is used; the rigs can be of two main types:\\
-\begin{itemize}
-\item[-] the side-by-side rig, where the cameras are placed side by side (Figure \ref{fig:sbs}). This kind of 3D-rig is mostly useful for large landscape shots since it allows large interaxials; however, it doesn't allow small interaxials because of the physical size of the cameras;
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/syderig.png}
-\caption{\scriptsize{Syde-by-syde rig}}
-\label{fig:sbs}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.25\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/mirrorrig.png}
-\caption{\scriptsize{Beamsplitter rig}}
-\label{fig:beam}
-\end{subfigure} 
-~\quad
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/monorig.png}
-\caption{\scriptsize{Monoblock camera}}
-\label{fig:mono}
-\end{subfigure}%
-\caption{\small{Professional technologies for 3D TV }}
-\end{figure}
-\item[-] the beamsplitter rig (Figure \ref{fig:beam}), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
-\end{itemize}
-Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
-and are perfectly aligned, which avoids cameras desynchronization (Figure \ref{fig:mono}).\\
-A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/devices1.png}
-\caption{\scriptsize{Mobile phones}}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.25\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/devices2.png}
-\caption{\scriptsize{Digital cameras}}
-\end{subfigure} 
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/devices3.png}
-\caption{\scriptsize{Camcorders}}
-\end{subfigure}%
-\caption{\small{Digital personal stereo vision systems}}\label{fig:mobile}
-\end{figure}
-An other important category of 3D image capture devices it's the one employed in the robotics and automation field. They are usually impressively precise, cost-efficient and fast.
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/bumble.jpg}
-\caption{\scriptsize{The Bumblebee series from Point Grey}}
-\end{subfigure}
-\begin{subfigure}[]{0.3\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/stereodevices.png}
-\caption{\scriptsize{Human wearable stereo device}}
-\end{subfigure}
-\caption{\small{Industrial and robotic stereo cameras}}
-\end{figure}
+
 \section{3D video displays}
 The basic technique of stereo displays is to present offset images that are displayed separately to the left and right eye. Both of these 2D offset images are then combined in the brain to give the perception of 3D depth.\\
 For stereoscopic 3D displays the viewer needs to wear special glasses which separate the views of the stereoscopic image for the left and the right eye. These 3D glasses can be active or passive.\\

@@ -18,10 +18,11 @@ The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \subsection{Properties}
 Three parameters are required to evaluate watermarking technique performances:
 \begin{itemize}
-\item[-] transparency, that is the misure of how much the watermark affects the quality of the host data;
+\item[-] perceptual impact, that is the misure of how much the watermark affects the quality of the host data;
 \item[-] robustness, i.e.,the capability of the hidden data to survive host signal manipulation including compression, signal processing, geometric manipulations;
 \item[-] data payload, that is the amount of data of information bits that it is able to convey.
 \end{itemize}
+DISCORSO SUL TRADEOFF
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{./img/properties.png}
@@ -130,10 +131,10 @@ The advantages of producing disparity-coherent watermarks are two: first it prod
 what would naturally occur in reality and thereby yields less visual discomfort, second  disparity-coherent watermarks are expected to exhibit superior robustness against view synthesis, \cite{DOER}.\\
 View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
 
-\subsection{Transparency evaluation}
+\subsection{Perseption evaluation}
 The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM .\\
 
-In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of transparency.\\
+In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of human perception.\\
 In Chaminda et al.'s study a Reduced-Reference
 (RR) quality metric for color plus depth 3D video compression and transmission is proposed, using the extracted edge information of color plus depth map 3D video.\\ 
 The work is motivated by the fact that the edges/contours of the depth map can represent different depth levels and this can be considered for measuring structural degradations. Since depth map boundaries are also coincident with the corresponding color image object boundaries, edge information of the color image and of the depth map is compared to obtain a quality index (structural degradation) for the corresponding color image sequence.\\
