@@ -3,9 +3,9 @@
 \label{dft}
 \phantomsection
 
-Is now proposed a variant of the described watermarking process, which works in the frequency domain.
+Now we proposed a variant of the described watermarking process, which works in the frequency domain.
 
-\section{ALGORITMO DEL PROF}
+\section{Watermark in Fourier domain}
 
 The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" [], where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility.\newline
 \begin{figure}[h!]
@@ -28,17 +28,17 @@ The inverted DFT is then applied to obtain the watermarked luminance $Y^{'}$.
 
 \subsection{Watermark detection}
 
-To determine if a given image luminance $Y$ either embedds or not the reference watermark in [] is used a threshold-based detection.\newline
-From the received image is extracted the luminance of which is computed the DFT transform; from the obtained magnitude matrix the right coefficents can be selected since their position is fixed a priori as said above.\newline
+To determine if a given image luminance $Y$ either embedds or not the reference watermark in [] a threshold-based detection is used.\newline
+The luminance of the received image is extracted and its DFT trasform is computed; from the obtained magnitude matrix the right coefficents can be selected since their positions are known as said above.\newline
 Knowing the seed (in the shape of two strings, one numeric one alphanumeric) the watermark can be reproduced.\newline
 
-To verify if the selected coefficients have been altered with the watermark its used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses H1) or the image does not contain this mark (hypotheses H0). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is minimum Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:\newline
+To verify if the selected coefficients have been altered by means of the watermark it is used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses $H_{1}$) or the image does not contain this mark (hypotheses $H_{0}$). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is minimum Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:\newline
 \begin{itemize}
 \item if $L > \lambda$ ,  the watermark $m^{*}$ is present;
 \item if $L < \lambda$ , the watermark  $m^{*}$ is absent.
 \end{itemize}
 
-To choose a proper threshold, its been chosen to fix a constraint on the maximum false positive probability and the optimum decoder is designed refferring to the to the Neyman-Pearson criterion: \newline
+To choose a proper threshold, it has been chosen to fix a constraint on the maximum false positive probability and the optimum decoder is designed refferring to the Neyman-Pearson criterion, as: \newline
 
 $$ L(y)=\sum_{i=0}^{N-1} [-\beta ln(1+\alpha_{m}m_{i}^{*})]+\sum_{i=0}^{N-1}[-(\frac{y_{i}}{\alpha_{i}(1+\alpha_{m}m_{i}^{*})}))^{\beta_{i}}+(\frac{y_{i}}{\alpha_{i}})^{\beta_{i}}] $$
 and
@@ -46,7 +46,7 @@ $$\lambda=3.3\sqrt{2\sum_{i=0}^{N-1}[\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}]
 
 In ()  $m^{*} = \{ m^{*}_{i} \} i= 0,1,...N-1$ is the watermark, $\alpha_{m}$ the mean watermark energy, $\alpha_{i}$ and $\beta_{i}$ are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficients $y_{i}$.\newline 
 The values of this parameters are choosen by means of Maximum Likelihood criterion, based on the the fact that the coefficients belonging to small
-sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution:
+sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution, modeled as:
 $$ f(y_{i}) = \frac{\beta}{\alpha}(\frac{y_{i}}{\alpha})^{\beta-1}\exp\{-(\frac{y_{i}}{\alpha})^{\beta}\}$$
 In summary, the detection process can be decomposed in the following steps:
 \begin{itemize}
@@ -59,7 +59,7 @@ In summary, the detection process can be decomposed in the following steps:
 
 The decoder can detect the watermark presence also in highly degraded images. In particular, the system is robust to sequences of different attacks, such as rotation, resizing, and JPEG compression, or such as cropping, resizing and median filtering.
 
-\section{Stereo watermarking algorithm}
+\section{Stereo watermarking embedding}
 
 For the stero-marking process its been taken under consideration a 512x512 subset of pixel of the image, in particular we focused in marking the part of the scene which is common to both the left and right view.
 
@@ -108,10 +108,15 @@ The watermark is then brought back in the spatial domain with the inverse Fourie
 
 The detection of the watermark is performed with the detector implemented by Piva et al.\newline
 
-As for the embedding process, to the left view the algorithm is applied without changes, yet, for the right view detection some adaptations are needed.\newline
+As for the embedding process, the algorithm is applied to the left view without changes, meanwhile, some adaptations are needed for the right view detection.\newline
 
-First the detection algorithm computes the right-to-left disparity, then the right view is warped accordingly to ricreate the phase of the inserted watermark; to mantain the right phase the occluded zones are filled with the pixels of the recieved left view (taking under consideration that this little amount of image's pixel would not influence the detection).\newline
-The created image is then processed by the threshold-based detection algorithm. 
+First the detection algorithm computes the right-to-left disparity, then the right view is warped accordingly to ricreate the phase of the inserted watermark; to mantain the correctt phase the occluded zones are filled with the pixels of the recieved left view (taking under consideration that this little amount of image's pixel would not influence the detection).\newline
+The created image is then processed by the threshold-based detection algorithm.\newline 
 
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/detection_workflow.png}
+\caption{\small{detection workflow}}
+\label{fig:detflow}
+\end{figure}
 

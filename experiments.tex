@@ -4,16 +4,19 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
 
-The proposed method has been tested to verify its validity in terms of robustness and transpaency.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the image due to compression, view synthesis etc.\newline 
+The proposed method has been tested to verify its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the image due to compression, view synthesis etc.\newline 
 Another important feature of a good watermarking method is transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test the algorithm performances.\newline
 
-The marking process its been applied to a 1 minute stereo-video sequence created starting from the left and right view of the new Tzukuba dataset, with GOP of 60 frames and 30 fps.\newline 
+The marking process has been applied to a 1 minute stereo-video sequence created starting from the left and right view of the new Tzukuba dataset, with GOP of 60 frames and 30 fps.\newline 
 Its been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
 The frames of the reference video has been marked with different power and new marked videos has been created with different levels of compression.\newline 
 
+The compressed videos are made with the \texttt{ffmpeg} library, changing the Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
+
 \section{Robustness against compression}
 
-In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-of between robustness and transparency.
+In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but it is necessary to mantain an acceptable trade-of between robustness and transparency.\newline
+
 
 \begin{figure}[h!]
 \centering
@@ -33,21 +36,90 @@ In video analysis, compression is useful because it helps reduce resource usage,
 \caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 25 }}
 \label{fig:03crf25}
 \end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/06_crf1_gt.png}
+\caption{\small{stereo image from video marked with power 0.6 and compressed with crf equal to 1 }}
+\label{fig:06crf1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/06_crf30_gt.png}
+\caption{\small{stereo image from video marked with power 0.6 and compressed with crf equal to 30 }}
+\label{fig:06crf30}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/06_crf25_gt.png}
+\caption{\small{stereo image from video marked with power 0.6 and compressed with crf equal to 25 }}
+\label{fig:06crf25}
+\end{figure}
+
+
 \subsection{Robusteness in spatial watermarking}
 
 In spatial domain watermarking systems, the watermark is embedded directly in the spatial domain (pixel domain).\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
 
 The evaluation of this detection system has been studied through the ROC curve has said in chapter 3. The results are shown below.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_1.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and not compressed}}
+\label{fig:g1crf1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_15.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 15}}
+\label{fig:g1crf15}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_25.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 25}}
+\label{fig:g1crf25}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_30.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 30}}
+\label{fig:g1crf30}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_1.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and not compressed }}
+\label{fig:g3crf1}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_15.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 15 }}
+\label{fig:g3crf15}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_25.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 25 }}
+\label{fig:g3crf25}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_30.png}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 30 }}
+\label{fig:g3crf30}
+\end{figure}
 
 \subsection{Robustess in DFT watermaking}
 
 In transform domain watermarking systems, watermark insertion is done by transforming the image into the frequency domain using a discrete Fourier transform (DFT), full-image DCT, block-wise DCT, wavelet, Hadamard, Fourier-Mellin, or other transforms.\newline  It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security.\newline 
 
-Two studies are presented in this section: the first one concernes the power of the watermark needed in order to achieve robustness against different levels of compression; the second one focus on youtube, and tries to find the right power to achive robustness in a downloaded video.\newline 
+Two studies are presented in this section: the first one concernes the power of the watermark needed in order to achieve robustness against different levels of compression; the latter focus on youtube, and tries to find the right power to achive robustness in a downloaded video.\newline 
 
 Each test has been made with both the ground truth and graph-cuts disparities.\newline 
 
-The tables xxs shows how the algorithm manage to find the watermark in a compressed video, in particular its shown if the mark is detected in the left/right view or both images. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
+Tables xxs shows how the algorithm manage to find the watermark in a compressed video, in particular it is shown if the mark is detected in the left/right view or both images. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
 
 
 \begin{table}[htbp]
@@ -102,7 +174,35 @@ The tables xxs shows how the algorithm manage to find the watermark in a compres
  \end{center}
  \end{table}
  
- The tables xxs show how a video uploaded on youtube and subsequentially downloaded can preserve the watermark, respecrively when the watermark is iserted with the ground truth disparity and with graph cuts.\newline
+Figures xx-yy show how the uploading and the subsequential download of a non compressed video on youtube degradates the image.\newline
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/yt_03_gt.png}
+\caption{\small{stereo image from video uploaded with power equal to 0.3 }}
+\label{fig:03yt}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/yt_06_gt.png}
+\caption{\small{stereo image from video uploaded with power equal to 0.6 }}
+\label{fig:06yt}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/yt_07_gt.png}
+\caption{\small{stereo image from video uploaded with power equal to 0.7 }}
+\label{fig:07yt}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/yt_08_gt.png}
+\caption{\small{stereo image from video uploaded with power equal to 0.8 }}
+\label{fig:08yt}
+\end{figure}
+
+Tables xxs show how a video uploaded on youtube and subsequentially downloaded can preserve the watermark, respectively when the watermark is iserted with the ground truth disparity and with graph cuts.\newline
+ 
  
  \begin{table}[htbp]
   \label{Tab:ytgt}
@@ -145,9 +245,8 @@ One can notice that, at a global level, detection  statistics gradually degrade 
  
 \section{Robustness to View Synthesis}
 
-In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances
-of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced
-apart between the left (reference) view and the right one, using ***(nome sw).\newline
+In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances of our watermarking system. To this end, we generated a number of intermediate synthetic views, equally spaced apart between the left (reference) view and the right one, using the code in [].\newline
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{./img/synth_view1_25.png}
@@ -188,8 +287,7 @@ The table contains the results for the frequency marking: the first column is th
  \end{table}
  
   
-The same study is proposed for the spatial marking: from a video marked with additive gaussian noise distribuited with zero mean and unit variance, added with power equal to 1, have been generated three synthetized views for each pair of marked frames, respectively one in the middle and the other two at 1/4 and 3/4 of distance from the left (OMG CHE DISCORSO BRUTTO) .\newline The ROC curves below show the results for the different intermediate synthetic views.\newline
- 
+The same study is proposed for the spatial marking: from a video marked with additive gaussian noise have been generated three synthetized views for each pair of marked frames, respectively one in the middle and the other two at 1/4 and 3/4 of distance from the left.\newline The ROC curves below show the results for the different intermediate synthetic views.\newline 
 
 It can be noted that the watermark is always detected in the synthetized views, we can therefore expect the synthetized views to behave like the other against compression.
  
