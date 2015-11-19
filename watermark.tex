@@ -10,11 +10,11 @@ Digital watermarking consists in imperceptiby and persistently associating some 
 The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.3\textwidth]{./img/wat_workflow.png}
+\includegraphics[width=0.6\textwidth]{./img/wat_workflow.png}
 \caption{\small{Watermarking workflow}}
 \label{fig:workflow}
 \end{figure}
-\newpage
+\clearpage
 \subsection{Properties}
 Three parameters are required to evaluate watermarking technique performances:
 \begin{itemize}
@@ -47,14 +47,14 @@ belong to
 \item[-] spatial domain: the watermark is embedded by directly modifying the pixel values;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain1.png}
+\includegraphics[width=1\textwidth]{./img/domain1.png}
 \caption{\small{Spatial domain watermark insertion}}
 \label{fig:dom1}
 \end{figure}
 \item[-] frequency domain: the image is transformed through a mathematical transformation, some coefficients are modified and finally the inverse transform is carried out;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain2.png}
+\includegraphics[width=1\textwidth]{./img/domain2.png}
 \caption{\small{Frequency domain watermark insertion}}
 \label{fig:dom2}
 \end{figure}
@@ -62,7 +62,7 @@ belong to
 into blocks and for each block a mathematical transformation is computed, some coefficients are modified and the inverse transform is done.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain3.png}
+\includegraphics[width=1\textwidth]{./img/domain3.png}
 \caption{\small{Hybrid technique}}
 \label{fig:dom3}
 \end{figure}
@@ -72,7 +72,7 @@ into blocks and for each block a mathematical transformation is computed, some c
 The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ss.png}
+\includegraphics[width=0.6\textwidth]{./img/ss.png}
 \caption{\small{Spread spectrum technique}}
 \label{fig:ss}
 \end{figure}
@@ -82,7 +82,7 @@ The latter takes advantage of the fact that the original content is known at the
 Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread spectrum methods and the increased data payload of the side information methods \cite{QIM}\cite{QIM1}.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{./img/si.png}
+\includegraphics[width=0.7\textwidth]{./img/si.png}
 \caption{\small{Side information technique scheme}}
 \label{fig:si}
 \end{figure}
@@ -237,7 +237,7 @@ In video analysis, lossy compression is a common operation as it helps reduce re
 watermarking schemes.\newline To prevent this problem a solution can be to improve the strenght of the embedded watermark.
 
 \subsubsection{View synthesis}
-Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
+Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis (Figure \ref{fig:vs}).\\
 
 \begin{figure}[h!]
 \centering
@@ -261,7 +261,7 @@ Since in stereoscopic video context it is rather common practice to generate int
 \caption{\small{Synthetized view}}
 \label{fig:vs3}
 \end{subfigure}
-\caption{\small{View synthesis}\label{vs}}
+\caption{\small{View synthesis}\label{fig:vs}}
 \end{figure}
 
 

@@ -249,10 +249,11 @@ Disparity is, therefore, the difference between the $x$ coordinates of two corre
 In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure \ref{fig:occl}).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/occl.png}
+\includegraphics[width=0.9\textwidth]{./img/occl.png}
 \caption{\small{Stereo matching general problems}}
 \label{fig:occl}
 \end{figure}
+\clearpage
 In general, stereo matching algorithms can be categorized into two major classes:
 \begin{itemize}
 \item[-] local methods 
@@ -262,7 +263,7 @@ Local stereo algorithms estimate the correspondence using a local support region
 A naive approach consists of comparing each  pixel or window in the left image with every pixel or window on the same epipolar line in right image and picking position with minimum match cost (e.g., SSD, SAD, normalized correlation).\\ 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./img/local.png}
+\includegraphics[width=1\textwidth]{./img/local.png}
 \caption{\small{Local stereo matching, window based}}
 \label{fig:local}
 \end{figure}
