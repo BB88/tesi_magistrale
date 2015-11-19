@@ -8,14 +8,14 @@ Depth information is essential for an accurate image analysis or for enhancing t
 In a wide variety of image processing applications, explicit depth information is required in
 addition to general image informations, such as intensities, color, densities.\\
 Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
-magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames.\\
+magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames (Figures \ref{appl0} and \ref{appl}).\\
 In remote sensing the terrain's elevation needs to be accurately determined for map production, in remote handling an operator needs to have precise knowledge of the threedimensional organization of the area to avoid collisions and misplacements.\\
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.5\textwidth}
 		\centering
         \includegraphics[width=0.7\textwidth]{./img/bin_pick.png}
-                \caption{\scriptsize{In bin picking applications stereo vision helps to reconstruct the 3D environment and detect the part of the object to be robotically picked}}
+                \caption{\scriptsize{In bin picking applications \cite{BP} stereo vision helps to reconstruct the 3D environment and detect the part of the object to be robotically picked}}
 \end{subfigure}% 
 ~ \quad
 \begin{subfigure}[]{0.5\textwidth}
@@ -23,7 +23,7 @@ In remote sensing the terrain's elevation needs to be accurately determined for 
 	\includegraphics[width=0.7\textwidth]{./img/da_vinci.jpg}
           \caption{\scriptsize{Surgical robot \textit{Da vinci} is provided with a stereoscopic camera that allows a tridimensional view of the operative filed.}}
 \end{subfigure} 
-\caption{\small{Stereoscopy in medical and industrial field}}
+\caption{\small{Stereoscopy in medical and industrial field}\label{appl0}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -39,7 +39,7 @@ In remote sensing the terrain's elevation needs to be accurately determined for 
         \includegraphics[width=0.7\textwidth]{./img/little_ben.jpg}
                 \caption{\scriptsize{In mobile robotics navigation stereo vision has became the first choice technology because it provids a lot of quality data for low costs.}}
 \end{subfigure} 
-\caption{\small{Stereoscopy application's fields}}
+\caption{\small{Stereoscopy application's fields}\label{appl}}
 \end{figure}
 Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound. However it's usually undesirable to have separate systems for acquiring the intensity and the depth information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
 \begin{figure}[h!]
@@ -68,7 +68,7 @@ Depth in real world scenes can be explicitly measured by a number of range sensi
 \end{figure}
 
 \section{3D capturing devices}
-For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
+For stereoscopic shooting, two synchronized cameras must be used \cite{DEVICE}. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.3\textwidth]{./img/interaxial-separation.png}
@@ -130,7 +130,7 @@ A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}
 \end{subfigure}%
 \caption{\small{Digital personal stereo acquisition systems}}\label{fig:mobile}
 \end{figure}
-An other important category of 3D image capture devices it's the one employed in the robotics and automation field, Figure \ref{industrial}. They are usually impressively precise, cost-efficient and fast.
+An other important category of 3D image capture devices it's the one employed in the robotics and automation field, Figure \ref{industrial}, \cite{BUMBLE}\cite{AUTO}. They are usually impressively precise, cost-efficient and fast.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -147,7 +147,7 @@ An other important category of 3D image capture devices it's the one employed in
 \end{figure}
 
 \section{Stereo vision}
-In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene. \\
+In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene\cite{SV}.\\
 The 3D information can be obtained from a pair of images, also known as a stereo pair, by estimating the relative depth of points in the scene.\\
 From the anatomic point of view, the human brain calculates the depth in a visual scene mainly by
 processing the information brought by the images seen by the left and the right eyes. These left and right images are slightly different because the eyes have biologically different emplacements.\\
@@ -182,14 +182,14 @@ viewpoints; with two (or more) cameras we can infer depth, by means of triangula
 \end{figure}
  The camera setup should be geometrically
 calibrated such that the two cameras capture the same part of the real world scene.\\
-Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure \ref{fig:rt}).\\
+Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model\cite{SV2}: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure \ref{fig:rt}).\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
 \caption{\small{Stereo camera model}}
 \label{fig:rt}
 \end{figure}
-These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure \ref{fig:rect_stereo}); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure \ref{fig:rect_stereo}); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map\cite{ZISS}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
@@ -199,7 +199,7 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/standard.png}
-\caption{\small{Rectified images: corresponding points (p, p'), projection of the same 3D point (P) are constrained on the same image horizontal line, the epipolar line}}
+\caption{\small{Rectified images: corresponding points (p, p'), projection of the same 3D point (P) are constrained on the same image horizontal line, the epipolar line.}}
 \label{fig:std}
 \end{figure}
 
@@ -308,7 +308,7 @@ The energy of a configuration  $\mathnormal{f}$ is  defined as:
 \end{equation}
 where each term promotes a desired property of the configuration: the data term measures how well matched pairs fit, the occlusion term minimizes the number of occluded pixels, the smoothness term penalizes the nonregularity of the configuration,
 and the last term enforces the uniqueness.\\
-Since this energy funtion is not graph-representable, his minimization can be approximated by an iterated constrained minimization, given by so-called expansion moves \cite{}]; given this changes, the energy assumes a new expression, $\mathnormal{E}_{\mathnormal{f},\alpha}$
+Since this energy funtion is not graph-representable, his minimization can be approximated by an iterated constrained minimization, given by so-called expansion moves \cite{ALPHA}]; given this changes, the energy assumes a new expression, $\mathnormal{E}_{\mathnormal{f},\alpha}$
 .\\
 The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnormal{f},\alpha}$ is then found. The problem is NP-hard, so a local minimum is computed. 
 
@@ -317,15 +317,39 @@ The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnorm
 
 \section{3D video displays}
 The basic technique of stereo displays is to present offset images that are displayed separately to the left and right eye. Both of these 2D offset images are then combined in the brain to give the perception of 3D depth.\\
-For stereoscopic 3D displays the viewer needs to wear special glasses which separate the views of the stereoscopic image for the left and the right eye. These 3D glasses can be active or passive.\\
+For stereoscopic 3D displays the viewer needs to wear special glasses which separate the views of the stereoscopic image for the left and the right eye. These 3D glasses can be active or passive\cite{3D}\cite{3D2}.\\
 On the one hand, active glasses are controlled by a timing signal that allows to alternatively darken one
 eye glass, and then the other, in synchronization with the refresh rate of the screen. Hence presenting
 the image intended for the left eye while blocking the right eye's view, then presenting the right-eye
 image while blocking the left eye, and repeating the process at a high speed which gives the perception
-of a single 3D image. This technology generally uses liquid crystal shutter glasses(Figure \ref{fig:glass1}).\\
-On the other hand, passive glasses are polarization-based systems and contain a pair of opposite polarizing filters; each of them passes light with similar polarization and blocks the opposite polarized light (Figure \ref{fig:glass2}). Passive 3D TV screens sport a filter with alternating horizontal and vertical stripes, separated by a black, picture-blanking bars. When used with glasses which have corresponding polarising lenses, alternate frames are presented to each eye to create a 3D image.\\
+of a single 3D image(Figure \ref{fig:tv2}). This technology generally uses liquid crystal shutter glasses(Figure \ref{fig:glass1}).\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/tv1.png}
+\caption{\scriptsize{Polarized glasses vision system}}
+\label{fig:tv1}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/tv3.png}
+\caption{\scriptsize{Anaglyph glasses}}
+\label{fig:tv3}
+\end{subfigure} 
+\begin{subfigure}[]{0.7\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/tv2.png}
+\caption{\scriptsize{LCD shutter glasses glasses vision system}}
+\label{fig:tv2}
+\end{subfigure}%
+\caption{\small{3D-TV visual systems}}
+\end{figure}
+On the other hand, passive glasses are polarization-based systems and contain a pair of opposite polarizing filters; each of them passes light with similar polarization and blocks the opposite polarized light (Figure \ref{fig:glass2}).  In circular polarization each image is circularly polarised by the display and shown together, the left eye is polarised clockwise and the right eye is polarised anticlockwise. The glasses also have a circular polarising filter for each eye, the left lens filters or blocks out the right eye image and the right lens filters or blocks out the left eye image (Figure \ref{fig:tv1}).\\ In linear polarization  passive 3D TV screens sport a filter with alternating horizontal and vertical stripes, separated by a black, picture-blanking bars. When used with glasses which have corresponding polarising lenses, alternate frames are presented to each eye to create a 3D image.\\
 The color anaglyph-based systems are a particular case of the passive glasses and use a color filter for
-each eye, typically red and cyan, Figure \ref{fig:glass3} . The anaglyph 3D image contains two images encoded using the same color filter, thus ensuring that each image reaches only one eye.
+each eye, typically red and cyan, Figure \ref{fig:glass3} . The anaglyph 3D image contains two images encoded using the same color filter, thus ensuring that each image reaches only one eye (Figure \ref{fig:tv3}).
 \begin{figure}[h!]
 \centering
 \label{fig:glass}

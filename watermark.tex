@@ -22,7 +22,7 @@ Three parameters are required to evaluate watermarking technique performances:
 \item[-] robustness, i.e.,the capability of the hidden data to survive host signal manipulation including compression, signal processing, geometric manipulations;
 \item[-] data payload, that is the amount of data of information bits that it is able to convey.
 \end{itemize}
-DISCORSO SUL TRADEOFF
+These requirements are though inversely proportional (Figure \ref{fig:properties}): the more information is embedded, the more the watermark is visible and viceversa; the more robusteness is encreased, the more the watermark is visible and viceversa.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{./img/properties.png}
@@ -76,14 +76,10 @@ The most straightforward ways to add a watermark in a given content have been pr
 \caption{\small{Spread spectrum technique}}
 \label{fig:ss}
 \end{figure}
-As in spread spectrum communications, the former approach considers the original
-content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable.\\
-The latter takes advantage of the fact that the original content is known at the
-embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of
-inserted data can be maximed.\\
+As in spread spectrum communications, the former approach considers the original content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable\cite{COX}\cite{COX1}.\\
+The latter takes advantage of the fact that the original content is known at the embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of inserted data can be maximed\cite{COX2,SH, EG, COSTA}.\\
 
-Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread
-spectrum methods and the increased data payload of the side information methods.
+Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread spectrum methods and the increased data payload of the side information methods \cite{QIM}\cite{QIM1}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{./img/si.png}
@@ -99,8 +95,8 @@ A new approach, however, has been recently introduced in stereoscopic view-based
 \subsection{Embedding domain}
 In stereoscopic video context the studies can be structured in two other categories in addition to spacial and frequency domain:
 \begin{itemize}
-\item[-] view-based methods;
-\item[-] disparity-based methods
+\item[-] view-based methods \cite{16,17,18,19,20,21};
+\item[-] disparity-based methods \cite{22}
 \end{itemize}
 according to the reference image in which the mark is actually inserted.\\
 In Figure \ref{stereo_method} the workflows of both methods are presented.
@@ -132,7 +128,9 @@ what would naturally occur in reality and thereby yields less visual discomfort,
 View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
 
 \subsection{Perseption evaluation}
-The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM .\\
+
+Perceptual impact can be defined as the imperceptibility of the embedded additional information in the watermarked content. This may signify either that the user is not disturbed by the artefacts induced by the watermark in the host document or that the user cannot identify any difference between the marked and the unmarked document.\\
+The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM \cite{METRICS}.\\
 
 In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of human perception.\\
 In Chaminda et al.'s study a Reduced-Reference
@@ -160,13 +158,116 @@ MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
 \end{equation}
 As in \cite{QMETRICS}, the Sobel operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
 
+Finally the PSNR measure has been used to evaluate the quality of the watermarked videos and the quality of the compressed videos.
+
 \subsection{Robustness}
+The robustness refers to the ability of detecting the watermark after applying some signal modifications
+and malicious attacks on the marked content, such as spatial filtering, additive noise, geometric  transformations, lossy compression and, in stereoscopic context, view synthesis.
+
+\subsubsection{Spatial filtering}
+Linear filtering (such as blurring) and non-linear filtering (such as sharpening) are included in some image processing software: this operations remove from a signal some unwanted component or feature (Figure \ref{bl}).
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/lena.png}
+\caption{\small{Original image}}
+\label{fig:lbO}
+\end{subfigure}% 
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/blur.png}
+\caption{\small{Blurred image}}
+\label{fig:blI}
+\end{subfigure}% 
+\caption{\small{Spatial filtering: blurring}\label{bl}}
+\end{figure}
+
+\subsubsection{Additive Noise}
+The additive noise can be added to the content when applying some usual processing or when transmitting the signal over a communication channel during the broadcast (Figure \ref{noise}). 
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/lena2.png}
+\caption{\small{Original image}}
+\label{fig:noise1}
+\end{subfigure}% 
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/noise.png}
+\caption{\small{Noised image}}
+\label{fig:noise2}
+\end{subfigure}% 
+\caption{\small{Additive noise}\label{noise}}
+\end{figure}
+
+\subsubsection{Geometric distortions}
+The geometric distortions include rotations, translations, spatial scaling, cropping and changes in aspect ratio (Figure \ref{geom}) they commonly occur during format changes.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/lena3.png}
+\caption{\small{Original image}}
+\label{fig:geom1}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width= 0.8\textwidth]{./img/crop.png}
+\caption{\small{Cropped image}}
+\label{fig:geom2}
+  \end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/rot.png}
+\caption{\small{Rotated image}}
+\label{fig:geom3}
+\end{subfigure}
+\caption{\small{Geometric transformations}\label{geom}}
+\end{figure}
+
+\subsubsection{Lossy compression}
+In video analysis, lossy compression is a common operation as it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus affects the embedded watermark, as it removes the redundancy exploited in
+watermarking schemes.\newline To prevent this problem a solution can be to improve the strenght of the embedded watermark.
+
 \subsubsection{View synthesis}
 Since in stereoscopic video context it is rather common practice to generate intermediate virtual views to adjust depth perception and since such view synthesis introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms, stereo video watermarking strategies have to achieve robustness to synthetic view synthesis.\\
 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/left_watermarked.png}
+\caption{\small{Left image}}
+\label{fig:vs1}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width= 0.8\textwidth]{./img/right_watermarked.png}
+\caption{\small{Right image}}
+\label{fig:vs2}
+  \end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{./img/synth_view_watermarked.png}
+\caption{\small{Synthetized view}}
+\label{fig:vs3}
+\end{subfigure}
+\caption{\small{View synthesis}\label{vs}}
+\end{figure}
+
+
 
 In this thesis a disparity-coherent watermarking algorithm has been implemented. It works in the frequency and spatial domain: a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image then  the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\
-It has shown good results in quality measure tests and roubustness test against view synthesis.\\
+It has shown good results in quality measure tests and roubustness test against view synthesis and compression.\\
 An optimum criterion to verify if a given mark is present in an image is derived based on statistical decision theory, \cite{STAT}, allowing a robust watermark detection without resorting to the original uncorrupted image.\\
 
 
