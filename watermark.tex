@@ -10,18 +10,19 @@ Digital watermarking consists in imperceptiby and persistently associating some 
 The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.3\textwidth]{./img/wat_workflow.png}
+\includegraphics[width=0.6\textwidth]{./img/wat_workflow.png}
 \caption{\small{Watermarking workflow}}
 \label{fig:workflow}
 \end{figure}
-\newpage
+\clearpage
 \subsection{Properties}
 Three parameters are required to evaluate watermarking technique performances:
 \begin{itemize}
-\item[-] transparency, that is the misure of how much the watermark affects the quality of the host data;
+\item[-] perceptual impact, that is the misure of how much the watermark affects the quality of the host data;
 \item[-] robustness, i.e.,the capability of the hidden data to survive host signal manipulation including compression, signal processing, geometric manipulations;
 \item[-] data payload, that is the amount of data of information bits that it is able to convey.
 \end{itemize}
+DISCORSO SUL TRADEOFF
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{./img/properties.png}
@@ -46,14 +47,14 @@ belong to
 \item[-] spatial domain: the watermark is embedded by directly modifying the pixel values;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain1.png}
+\includegraphics[width=1\textwidth]{./img/domain1.png}
 \caption{\small{Spatial domain watermark insertion}}
 \label{fig:dom1}
 \end{figure}
 \item[-] frequency domain: the image is transformed through a mathematical transformation, some coefficients are modified and finally the inverse transform is carried out;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain2.png}
+\includegraphics[width=1\textwidth]{./img/domain2.png}
 \caption{\small{Frequency domain watermark insertion}}
 \label{fig:dom2}
 \end{figure}
@@ -61,7 +62,7 @@ belong to
 into blocks and for each block a mathematical transformation is computed, some coefficients are modified and the inverse transform is done.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/domain3.png}
+\includegraphics[width=1\textwidth]{./img/domain3.png}
 \caption{\small{Hybrid technique}}
 \label{fig:dom3}
 \end{figure}
@@ -71,7 +72,7 @@ into blocks and for each block a mathematical transformation is computed, some c
 The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ss.png}
+\includegraphics[width=0.6\textwidth]{./img/ss.png}
 \caption{\small{Spread spectrum technique}}
 \label{fig:ss}
 \end{figure}
@@ -85,7 +86,7 @@ Sometimes hybrid watermarking methods combining spread spectrum and side informa
 spectrum methods and the increased data payload of the side information methods.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{./img/si.png}
+\includegraphics[width=0.7\textwidth]{./img/si.png}
 \caption{\small{Side information technique scheme}}
 \label{fig:si}
 \end{figure}
@@ -130,10 +131,10 @@ The advantages of producing disparity-coherent watermarks are two: first it prod
 what would naturally occur in reality and thereby yields less visual discomfort, second  disparity-coherent watermarks are expected to exhibit superior robustness against view synthesis, \cite{DOER}.\\
 View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
 
-\subsection{Transparency evaluation}
+\subsection{Perseption evaluation}
 The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM .\\
 
-In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of transparency.\\
+In this thesis the measures in \cite{QMETRICS} have been used to evaluate the quality of the watermarking technique in terms of human perception.\\
 In Chaminda et al.'s study a Reduced-Reference
 (RR) quality metric for color plus depth 3D video compression and transmission is proposed, using the extracted edge information of color plus depth map 3D video.\\ 
 The work is motivated by the fact that the edges/contours of the depth map can represent different depth levels and this can be considered for measuring structural degradations. Since depth map boundaries are also coincident with the corresponding color image object boundaries, edge information of the color image and of the depth map is compared to obtain a quality index (structural degradation) for the corresponding color image sequence.\\

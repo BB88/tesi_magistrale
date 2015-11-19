@@ -4,12 +4,11 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{Stereoscopic Video}
 
+Depth information is essential for an accurate image analysis or for enhancing the realism.\\
 In a wide variety of image processing applications, explicit depth information is required in
 addition to general image informations, such as intensities, color, densities.\\
 Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
 magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames.\\
-In each of these cases, depth information is essential for accurate image analysis or for enhancing the
-realism.\\
 In remote sensing the terrain's elevation needs to be accurately determined for map production, in remote handling an operator needs to have precise knowledge of the threedimensional organization of the area to avoid collisions and misplacements.\\
 \begin{figure}[h!]
 \centering
@@ -42,9 +41,7 @@ In remote sensing the terrain's elevation needs to be accurately determined for 
 \end{subfigure} 
 \caption{\small{Stereoscopy application's fields}}
 \end{figure}
-Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound.
-However it's usually undesirable to have separate systems for acquiring the intensity and the depth
-information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
+Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound. However it's usually undesirable to have separate systems for acquiring the intensity and the depth information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -69,174 +66,6 @@ information because of the relative low resolution of the range sensing devices 
 \end{subfigure} 
 \caption{\small{Stereoscopy in 3D video games}}
 \end{figure}
-
-\section{Stereo vision}
-In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene. \\
-The 3D information can be obtained from a pair of images, also known as a stereo pair, by estimating the relative depth of points in the scene.\\
-From the anatomic point of view, the human brain calculates the depth in a visual scene mainly by
-processing the information brought by the images seen by the left and the right eyes. These left and right images are slightly different because the eyes have biologically different emplacements.\\
-Consequently, the straightforward way of achieving stereoscopic digital imaging is to emulate the
-Human Visual System (HSV) by setting-up (under controlled geometric positions), two traditional 2D
-cameras.\\
-\begin{figure}[h]
-\centering
-\begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\textwidth]{./img/hvs.png}
-         \caption{\scriptsize{Binocular human visual system}}
-         \label{fig:hvs}
-\end{subfigure}
-\begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\textwidth]{./img/stereo.png}
-        \caption{\scriptsize{Stereoscopic system}}
-        \label{fig:stereo}
-\end{subfigure} 
-\caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
-\end{figure}
-
-\subsection{Acquisition of stereoscopic images}\label{sec:acquisition-of-stereoscopic-images}
-
-In order to be able to perceive depth using recorded images, a stereoscopic camera is required,
-which consists of two cameras that capture two different, horizontally shifted perspective
-viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure \ref{fig:corr}).\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/correspondance.png}
-\caption{\small{Triangulation: with two cameras the depth of }}
-\label{fig:corr}
-\end{figure}
- The camera setup should be geometrically
-calibrated such that the two cameras capture the same part of the real world scene.\\
-Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure \ref{fig:rt}).\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
-\caption{\small{Stereo camera model}}
-\label{fig:rt}
-\end{figure}
-These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure \ref{fig:rect_stereo}); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
-\caption{\small{Rectified stereo cameras}}
-\label{fig:rect_stereo}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/standard.png}
-\caption{\small{Rectified images: corresponding points (p, p'), projection of the same 3D point (P) are constrained on the same image horizontal line, the epipolar line}}
-\label{fig:std}
-\end{figure}
-
-\newpage
-\subsection{Disparity map computation}
-
-With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp'): 
-$$
-\frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
-$$ 
-so
-$$
-Z = \frac{b \cdot f}{x_{L} - x_{R}} = \frac{b \cdot f}{d}
-$$ 
-
-where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/depth.png}
-\caption{\small{Geometry of standard form}}
-\label{fig:depth}
-\end{figure}
-Disparity is, therefore, the difference between the $x$ coordinates of two corresponding points and it is usually encoded with greyscale image (Figure \ref{fig:disparity}), where points closer to the cameras are brighter and correspond to a higher disparity.\\
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/left.png}
-\caption{\scriptsize{Left image}}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/right.png}
-\caption{\scriptsize{Right image}}
-\end{subfigure} 
-~\quad
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/disparity.png}
-\caption{\scriptsize{Disparity map}}
-\label{fig:disparity}
-\end{subfigure}%
-\caption{\small{Stereo pair and disparity map}}
-\end{figure}
-In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure \ref{fig:occl}).\\
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{./img/occl.png}
-\caption{\small{Stereo matching general problems}}
-\label{fig:occl}
-\end{figure}
-In general, stereo matching algorithms can be categorized into two major classes:
-\begin{itemize}
-\item[-] local methods 
-\item[-] global methods.
-\end{itemize}
-Local stereo algorithms estimate the correspondence using a local support region or a window. Local algorithms generally rely on an approximation of the smoothness constraint assuming that all pixels within the matching region have the same disparity. However, this assumption is not valid for highly curved surfaces or around disparity discontinuities.\\
-A naive approach consists of comparing each  pixel or window in the left image with every pixel or window on the same epipolar line in right image and picking position with minimum match cost (e.g., SSD, SAD, normalized correlation).\\ 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\textwidth]{./img/local.png}
-\caption{\small{Local stereo matching, window based}}
-\label{fig:local}
-\end{figure}
-Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.\\
-Even if this class of algorithms is significantly slow, the results, especially when textures and discontinuities are present, are much accurate.\\
-\newline
-In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm, \cite{KZ}, has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying with regard to the ground trouth.\\
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/gf1.png}
-\caption{\scriptsize{Left image}}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/gf2.png}
-\caption{\scriptsize{Graph cuts' disparity map}}
-\end{subfigure} 
-~\quad
-\begin{subfigure}[]{0.4\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{./img/gf3.png}
-\caption{\scriptsize{Ground truth disparity map}}
-\label{disparity}
-\end{subfigure}%
-\caption{\small{Results of the Kolmogorov and Zabih's graph cuts algorithm on the Tsukuba pair}}
-\end{figure}
-
-\newpage
-In this algorithm the correspondence problem is addressed by constructing a problem representation
-and an energy function that takes into account the \textit{uniqueness} of a configuration.\\
-A configuration $\mathnormal{f}$ is any map $\mathnormal{f}: \mathcal{A} \rightarrow \{0,1\}$, where $ \mathcal{A}$ is the set of pair of pixels $(p,q)$, (p pixel of left image and q pixel of right image), which may potentially correspond. If $a = (p,q)$ is an assigment, then $\mathnormal{f}(a) = 1$ means that $p$  and $q$ correspond under the configuration $\mathnormal{f}$.\\
-A configuration is \textit{unique} if for all pixels $p$ (resp. $q$), there is at
-most one active assignment involving $p$ (resp. $q$): for instance, considering $p$, if $\mathnormal{f}(p, q1) = \mathnormal{f}(p, q2) = 1$,
-then $q1 = q2$ . A pixel that correspond to no
-pixel in the other image is labeled as occluded.\\
-The energy of a configuration  $\mathnormal{f}$ is  defined as: 
-\begin{equation}
-\mathnormal{E}(\mathnormal{f}) = \mathnormal{E}_{data}(\mathnormal{f}) + \mathnormal{E}_{occlusion}(\mathnormal{f}) +\mathnormal{E}_{smoothness}(\mathnormal{f}) +\mathnormal{E}_{uniqueness}(\mathnormal{f})
-\end{equation}
-where each term promotes a desired property of the configuration: the data term measures how well matched pairs fit, the occlusion term minimizes the number of occluded pixels, the smoothness term penalizes the nonregularity of the configuration,
-and the last term enforces the uniqueness.\\
-Since this energy funtion is not graph-representable, his minimization can be approximated by an iterated constrained minimization, given by so-called expansion moves \cite{}]; given this changes, the energy assumes a new expression, $\mathnormal{E}_{\mathnormal{f},\alpha}$
-.\\
-The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnormal{f},\alpha}$ is then found. The problem is NP-hard, so a local minimum is computed. 
-
-
 
 \section{3D capturing devices}
 For stereoscopic shooting, two synchronized cameras must be used. The distance between the center of the lenses of the two cameras is called the interaxial, and the cameras' convergence, is called the angulation. These two parameters can be modified according to the expected content peculiarities.\\
@@ -299,9 +128,9 @@ A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}
 \includegraphics[width=0.7\textwidth]{./img/devices3.png}
 \caption{\scriptsize{Camcorders}}
 \end{subfigure}%
-\caption{\small{Digital personal stereo vision systems}}\label{fig:mobile}
+\caption{\small{Digital personal stereo acquisition systems}}\label{fig:mobile}
 \end{figure}
-An other important category of 3D image capture devices it's the one employed in the robotics and automation field. They are usually impressively precise, cost-efficient and fast.
+An other important category of 3D image capture devices it's the one employed in the robotics and automation field, Figure \ref{industrial}. They are usually impressively precise, cost-efficient and fast.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -314,8 +143,179 @@ An other important category of 3D image capture devices it's the one employed in
 \includegraphics[width=0.7\textwidth]{./img/stereodevices.png}
 \caption{\scriptsize{Human wearable stereo device}}
 \end{subfigure}
-\caption{\small{Industrial and robotic stereo cameras}}
+\caption{\small{Industrial and robotic stereo cameras}\label{industrial}}
 \end{figure}
+
+\section{Stereo vision}
+In image processing stereo vision is the process of extracting 3D information from multiple 2D views of a scene. \\
+The 3D information can be obtained from a pair of images, also known as a stereo pair, by estimating the relative depth of points in the scene.\\
+From the anatomic point of view, the human brain calculates the depth in a visual scene mainly by
+processing the information brought by the images seen by the left and the right eyes. These left and right images are slightly different because the eyes have biologically different emplacements.\\
+Consequently, the straightforward way of achieving stereoscopic digital imaging is to emulate the
+Human Visual System (HSV) by setting-up (under controlled geometric positions), two traditional 2D
+cameras.\\
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{./img/hvs.png}
+         \caption{\scriptsize{Binocular human visual system}}
+         \label{fig:hvs}
+\end{subfigure}
+\begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{./img/stereo.png}
+        \caption{\scriptsize{Stereoscopic system}}
+        \label{fig:stereo}
+\end{subfigure} 
+\caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
+\end{figure}
+
+\subsection{Background}
+
+In order to be able to perceive depth using recorded images, a stereoscopic camera is required,
+which consists of two cameras that capture two different, horizontally shifted perspective
+viewpoints; with two (or more) cameras we can infer depth, by means of triangulation, if we are able to find corresponding points in the two images (Figure \ref{fig:corr}).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/correspondance.png}
+\caption{\small{Triangulation: with two cameras the depth of }}
+\label{fig:corr}
+\end{figure}
+ The camera setup should be geometrically
+calibrated such that the two cameras capture the same part of the real world scene.\\
+Calibration of a stereo camera system involves the estimation of the intrinsic and extrinsic parameters of the model: intrinsic parameters embody the characteristics of the optical system and its geometric relationship with the image sensor, extrinsic parameters relate the location and orientation of the second camera with respect to the first one in the 3D space (Figure \ref{fig:rt}).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/stereo_system.png}
+\caption{\small{Stereo camera model}}
+\label{fig:rt}
+\end{figure}
+These parameters can be used to rectify a stereo pair of images to make them appear as the two image planes are parallel (Figure \ref{fig:rect_stereo}); once the images are rectified, epipolar geometry it's used to find corresponding points and compute the disparity map.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/rect_stereo.png}
+\caption{\small{Rectified stereo cameras}}
+\label{fig:rect_stereo}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/standard.png}
+\caption{\small{Rectified images: corresponding points (p, p'), projection of the same 3D point (P) are constrained on the same image horizontal line, the epipolar line}}
+\label{fig:std}
+\end{figure}
+
+\newpage
+\subsection{Disparity map computation}
+
+With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp') the following relations hold: 
+$$
+\frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
+$$ 
+so
+$$
+Z = \frac{b \cdot f}{x_{L} - x_{R}} = \frac{b \cdot f}{d}
+$$ 
+
+where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/depth.png}
+\caption{\small{Geometry of standard form}}
+\label{fig:depth}
+\end{figure}
+Disparity is, therefore, the difference between the $x$ coordinates of two corresponding points and it is usually encoded with greyscale image (Figure \ref{fig:disparity}), where points closer to the cameras are brighter and correspond to a higher disparity.\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/left.png}
+\caption{\scriptsize{Left image}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/right.png}
+\caption{\scriptsize{Right image}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/disparity.png}
+\caption{\scriptsize{Disparity map}}
+\label{fig:disparity}
+\end{subfigure}%
+\caption{\small{Stereo pair and disparity map}}
+\end{figure}
+In order to compute the disparity map is necessary to find corresponding points; stereo correspondance is though a challenging task that has to manage with perspective distortions, uniform and ambiguous regions, repetitive patterns, occlusions and discontinuities(Figure \ref{fig:occl}).\\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{./img/occl.png}
+\caption{\small{Stereo matching general problems}}
+\label{fig:occl}
+\end{figure}
+\clearpage
+In general, stereo matching algorithms can be categorized into two major classes:
+\begin{itemize}
+\item[-] local methods 
+\item[-] global methods.
+\end{itemize}
+Local stereo algorithms estimate the correspondence using a local support region or a window. Local algorithms generally rely on an approximation of the smoothness constraint assuming that all pixels within the matching region have the same disparity. However, this assumption is not valid for highly curved surfaces or around disparity discontinuities.\\
+A naive approach consists of comparing each  pixel or window in the left image with every pixel or window on the same epipolar line in right image and picking position with minimum match cost (e.g., SSD, SAD, normalized correlation).\\ 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{./img/local.png}
+\caption{\small{Local stereo matching, window based}}
+\label{fig:local}
+\end{figure}
+Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.\\
+Even if this class of algorithms is significantly slow, the results, especially when textures and discontinuities are present, are much accurate.\\
+\newline
+In this thesis the Kolmogorov and Zabih's Graph Cuts Stereo Matching Algorithm, \cite{KZ}, has been used, because there were no time constraints requirements and the quality of the computed disparities has been considered satisfying with regard to the ground trouth.\\
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf1.png}
+\caption{\scriptsize{Left image}}
+\end{subfigure}% 
+~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.$  $
+  %(or a blank line to force the subfigure onto a new line)
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf2.png}
+\caption{\scriptsize{Graph cuts' disparity map}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{./img/gf3.png}
+\caption{\scriptsize{Ground truth disparity map}}
+\label{disparity}
+\end{subfigure}%
+\caption{\small{Results of the Kolmogorov and Zabih's graph cuts algorithm on the Tsukuba pair}}
+\end{figure}
+
+\newpage
+In this algorithm the correspondence problem is addressed by constructing a problem representation
+and an energy function that takes into account the \textit{uniqueness} of a configuration.\\
+A configuration $\mathnormal{f}$ is any map $\mathnormal{f}: \mathcal{A} \rightarrow \{0,1\}$, where $ \mathcal{A}$ is the set of pair of pixels $(p,q)$, (p pixel of left image and q pixel of right image), which may potentially correspond. If $a = (p,q)$ is an assigment, then $\mathnormal{f}(a) = 1$ means that $p$  and $q$ correspond under the configuration $\mathnormal{f}$.\\
+A configuration is \textit{unique} if for all pixels $p$ (resp. $q$), there is at
+most one active assignment involving $p$ (resp. $q$): for instance, considering $p$, if $\mathnormal{f}(p, q1) = \mathnormal{f}(p, q2) = 1$,
+then $q1 = q2$ . A pixel that correspond to no
+pixel in the other image is labeled as occluded.\\
+The energy of a configuration  $\mathnormal{f}$ is  defined as: 
+\begin{equation}
+\mathnormal{E}(\mathnormal{f}) = \mathnormal{E}_{data}(\mathnormal{f}) + \mathnormal{E}_{occlusion}(\mathnormal{f}) +\mathnormal{E}_{smoothness}(\mathnormal{f}) +\mathnormal{E}_{uniqueness}(\mathnormal{f})
+\end{equation}
+where each term promotes a desired property of the configuration: the data term measures how well matched pairs fit, the occlusion term minimizes the number of occluded pixels, the smoothness term penalizes the nonregularity of the configuration,
+and the last term enforces the uniqueness.\\
+Since this energy funtion is not graph-representable, his minimization can be approximated by an iterated constrained minimization, given by so-called expansion moves \cite{}]; given this changes, the energy assumes a new expression, $\mathnormal{E}_{\mathnormal{f},\alpha}$
+.\\
+The minimal cut of a graph that represents the energy $\mathnormal{E}_{\mathnormal{f},\alpha}$ is then found. The problem is NP-hard, so a local minimum is computed. 
+
+
+
+
 \section{3D video displays}
 The basic technique of stereo displays is to present offset images that are displayed separately to the left and right eye. Both of these 2D offset images are then combined in the brain to give the perception of 3D depth.\\
 For stereoscopic 3D displays the viewer needs to wear special glasses which separate the views of the stereoscopic image for the left and the right eye. These 3D glasses can be active or passive.\\
