@@ -207,13 +207,13 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \subsection{Disparity map computation}
 
 With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp') the following relations hold: 
-$$
+\begin{equation}
 \frac{B}{Z} = \frac{(B+x_{L}) - x_{R}}{Z-f} 
-$$ 
+\end{equation}
 so
-$$
+\begin{equation}
 Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}
-$$ 
+\end{equation}
 
 where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
 \begin{figure}[h!]

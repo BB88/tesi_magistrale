@@ -58,14 +58,10 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 
 \section{Robustness against compression}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-off between robustness and transparency.\\
 In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but it is necessary to mantain an acceptable trade-of between robustness and transparency.\newline
-=======
 In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-off between robustness and transparency. \newline
 Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due to compression and watermark power.
->>>>>>> 80e4f86b84fef8a7738afe460521750942767cb4
 
 
 \begin{figure}[h!]
@@ -386,6 +382,51 @@ Often with stereo watermarking, view synthesis can be a problem since local geom
 
 As said in chapter 2 the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
 
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:} its shown the value of the quality measure with respect to the power of the embedded watermark.   
+For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
+
+
+
+Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between original and compressed videos (at diffent compression levels) and the corrispondent watermarked videos(with different values of the power).\\ 
+PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
+
+
+
+The results of this study are shown in Table XX.
+\begin{table}[htbp]
+\begin{center}
+\scalebox{0.6}{ 
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Power & Compression Level & PSNR(dB) \\ \hline
+
+0.3 & 1  & 46.0071 \\
+& 15 		    & 41.7044 \\
+& 25 		    & 38.5995 \\
+& YT 		    & 38.9626 \\
+& 30 		    & 36.4890 \\
+ \hline\hline   					
+0.5 & 1 & 45.9505 \\
+& 15 		    & 41.5850 \\
+& 25 		    & 38.4557 \\
+& YT 		    & 38.9547\\
+& 30 		    & 36.6090 \\ 
+\hline\hline	
+0.6& 1 & 45.9291 \\
+& 15 		    & 41.5458 \\
+& 25 		    & 38.4008 \\
+& YT 		    & 38.9481 \\
+& 30 		    & 36.3091 \\ 
+\hline 
+\end{tabularx}
+ }
+\caption{ \label{tab:psnr_wm}}
+\end{center}
+\end{table}
+
+
+
+
+
+
 
 

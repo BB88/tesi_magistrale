@@ -154,7 +154,29 @@ MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
 \end{equation}
 As in \cite{QMETRICS}, the Sobel operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
 
-Finally the PSNR measure has been used to evaluate the quality of the watermarked videos and the quality of the compressed videos.
+Finally the PSNR measure has been used to evaluate the quality of the watermarked videos and the quality of the compressed videos.\\
+PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; many signals have a very wide dynamic range, therefore PSNR is usually expressed in terms of the logarithmic decibel scale (dB). \\
+For color images with three RGB values per pixel, the definition of PSNR is the following:
+\begin{equation}
+PSNR = 10 \cdot \log_{10}\bigg( \frac{MAX_{I}^2}{MSE}\bigg)
+\end{equation}
+
+\begin{align}
+MSE & = \frac{1}{3*MN} \sum_{i=0}^{M-1}\sum_{j=0}^{N-1}\Big(\mathbb{R} +\mathbb{G} + \mathbb{B}  \Big) \\
+\mathbb{R} &= [R_{I}(i,j)-R_{\tilde{I}}(i,j)]^{2} \\
+\mathbb{G} &= [G_{I}(i,j)-G_{\tilde{I}}(i,j)]^{2} \\
+\mathbb{B} &= [B_{I}(i,j)-B_{\tilde{I}}(i,j)]^{2}
+\end{align}
+
+\begin{multline}
+MSE  = \frac{1}{3*MN} \sum_{i=0}^{M-1}\sum_{j=0}^{N-1}\Big([R_{I}(i,j)-R_{\tilde{I}}(i,j)]^{2} +[G_{I}(i,j)-G_{\tilde{I}}(i,j)]^{2} + \\
++ [B_{I}(i,j)-B_{\tilde{I}}(i,j)]^{2} \Big) 
+\end{multline}
+
+where, $MAX_{I}$ is the maximum possible pixel value of the image ( when the pixels are represented using 8 bits per sample, this is 255). 
+
+
+Typical values for the PSNR in lossy image and video compression are between 30 and 50 dB.
 
 \subsection{Robustness}
 The robustness refers to the ability of detecting the watermark after applying some signal modifications
