@@ -13,13 +13,13 @@ This process brings two advantages: it produces stereoscopic views more in line 
 \section{Prior work} 
 
 A prior work that is based on the disparity-coherent technique is the one carried on by Doerr et al in "Blind Detection for Disparity-Coherent
-Stereo Video Watermarking" [].\newline
+Stereo Video Watermarking" \cite{DOER2}.\newline
 The watermark strategy  assumes that the key-seeded reference watermark pattern $w_{K}\textasciitilde N(0, 1)$ is embedded spatially in the left view and subsequently transferred to the right one.\newline
 The watermark embedding and detection operations for the left view are therefore given by the conventional spread-spectrum equations:\newline
 $$f_{l}^{w} = f_{l}+\alpha w_{K}$$
 $$\rho(f_{l}+\epsilon\alpha w_{K},w_{K})= \frac{1}{wh}\sum_{x,y}(f_{l}(x,y)+\epsilon\alpha w_{K}(x,y))w_{K}(x,y)\approx\epsilon\alpha $$
 where the superscript w indicates watermarked quantities, the subscript l (resp. r ) denotes quantities related to the left (resp. right) view, $\alpha > 0$ is the embedding strength, and w is normally distributed with zero mean and unit variance.\newline
-The embedding strenght used in [] to keep the embedding distortion imperceptible is $\alpha = 3$.\newline 
+The embedding strenght used in \cite{DOER2} to keep the embedding distortion imperceptible is $\alpha = 3$.\newline 
 
 For the right view, the watermarking equation is the same, except that the watermark pattern $w_{K}$ is warped according to the depth information prior to insertion.
 

@@ -7,7 +7,7 @@ Now we proposed a variant of the described watermarking process, which works in 
 
 \section{Watermark in Fourier domain}
 
-The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" [], where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility.\newline
+The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" \cite{PIVA}, where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility.\newline
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/blocchi.png}
@@ -19,7 +19,7 @@ For the stereo watermarking task this process has been simplified and cut to the
 
 \subsection{Watermark embedding}
 
-In [] the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
+In \cite{PIVA} the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
 To garantee a blind detection system the number and position of the coefficient are fixed a priori: based on the size of the image to watermark, the coefficient are choosen in the medium frequencies of the spectrum to achieve a compromise between robustness and invisibillity.\newline 
 The watermark embedding rule is the following:
 $$y_{i}^{'} = y_{i}+\alpha m_{i}y_{i} $$
@@ -28,7 +28,7 @@ The inverted DFT is then applied to obtain the watermarked luminance $Y^{'}$.
 
 \subsection{Watermark detection}
 
-To determine if a given image luminance $Y$ either embedds or not the reference watermark in [] a threshold-based detection is used.\newline
+To determine if a given image luminance $Y$ either embedds or not the reference watermark in \cite{PIVA} a threshold-based detection is used.\newline
 The luminance of the received image is extracted and its DFT trasform is computed; from the obtained magnitude matrix the right coefficents can be selected since their positions are known as said above.\newline
 Knowing the seed (in the shape of two strings, one numeric one alphanumeric) the watermark can be reproduced.\newline
 
@@ -78,6 +78,7 @@ This way the right view will be marked with its coefficient, but with the correc
 $$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{l}+\phi_{w})\})\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 $$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)||w|\exp\{j(\phi_{l}+\phi_{w})\})^{*}\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 
+where the superscript * indicates the warped image according to the left-to-right disparity map.
 
 The watermark is then brought back in the spatial domain with the inverse Fourier trasform, the image is warped according to the left-to-right disparity and added spatially to the right view.
 \begin{figure}[h!]
