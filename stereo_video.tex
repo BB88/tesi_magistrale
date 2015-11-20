@@ -177,7 +177,7 @@ viewpoints; with two (or more) cameras we can infer depth, by means of triangula
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/correspondance.png}
-\caption{\small{Triangulation: with two cameras the depth of }}
+\caption{\small{Triangulation: with two cameras the depth of $P$ is estimated if corrispondent points are find in both images}}
 \label{fig:corr}
 \end{figure}
  The camera setup should be geometrically
@@ -208,11 +208,11 @@ These parameters can be used to rectify a stereo pair of images to make them app
 
 With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp') the following relations hold: 
 $$
-\frac{b}{Z} = \frac{(b+x_{L}) - x_{R}}{Z-f} 
+\frac{B}{Z} = \frac{(B+x_{L}) - x_{R}}{Z-f} 
 $$ 
 so
 $$
-Z = \frac{b \cdot f}{x_{L} - x_{R}} = \frac{b \cdot f}{d}
+Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}
 $$ 
 
 where $ d = x_{L} - x_{R} $ it's called \textit{disparity}.\\
@@ -264,7 +264,7 @@ A naive approach consists of comparing each  pixel or window in the left image w
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/local.png}
-\caption{\small{Local stereo matching, window based}}
+\caption{\small{Local stereo matching window based}}
 \label{fig:local}
 \end{figure}
 Global stereo methods consider stereo matching as a labeling problem where the pixels of the reference image are nodes and the estimated disparities are labels. An energy functional embeds the matching assumptions by its data, smoothness, and occlusion terms and propagates them along the scan line or through the whole image. The labeling problem is solved by energy functional minimization, using dynamic programming, graph cuts, or belief propagation.\\

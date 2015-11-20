@@ -102,22 +102,18 @@ according to the reference image in which the mark is actually inserted.\\
 In Figure \ref{stereo_method} the workflows of both methods are presented.
 \begin{figure}[h!]
 \centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
 \includegraphics[width=0.8\textwidth]{./img/views_domain.jpeg}
 \caption{\small{View-based watermarking workflow}}
 \label{fig:view}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.4\textwidth}
+\end{figure}
+
+\begin{figure}[h!]
 \centering
 \includegraphics[width=1.05\textwidth]{./img/disparity_domain.png}
 \caption{\small{Disparity-based watermarking workflow}}
 \label{fig:disp}
-\end{subfigure}
-\caption{\small{Stereoscopic video watermarking workflow}\label{stereo_method}}
 \end{figure}
+
 
 The predilection direction in the literature is represented by the view-based watermarking approaches, which are currently deployed for stereoscopic still images.\\ 
 In this context disparity-coherent watermarking has been introduced,\cite{DOER}, to provide superior robustness against virtual view synthesis, as well as to improve perceived fidelity.\\
@@ -127,7 +123,7 @@ The advantages of producing disparity-coherent watermarks are two: first it prod
 what would naturally occur in reality and thereby yields less visual discomfort, second  disparity-coherent watermarks are expected to exhibit superior robustness against view synthesis, \cite{DOER}.\\
 View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
 
-\subsection{Perseption evaluation}
+\subsection{Perception evaluation}
 
 Perceptual impact can be defined as the imperceptibility of the embedded additional information in the watermarked content. This may signify either that the user is not disturbed by the artefacts induced by the watermark in the host document or that the user cannot identify any difference between the marked and the unmarked document.\\
 The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM \cite{METRICS}.\\
