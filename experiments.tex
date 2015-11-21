@@ -16,7 +16,7 @@ The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmapeg}, 
 
 \section{Uniqueness of the watermark}
 
-The first experiment we present aims to demonstrate the uniqueness of the watermark: figures \ref{fig:Ll03}-\ref{fig:Lrnm} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark. \newline The potive response due to the correct watermark is very much stronger with respect to the response to incorrect watermarks, suggesting that the algotithm has very low false positive (and false negative) response rate.
+The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark. \newline 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
@@ -54,13 +54,13 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 \label{fig:Lrnm}
 \end{figure}
 \clearpage
+It can be noted that the response due to the correct watermark is very much stronger with respect to the response to incorrect watermarks, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 
+\section{Robustness against compression attack}
 
-\section{Robustness against compression}
+In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline This process is considered an attack since it brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline 
+This problem can be addressed improving the strenght of the embedded watermark, so it can resist the image degradation, but it is necessary to mantain an acceptable trade-off between robustness and the perceptual impact of the watermark. \newline
 
-In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-off between robustness and transparency.\\
-In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but it is necessary to mantain an acceptable trade-of between robustness and transparency.\newline
-In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline  This process brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline  To prevent this problem a solution can be to improve the strenght of the embedded watermark, but its necessary to mantain an acceptable trade-off between robustness and transparency. \newline
 Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due to compression and watermark power.
 
 
@@ -72,16 +72,17 @@ Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/03_crf30_gt.png}
-\caption{\small{Stereo image from video marked with power 0.3 and compressed with crf equal to 30 }}
-\label{fig:03crf30}
-\end{figure}
-\begin{figure}[h!]
-\centering
 \includegraphics[width=0.9\textwidth]{./img/03_crf25_gt.png}
 \caption{\small{Stereo image from video marked with power 0.3 and compressed with crf equal to 25 }}
 \label{fig:03crf25}
 \end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{./img/03_crf30_gt.png}
+\caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 30 }}
+\label{fig:03crf30}
+\end{figure}
+
 
 \begin{figure}[h!]
 \centering
@@ -91,23 +92,32 @@ Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/06_crf30_gt.png}
-\caption{\small{Stereo image from video marked with power 0.6 and compressed with crf equal to 30 }}
-\label{fig:06crf30}
-\end{figure}
-\begin{figure}[h!]
-\centering
 \includegraphics[width=0.9\textwidth]{./img/06_crf25_gt.png}
 \caption{\small{Stereo image from video marked with power 0.6 and compressed with crf equal to 25 }}
 \label{fig:06crf25}
 \end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{./img/06_crf30_gt.png}
+\caption{\small{stereo image from video marked with power 0.6 and compressed with crf equal to 30 }}
+\label{fig:06crf30}
+\end{figure}
+
 \clearpage
 
-\subsection{Robusteness in spatial watermarking}
+In figures \ref{fig:03crf1}-\ref{fig:03crf30} the images has been marked with power equal to 0.3, we can see that this way the watermark does not affect the image and how the frames are degradated from the compression.
+
+Yet in figures \ref{fig:06crf1}-\ref{fig:06crf30} it can be noted that when the power is equal to 0.6 the mark is perceptible and it become less visible the more the image is compressed. 
+
+
+\subsection{Spatial watermarking robustness}
 
 In spatial domain watermarking systems, the watermark is embedded directly in the spatial domain (pixel domain).\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
 
-The evaluation of this detection system has been studied through the ROC curve has said in chapter 3. The results are in figures \ref{fig:g1crf}-\ref{fig:g3crf30}.
+The evaluation of this detection system has been studied through the ROC curve, which show the performance of a binary classifier system as its discrimination threshold is varied. The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. The best possible prediction method would yield a point in the upper left corner or coordinate (0,1) of the ROC space, representing 100$\%$ sensitivity (no false negatives) and 100$\%$ specificity (no false positives). The (0,1) point is also called a perfect classification. A completely random guess would give a point along a diagonal line from the left bottom to the top right corners.
+
+The results are in figures \ref{fig:g1crf1}-\ref{fig:g3crf30}.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_1.png}
@@ -157,7 +167,10 @@ The evaluation of this detection system has been studied through the ROC curve h
 \label{fig:g3crf30}
 \end{figure}
 \clearpage
-\subsection{Robustess in DFT watermaking}
+
+The ROC functions above reveal that the more the image is compressed the more the classification is a random guess, but when the mark is added with power equal to 3 the compression doesn't affect the detection process.
+
+\subsection{DFT watermaking robustess}
 
 In transform domain watermarking systems, watermark insertion is done by transforming the image into the frequency domain using a discrete Fourier transform (DFT), full-image DCT, block-wise DCT, wavelet, Hadamard, Fourier-Mellin, or other transforms.\newline  It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security.
  
@@ -166,7 +179,7 @@ Two studies are presented in this section: the first one concernes the power of 
 Each test has been made with both the ground truth and graph-cuts disparities.
  
 Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find the watermark in a compressed video, in particular it is shown if the mark is detected in the left/right view or both images. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
-
+\clearpage
 
 \begin{table}[htbp]
 
@@ -188,7 +201,7 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
  \hline
  \end{tabular}
  }
- \caption{ \label{tab:compgt}}
+ \caption{ detection table when ground truth disparity is used  \label{tab:compgt}}
  \end{center}
  \end{table}
 
@@ -216,10 +229,12 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
  \hline
  \end{tabular}
  }
- \caption{ \label{tab:compkz}}
+ \caption{ detection table when graph cuts disparity is used \label{tab:compkz}}
  \end{center}
  \end{table}
  
+One can notice that, at a global level, detection statistics gradually degrade with the compression ratio. The embedded watermark becomes hardly detectable at the crudest compression levels even with if embedded with a strong power. \newline From the results emerges that when the watermark power is grater than or equal to 0.5 the detection supports a compression level of 25 with good statistics.
+
 Figures \ref{fig:03yt}-\ref{fig:08yt} show how the uploading and the subsequential download of a non compressed video on youtube degradates the image.\newline
  
 \begin{figure}[h!]
@@ -248,6 +263,8 @@ Figures \ref{fig:03yt}-\ref{fig:08yt} show how the uploading and the subsequenti
 \end{figure}
 \clearpage
 
+From the figures \ref{fig:03yt}-\ref{fig:08yt} it can be noted that as a consequence of the image degradation the watermark become less perceptible even when inserted with a high power. 
+
 Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and subsequentially downloaded can preserve the watermark, respectively when the watermark is inserted with the ground truth disparity and with graph cuts.\newline
  
  
@@ -265,7 +282,7 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
   \hline
   \end{tabular}
   }
-  \caption{\label{tab:ytgt}}
+  \caption{Detection statistic for a downloaded video marked with ground truth disparity\label{tab:ytgt}}
   \end{center}
   \end{table}
  
@@ -283,13 +300,12 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
  \hline
  \end{tabular}
  }
- \caption{\label{tab:ytkz}}
+ \caption{Detection statistic for a downloaded video marked with graph cuts disparity\label{tab:ytkz}}
  \end{center}
  \end{table}
-
-
-One can notice that, at a global level, detection  statistics gradually degrade with the compression ratio. The embedded watermark becomes hardly detectable at the crudest compression levels even with if embedded with a strong power. 
  \clearpage
+ 
+As emerged in XX the uploading compresses the video at a level that stands in between from crf equal to 25 and crf equal to 30, this way the detection statistic are not very high.  
  
 \section{Robustness to View Synthesis}
 
@@ -380,7 +396,7 @@ Often with stereo watermarking, view synthesis can be a problem since local geom
 
 \section{Perceptual impact}
 
-As said in chapter 2 the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
+As said in Chapter \ref{wm} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
 
 For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
 
