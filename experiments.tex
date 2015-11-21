@@ -396,9 +396,57 @@ Often with stereo watermarking, view synthesis can be a problem since local geom
 
 \section{Perceptual impact}
 
-As said in Chapter \ref{wm} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
+As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
 
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
+For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
+
+Figure XX gives graphical illustration of quality metric on a watermarked stereo frame (left and right view) and respective disparity maps.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/wat_left.png}
+\caption{\label{fig:lw}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/left_sobel.png}
+\caption{\label{fig:lws}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/right_wat.png}
+\caption{\label{fig:wr}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/right_sobel.png}
+\caption{\label{fig:rws}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/ldisp.png}
+\caption{\label{fig:ld}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/ldisp_sobel.png}
+\caption{\label{fig:lds}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/rdisp.png}
+\caption{\label{fig:rd}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/rdisp_sobel.png}
+\caption{\label{rds}}
+\end{subfigure}
+\caption{\small{(a) Watermarked left image. (b) Extracted edge information from the watermarked left image. (c) Watermarked right image. (d) Extracted edge information from the watermarked right image. (e) Left disparity map obtain from the watermarked stereo pair. (f) Extracted edge information from the left disparity map obtain from the watermarked stereo pair. (g) Right disparity map obtain from the watermarked stereo pair. (h) Extracted edge information from the right disparity map obtain from the watermarked stereo pair}\label{fig:sobel}}
+\end{figure}
+
 
 Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between the original video and the corrispondent watermarked videos(with different values of the power).\\ 
 PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
