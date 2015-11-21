@@ -44,7 +44,7 @@ The added pattern and the reference images have the same size, so it should be n
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{./img/disp_left_to_right.png}
-\caption{\small{disparity left-to-right computed with KZ}}
+\caption{\small{Disparity left-to-right computed with KZ}}
 \label{fig:kzdisplr}
 \end{figure}
 Since the disparity map and the occclusion map are usually not available, it needs to be estimated through the KZ algorithm, before the warping process.\newline
@@ -61,23 +61,24 @@ The second strategy is again a simple correlation-based detector, but the correl
 $$\rho(f_{r}+\epsilon\alpha w_{K}^{*},w_{K}^{*})= \frac{1}{wh}\sum_{x,y}(f_{r}(x,y)+\epsilon\alpha w_{K}^{*}(x,y))w_{K}^{*}(x,y)\approx\epsilon\alpha $$
 
 To illustrates the performance of the binary classifier system as its discrimination threshold is varied it has been drawn the corresponding ROC curve.\newline  The ROC curve is a representation of the sensitivity as a function of fall-out.\newline  The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings.\newline The true-positive rate is also known as sensitivity and the false-positive rate is also known as the fall-out.\newline  
+
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./img/roc.jpg}
-\caption{\small{ROC curve explanation}}
+\includegraphics[width=0.7\textwidth]{./img/roc.png}
+\caption{\small{Top: Probability density functions for two distributions. Bottom: corresponding ROC-curve.}}
 \label{fig:roc}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/marked_1_gauss.png}
-\caption{\small{stereo image marked with spatial algorithm with power equal to 1}}
+\caption{\small{Stereo image marked with spatial algorithm with power equal to 1.}}
 \label{fig:gauss1}
 \end{figure}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/marked_3_gauss.png}
-\caption{\small{stereo image marked with spatial algorithm with power equal to 1}}
+\caption{\small{Stereo image marked with spatial algorithm with power equal to 1}}
 \label{fig:gauss3}
 \end{figure}
   

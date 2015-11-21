@@ -102,22 +102,18 @@ according to the reference image in which the mark is actually inserted.\\
 In Figure \ref{stereo_method} the workflows of both methods are presented.
 \begin{figure}[h!]
 \centering
-\begin{subfigure}[]{0.4\textwidth}
-\centering
 \includegraphics[width=0.8\textwidth]{./img/views_domain.jpeg}
 \caption{\small{View-based watermarking workflow}}
 \label{fig:view}
-\end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
-\begin{subfigure}[]{0.4\textwidth}
+\end{figure}
+
+\begin{figure}[h!]
 \centering
 \includegraphics[width=1.05\textwidth]{./img/disparity_domain.png}
 \caption{\small{Disparity-based watermarking workflow}}
 \label{fig:disp}
-\end{subfigure}
-\caption{\small{Stereoscopic video watermarking workflow}\label{stereo_method}}
 \end{figure}
+
 
 The predilection direction in the literature is represented by the view-based watermarking approaches, which are currently deployed for stereoscopic still images.\\ 
 In this context disparity-coherent watermarking has been introduced,\cite{DOER}, to provide superior robustness against virtual view synthesis, as well as to improve perceived fidelity.\\
@@ -127,7 +123,7 @@ The advantages of producing disparity-coherent watermarks are two: first it prod
 what would naturally occur in reality and thereby yields less visual discomfort, second  disparity-coherent watermarks are expected to exhibit superior robustness against view synthesis, \cite{DOER}.\\
 View synthesis consists in generating a virtual view in-between views that are available, e.g.the left and right views in stereo video. 
 
-\subsection{Perseption evaluation}
+\subsection{Perception evaluation}
 
 Perceptual impact can be defined as the imperceptibility of the embedded additional information in the watermarked content. This may signify either that the user is not disturbed by the artefacts induced by the watermark in the host document or that the user cannot identify any difference between the marked and the unmarked document.\\
 The visual quality of the watermarked content in images and 2D video is usually objectively evaluated by five objective measures, namely, the PSNR, IF, NCC, SC, and SSIM \cite{METRICS}.\\
@@ -158,7 +154,25 @@ MQ_{View}(X,Y) = \frac{1}{M} \sum_{j=1}^{M}Q_{View}(x_{j},y_{j}).
 \end{equation}
 As in \cite{QMETRICS}, the Sobel operator has been selected to obtain edge information (i.e., the binary edge mask) due to its simplicity and efficiency.\\
 
-Finally the PSNR measure has been used to evaluate the quality of the watermarked videos and the quality of the compressed videos.
+Finally the PSNR measure has been used to evaluate the quality of the watermarked videos and the quality of the compressed videos.\\
+PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; many signals have a very wide dynamic range, therefore PSNR is usually expressed in terms of the logarithmic decibel scale (dB). \\
+For color images with three RGB values per pixel, the definition of PSNR is the following:
+\begin{equation}
+PSNR = 10 \cdot \log_{10}\bigg( \frac{MAX_{I}^2}{MSE}\bigg)
+\end{equation}
+
+\begin{equation}
+MSE  = \frac{1}{3*MN} \sum_{i=0}^{M-1}\sum_{j=0}^{N-1}\Big(\mathbb{R} +\mathbb{G} + \mathbb{B}  \Big)
+\end{equation}
+with 
+\begin{align}
+\mathbb{R} &= [R_{I}(i,j)-R_{\tilde{I}}(i,j)]^{2} \\
+\mathbb{G} &= [G_{I}(i,j)-G_{\tilde{I}}(i,j)]^{2} \\
+\mathbb{B} &= [B_{I}(i,j)-B_{\tilde{I}}(i,j)]^{2}
+\end{align}
+
+where, $MAX_{I}$ is the maximum possible pixel value of the image ( when the pixels are represented using 8 bits per sample, this is 255).\\
+Typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 
 \subsection{Robustness}
 The robustness refers to the ability of detecting the watermark after applying some signal modifications
