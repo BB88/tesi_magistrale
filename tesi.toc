@@ -31,10 +31,10 @@
 \contentsline {section}{\numberline {4.3}Stereo detection algorithm}{44}{section.4.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{46}{chapter.5}
 \contentsline {section}{\numberline {5.1}Uniqueness of the watermark}{47}{section.5.1}
-\contentsline {section}{\numberline {5.2}Robustness against compression}{50}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Robusteness in spatial watermarking}{53}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Robustess in DFT watermaking}{56}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{60}{section.5.3}
-\contentsline {section}{\numberline {5.4}Perceptual impact}{64}{section.5.4}
-\contentsline {chapter}{\numberline {6}Conclusions}{65}{chapter.6}
-\contentsline {chapter}{Bibliografia}{66}{section*.97}
+\contentsline {section}{\numberline {5.2}Robustness against compression attack}{50}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Spatial watermarking robustness}{53}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}DFT watermaking robustess}{57}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{62}{section.5.3}
+\contentsline {section}{\numberline {5.4}Perceptual impact}{66}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusions}{67}{chapter.6}
+\contentsline {chapter}{Bibliografia}{68}{section*.97}
