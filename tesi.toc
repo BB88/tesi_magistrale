@@ -37,4 +37,5 @@
 \contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{64}{section.5.3}
 \contentsline {section}{\numberline {5.4}Perceptual impact}{69}{section.5.4}
 \contentsline {chapter}{\numberline {6}Conclusions}{71}{chapter.6}
-\contentsline {chapter}{Bibliografia}{72}{section*.99}
+\contentsline {chapter}{\numberline {A}Libraries and codes}{72}{appendix.A}
+\contentsline {chapter}{Bibliografia}{73}{section*.100}
