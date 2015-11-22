@@ -16,43 +16,67 @@ The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmapeg}, 
 
 \section{Uniqueness of the watermark}
 
-The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark. \newline 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
-\caption{\small{Detector response on the left view marked with power equal to 0.3}}
-\label{fig:Ll03}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
-\caption{\small{Detector response on the left view reconstructed from the right marked with power equal to 0.3}}
-\label{fig:Lr03}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
-\caption{\small{Detector response on the left view marked with power equal to 0.6}}
+The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark.  
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+       \includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
+          \caption{\small{detection on the left view}}
+          \label{fig:Ll03}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
+           \caption{\small{detection on the right view}}
+           \label{fig:Lr03}
+    \end{subfigure}
+    \caption{Detector response on the left and right views marked with power equal to 0.3}
+\end{figure*}
+
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
+          \caption{\small{detection on the left view}}
 \label{fig:Ll06}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
-\caption{\small{Detector response on the left view reconstructed from the right marked with power equal to 0.6}}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
+           \caption{\small{detection on the right view}}
 \label{fig:Lr06}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
-\caption{\small{Detector response on the left view where the image hasn't been marked}}
+    \end{subfigure}
+    \caption{Detector response on the left and right views marked with power equal to 0.6}
+\end{figure*}
+
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
+          \caption{\small{detection on the left view}}
 \label{fig:Llnm}
-\end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.4\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
-\caption{\small{Detector response on the left view reconstructed from the right where the image hasn't been marked}}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
+           \caption{\small{detection on the right view}}
 \label{fig:Lrnm}
-\end{figure}
+    \end{subfigure}
+    \caption{Detector response on the left and right views where the images hasn't been marked}
+\end{figure*}
+
+
 \clearpage
 It can be noted that the response due to the correct watermark is very much stronger with respect to the response to incorrect watermarks, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 
@@ -304,12 +328,15 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
  \end{center}
  \end{table}
  \clearpage
- 
-As emerged in XX the uploading compresses the video at a level that stands in between from crf equal to 25 and crf equal to 30, this way the detection statistic are not very high.  
- 
-\section{Robustness to View Synthesis}
 
-In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances of our watermarking system. To this end, we generated a number of intermediate synthetic views (figures \ref{fig:synt1/4}-\ref{fig:synt3/4}), equally spaced apart between the left (reference) view and the right one, using the code in [].\newline
+\section{Robustness to View Synthesis}
+ 
+In a second batch of experiments, we analyzed the impact of virtual view synthesis on the detection performances of our watermarking system.
+
+View synthesis can be viewed as the interpolation of a virtual view from two reference views. The reference views are essentially warped to the virtual viewpoint based on depth information and the intrinsic and extrinsic camera parameters and merged together.\newline
+The view synthesis process using depth itself may destroy the watermark, as a result, to achieve robustness against this process, it is important to design the watermarks inserted in the left and right views so that they nicely overlap after the warping operation and thereby complement each other rather than cancel one another. The same 3D point should always carry the same watermark sample wherever it is projected in a view; hence we used a disparity-coherent technique.
+
+To conduct these experiments, we generated a number of intermediate synthetic views (figures \ref{fig:synt1/4}-\ref{fig:synt3/4}), equally spaced apart between the left (reference) view and the right one, using the code in [].\newline
 
 \begin{figure}[h!]
 \centering
@@ -330,7 +357,6 @@ In a second batch of experiments, we analyzed the impact of virtual view synthes
 \label{fig:synt3/4}
 \end{figure}
 
-The views have been synthetized for both the spatial and frequency method, the result are shown below.\newline
 The table \ref{tab:syntDFT} contains the results for the frequency marking: the first column is the distance between the left view and the synthetized one, in terms of fraction of the baseline, then its show in how many synthetized images the mark is detected.
 
 \begin{table}[htbp]
@@ -347,7 +373,7 @@ The table \ref{tab:syntDFT} contains the results for the frequency marking: the 
  \hline
  \end{tabular}
  }
- \caption{ \label{tab:syntDFT}}
+ \caption{Detection in the syntetized views \label{tab:syntDFT}}
  \end{center}
  \end{table}
  
@@ -390,19 +416,60 @@ The same study is proposed for the spatial marking: from a video marked with add
 \label{fig:g3vs75}
 \end{figure}
 \clearpage
-It can be noted that the watermark is always detected in the synthetized views, we can therefore expect the synthetized views to behave like the other against compression.\newline
+It can be noted that the detection statistics are very high in the synthetized views, either for the spatial and frequency technique; we can therefore expect the synthetized views to behave like the other against compression.\newline
 
-Often with stereo watermarking, view synthesis can be a problem since local geometric deformations destroys the synchronization necessary for the detection process to be succesful. With the proposed method although the resynchronization is an internal step of the detection process and it doesn't need side information since it is based on the estimation of the disparity map.
+Often with stereo watermarking, view synthesis can be a problem since it introduces non-rigid local geometric distortion that are not properly tackled by state-of-the art resynchronization mechanisms. Local geometric deformations destroys the synchronization necessary for the detection process to be succesful.
+
+With the proposed method the detection of the watermark in the right view works by warping it according to the disparity; this way the resynchronization is an internal step of the detection process and it doesn't need side information to resynchronize the watermark, since the disparity can be estimated anytime from the received views.
+\newline Therefore we can say that this strategy manages to achieve complete robustness to view synthesis.
 
 \section{Perceptual impact}
 
 As said in chapter 2 the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
 
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
+For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
 
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/qm_left.png}
+          \caption{\small{Color quality metrics on the left view}}
+\label{fig:qmcl}
 
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/qm_disp_left.png}
+           \caption{\small{Color quality metrics on the right view}}
+\label{fig:qmdl}
+    \end{subfigure}
+    \caption{Color Quality metrics}
+    \label{fig:qml}
+\end{figure*}
 
-Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between original and compressed videos (at diffent compression levels) and the corrispondent watermarked videos(with different values of the power).\\ 
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/qm_right.png}
+          \caption{\small{Depth quality metrics on the left view}}
+\label{fig:qmcr}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=0.8\textwidth]{./img/qm_disp_right.png}
+           \caption{\small{Depth quality metrics on the right view}}
+\label{fig:qmdr}
+    \end{subfigure}
+    \caption{Depth quality metrics }
+        \label{fig:qmr}
+\end{figure*}
+
+Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between original and compressed videos (at diffent compression levels) and the corrispondent watermarked videos (with different values of the power).\\ 
 PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 The results of this study are shown in Table XX.\\
 For each power value the PSNR between the original non compressed video and the corresponding watermarked video has been computed: 
