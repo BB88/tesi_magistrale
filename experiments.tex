@@ -1,5 +1,5 @@
 \chapter{Experimental Results}
-\markright{experiments}
+\markright{Experimental Results}
 \label{exp}
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
@@ -422,18 +422,69 @@ Often with stereo watermarking, view synthesis can be a problem since it introdu
 
 With the proposed method the detection of the watermark in the right view works by warping it according to the disparity; this way the resynchronization is an internal step of the detection process and it doesn't need side information to resynchronize the watermark, since the disparity can be estimated anytime from the received views.
 \newline Therefore we can say that this strategy manages to achieve complete robustness to view synthesis.
-
+\clearpage
 \section{Perceptual impact}
 
-As said in chapter 2 the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al. These metrics have been used to evaluate the impact of the watermark with a RR method, instead of the compression degradation as in \cite{METRICS}.
+As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al.
+Based on the fact that the edges/contours of the depth map can be considered for measuring structural degradation, it is proposed a metric which is a modified version of the SSIM metric. The metrics is supposed to be computed on the degradated view and the corresponding disparity map, in our case we measured either the degradataion on the left and right view.
 
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the power of the embedded watermark. \\
+Figure \ref{fig:sobel} gives graphical illustration of contour extraction in order to compute the RR metrics on the left view, in this case the image has been marked with power equal to 0.3 and it can be noted that this kind of watermarking doesn't affect the contours of the scene.
+   
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/wat_left.png}
+\caption{\label{fig:lw}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/left_sobel.png}
+\caption{\label{fig:lws}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/right_wat.png}
+\caption{\label{fig:wr}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/right_sobel.png}
+\caption{\label{fig:rws}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/ldisp.png}
+\caption{\label{fig:ld}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/ldisp_sobel.png}
+\caption{\label{fig:lds}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/rdisp.png}
+\caption{\label{fig:rd}}
+\end{subfigure}
+\begin{subfigure}[]{0.4\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{./img/rdisp_sobel.png}
+\caption{\label{rds}}
+\end{subfigure}
+\caption{\small{(a) Reference left image. (b) Extracted edge information from reference left image. (c) Watermarked left image. (d) Extracted edge information from the watermarked left image. (e) Left disparity map obtain from the non watermarked stereo pair. (f) Extracted edge information from the left disparity map obtain from the non watermarked stereo pair. (g)  Left disparity map obtain from the watermarked stereo pair.(h) Extracted edge information from the left disparity map obtain from the watermarked stereo pair. }\label{fig:sobel}}
+\end{figure}
+\clearpage
+
+For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the power of the embedded watermark. 
 
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/qm_left.png}
+\includegraphics[width=1\textwidth]{./img/qm_left.png}
           \caption{\small{Color quality metrics on the left view}}
 \label{fig:qmcl}
 
@@ -441,7 +492,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/qm_disp_left.png}
+\includegraphics[width=1\textwidth]{./img/qm_disp_left.png}
            \caption{\small{Color quality metrics on the right view}}
 \label{fig:qmdl}
     \end{subfigure}
@@ -453,7 +504,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/qm_right.png}
+\includegraphics[width=1\textwidth]{./img/qm_right.png}
           \caption{\small{Depth quality metrics on the left view}}
 \label{fig:qmcr}
 
@@ -461,18 +512,23 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/qm_disp_right.png}
+\includegraphics[width=1\textwidth]{./img/qm_disp_right.png}
            \caption{\small{Depth quality metrics on the right view}}
 \label{fig:qmdr}
     \end{subfigure}
     \caption{Depth quality metrics }
         \label{fig:qmr}
 \end{figure*}
+\clearpage
+
+In figures \ref{fig:qml}-\ref{fig:qmr} we can see how the quality metrics decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low, however with power lower the 0.6 the degradation mantain an acceptable level with respect to the value generated from the non marked image (power equal to 0).\newline
 
 Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between original and compressed videos (at diffent compression levels) and the corrispondent watermarked videos (with different values of the power).\\ 
+
 PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 The results of this study are shown in Table XX.\\
-For each power value the PSNR between the original non compressed video and the corresponding watermarked video has been computed: 
+For each power value the PSNR between the original non compressed video and the watermarked video has been computed: the PSNR value decreases according to the increase of the power, as expected. This indicates that the quality of the watermarked videos is lower for higher power values, but also that the watermarked videos are more robust for higher power values. This analysis matches the one conducted with the quality metrics in \cite{QMETRICS}.\\
+The Table XX contains also the PSNR
 
 
 \begin{table}[htbp]

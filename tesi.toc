@@ -35,6 +35,7 @@
 \contentsline {subsection}{\numberline {5.2.1}Spatial watermarking robustness}{54}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}DFT watermaking robustess}{58}{subsection.5.2.2}
 \contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{63}{section.5.3}
-\contentsline {section}{\numberline {5.4}Perceptual impact}{68}{section.5.4}
-\contentsline {chapter}{\numberline {6}Conclusions}{71}{chapter.6}
-\contentsline {chapter}{Bibliografia}{72}{section*.98}
+\contentsline {section}{\numberline {5.4}Perceptual impact}{69}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusions}{74}{chapter.6}
+\contentsline {chapter}{\numberline {A}Libraries and codes}{76}{appendix.A}
+\contentsline {chapter}{Bibliografia}{77}{section*.100}
