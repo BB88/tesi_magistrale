@@ -10,7 +10,7 @@ Digital watermarking consists in imperceptiby and persistently associating some 
 The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\textwidth]{./img/wat_workflow.png}
+\includegraphics[width=1\textwidth]{./img/wat_workflow.png}
 \caption{\small{Watermarking workflow}}
 \label{fig:workflow}
 \end{figure}
@@ -25,7 +25,7 @@ Three parameters are required to evaluate watermarking technique performances:
 These requirements are though inversely proportional (Figure \ref{fig:properties}): the more information is embedded, the more the watermark is visible and viceversa; the more robusteness is encreased, the more the watermark is visible and viceversa.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./img/properties.png}
+\includegraphics[width=0.9\textwidth]{./img/properties.png}
 \caption{\small{Watermark properties trade-off}}
 \label{fig:properties}
 \end{figure}
@@ -72,17 +72,17 @@ into blocks and for each block a mathematical transformation is computed, some c
 The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ss.png}
+\includegraphics[width=0.7\textwidth]{./img/ss.png}
 \caption{\small{Spread spectrum technique}}
 \label{fig:ss}
 \end{figure}
 As in spread spectrum communications, the former approach considers the original content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable\cite{COX}\cite{COX1}.\\
-The latter takes advantage of the fact that the original content is known at the embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of inserted data can be maximed\cite{COX2,SH, EG, COSTA}.\\
+The latter takes advantage of the fact that the original content is known at the embedder side (but unknown at the detector): this way the watermark can be modulated  according to the original and the quantity of inserted data can be maximed\cite{COX1,SH, EG, COSTA}.\\
 
 Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread spectrum methods and the increased data payload of the side information methods \cite{QIM}\cite{QIM1}.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/si.png}
+\includegraphics[width=1\textwidth]{./img/si.png}
 \caption{\small{Side information technique scheme}}
 \label{fig:si}
 \end{figure}
@@ -258,21 +258,21 @@ Since in stereoscopic video context it is rather common practice to generate int
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/left_watermarked.png}
+\includegraphics[width=1\textwidth]{./img/left_watermarked.png}
 \caption{\small{Left image}}
 \label{fig:vs1}
 \end{subfigure}% 
-~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
-  %(or a blank line to force the subfigure onto a new line)
+~ \quad
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width= 0.8\textwidth]{./img/right_watermarked.png}
+\includegraphics[width= 1\textwidth]{./img/right_watermarked.png}
 \caption{\small{Right image}}
 \label{fig:vs2}
   \end{subfigure}
+ 
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/synth_view_watermarked.png}
+\includegraphics[width=1\textwidth]{./img/synth_view_watermarked.png}
 \caption{\small{Synthetized view}}
 \label{fig:vs3}
 \end{subfigure}
@@ -281,7 +281,7 @@ Since in stereoscopic video context it is rather common practice to generate int
 
 
 
-In this thesis a disparity-coherent watermarking algorithm has been implemented. It works in the frequency and spatial domain: a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image then the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\
+In this thesis a blind disparity-coherent watermarking algorithm has been implemented. It works in the frequency and spatial domain: a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image then the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\
 It has shown good results in quality measure tests and roubustness test against view synthesis and compression.\\
 An optimum criterion to verify if a given mark is present in an image is derived based on statistical decision theory, \cite{STAT}, allowing a robust watermark detection without resorting to the original uncorrupted image.\\
 
