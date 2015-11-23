@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {4.1.1}Watermark embedding}{41}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Watermark detection}{42}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Stereo watermarking embedding}{44}{section.4.2}
-\contentsline {section}{\numberline {4.3}Stereo detection algorithm}{48}{section.4.3}
+\contentsline {section}{\numberline {4.3}Stereo detection algorithm}{46}{section.4.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{50}{chapter.5}
 \contentsline {section}{\numberline {5.1}Uniqueness of the watermark}{51}{section.5.1}
 \contentsline {section}{\numberline {5.2}Robustness against compression attack}{53}{section.5.2}
@@ -39,4 +39,4 @@
 \contentsline {section}{\numberline {5.5}Remarks}{77}{section.5.5}
 \contentsline {chapter}{\numberline {6}Conclusions}{78}{chapter.6}
 \contentsline {chapter}{\numberline {A}Libraries and codes}{80}{appendix.A}
-\contentsline {chapter}{Bibliografia}{81}{section*.102}
+\contentsline {chapter}{Bibliografia}{81}{section*.105}
