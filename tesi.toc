@@ -24,11 +24,11 @@
 \contentsline {section}{\numberline {3.1}Prior works}{34}{section.3.1}
 \contentsline {section}{\numberline {3.2}Gaussian-noise disparity-coherent watermarking}{36}{section.3.2}
 \contentsline {chapter}{\numberline {4}Frequency disparity-coherent watermarking}{40}{chapter.4}
-\contentsline {section}{\numberline {4.1}Watermarking in Fourier domain}{40}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Watermark embedding}{41}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Watermark detection}{42}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Stereo watermarking embedding}{44}{section.4.2}
-\contentsline {section}{\numberline {4.3}Stereo detection algorithm}{48}{section.4.3}
+\contentsline {section}{\numberline {4.1}Watermarking in Fourier domain}{41}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Watermark embedding}{42}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Watermark detection}{43}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Stereo watermarking embedding}{45}{section.4.2}
+\contentsline {section}{\numberline {4.3}Stereo detection algorithm}{47}{section.4.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{51}{chapter.5}
 \contentsline {section}{\numberline {5.1}Uniqueness of the watermark}{52}{section.5.1}
 \contentsline {section}{\numberline {5.2}Robustness against compression attack}{54}{section.5.2}

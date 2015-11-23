@@ -3,7 +3,9 @@
 \label{dft}
 \phantomsection
 
-Now we proposed a variant of the described watermarking process, which works in the frequency domain. It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security. Designing watermarking algorithms in the transform domain is not as simple as in the spatial domain. However, there are many block DCT-domain algorithms, because this transform is used by many compression standards such as JPEG, MPEG2, and H.263, and etc.
+Now we proposed a variant of the described watermarking process, which works in the frequency domain. It is often claimed that embedding in the transform domain is advantageous in comparison with the spatial domain methods,
+in terms of visibility and security. Frequency domain watermarking is in fact translation invariant and rotation resistant, which translates to strong robustness to geometric attacks. Because of its resistance to geometric attacks and the distribution of energy, FFT watermarking methods are developed to create robust watermarking schemes resistant to the degradation attacks of the watermarked image in the transmission channel.
+Designing watermarking algorithms in the transform domain however is not as simple as in the spatial domain.  
 
 \section{Watermarking in Fourier domain}
 
@@ -31,7 +33,7 @@ For our stereo watermarking task this process has been simplified and cut to the
 
 In \cite{PIVA} the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
 In order to build a blind system, which do not require the original image in detection, the position and the number of coefficients to be modified is fixed a priori. In particular, the elements belonging to the medium range of the
-spectrum are chosen, in order to achieve a compromise between robustness and invisibility.
+spectrum are chosen, in order to achieve a compromise between robustness and invisibility. In fact a watermark which modified the high frequency regions, doesn't affect the quality of the image but will be damaged by the signal processing. On the other hand, when the information is hided into the low-frequency regions it can avoid JPEG compression attacks, but the quality of the host image would be destroyed.\\
 The watermark embedding rule is the following:
 \begin{equation}\label{eq:wat}
 y_{i}^{'} = y_{i}+\alpha m_{i}y_{i} 
@@ -94,7 +96,7 @@ The left view has been processed with the algorithm described in \ref{wat_emb} (
 
 \end{figure}
 
-<<<<<<< HEAD
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/pros.png}
@@ -103,12 +105,8 @@ The left view has been processed with the algorithm described in \ref{wat_emb} (
 \end{figure}
 
 
-
-In order to mark the left and right view with the same watermark (Figure \ref{fig:right_wat}), but in a disparity-coherent way a study on the left marking process has been conducted.
-=======
-In order to mark the left and right view with the same watermark, but in a disparity-coherent way, a study on the left marking process has been conducted.
->>>>>>> 82c557c388167e9516e536b7765f67c6a1eba24c
-The $NXM$ left image $l$ can be written as a function of its DFT transform $L$:
+In order to mark the left and right view with the same watermark, but in a disparity-coherent way, a study on the left marking process has been conducted.\\
+The $NxM$ left image $l$ can be written as a function of its DFT transform $L$:
 $$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\}  $$
 The marking process alters the DFT coefficients according to the Equation in \ref{eq:wat}
 which can be written as:
@@ -117,20 +115,11 @@ the signal alteration is therefore given by:
 $$ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
 where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,$\pi$\}, according to the sign of the watermark.
 
-<<<<<<< HEAD
 
-To watermark the right view the pattern is created ad-hoc: the watermak's signal is generated using the phase of the left image and the phase of the reference watermark and  the coefficients of the right view.\newline  
-This way the right view will be marked with its coefficient, but with the correct phase, and the corresponding pixel in the left and right view will present the same alteration, not to cause visual distorsions.
 To obtain the same additive multiplicative alteration on the right view coefficients we created the watermark ad-hoc with the following formula: 
-=======
-To obtain the same additive multiplicative alteration on the right view coefficients, we created an ad-hoc watermark with the following formula: 
->>>>>>> 82c557c388167e9516e536b7765f67c6a1eba24c
 $$ \alpha|R^{*}||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
 where the superscript * indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image.
 The created mark is then brought in the spatial domain and warped according to the left-to right disparity, before the spatial insertion in the right view.
-
-
-
 The complete formula can then be written as: 
 $$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 $$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{*}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{**}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
