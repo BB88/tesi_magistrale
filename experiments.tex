@@ -12,7 +12,7 @@ The marking process has been applied to a 1 minute stereo-video sequence created
 Its been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
 The frames of the reference video has been marked with different power and new marked videos has been created with different levels of compression.\newline 
 
-The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmapeg}, changing the Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
+The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmpeg}, changing the Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
 
 \section{Uniqueness of the watermark}
 
@@ -21,7 +21,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-       \includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
+       \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
           \caption{\small{detection on the left view}}
           \label{fig:Ll03}
 
@@ -29,7 +29,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
+        \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
            \caption{\small{detection on the right view}}
            \label{fig:Lr03}
     \end{subfigure}
@@ -41,7 +41,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
           \caption{\small{detection on the left view}}
 \label{fig:Ll06}
 
@@ -49,7 +49,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
            \caption{\small{detection on the right view}}
 \label{fig:Lr06}
     \end{subfigure}
@@ -61,7 +61,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
           \caption{\small{detection on the left view}}
 \label{fig:Llnm}
 
@@ -69,7 +69,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=0.8\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
            \caption{\small{detection on the right view}}
 \label{fig:Lrnm}
     \end{subfigure}
@@ -144,49 +144,49 @@ The results are in figures \ref{fig:g1crf1}-\ref{fig:g3crf30}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_1.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_1.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 1 and not compressed}}
 \label{fig:g1crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_15.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_15.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 15}}
 \label{fig:g1crf15}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_25.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_25.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 25}}
 \label{fig:g1crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_1_30.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_30.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 30}}
 \label{fig:g1crf30}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_1.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_1.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 3 and not compressed }}
 \label{fig:g3crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_15.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_15.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 15 }}
 \label{fig:g3crf15}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_25.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_25.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 25 }}
 \label{fig:g3crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_3_30.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_30.png}
 \caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 30 }}
 \label{fig:g3crf30}
 \end{figure}
@@ -356,7 +356,8 @@ In a second batch of experiments, we analyzed the impact of virtual view synthes
 View synthesis can be viewed as the interpolation of a virtual view from two reference views. The reference views are essentially warped to the virtual viewpoint based on depth information and the intrinsic and extrinsic camera parameters and merged together.\newline
 The view synthesis process using depth itself may destroy the watermark, as a result, to achieve robustness against this process, it is important to design the watermarks inserted in the left and right views so that they nicely overlap after the warping operation and thereby complement each other rather than cancel one another. The same 3D point should always carry the same watermark sample wherever it is projected in a view; hence we used a disparity-coherent technique.
 
-To conduct these experiments, we generated a number of intermediate synthetic views (Figures \ref{fig:synt1/4}-\ref{fig:synt3/4}), equally spaced apart between the left (reference) view and the right one, using the code in [].\newline
+To conduct these experiments, we generated a number of intermediate synthetic views (figures \ref{fig:synt1/4}-\ref{fig:synt3/4}), equally spaced apart between the left (reference) view and the right one, using the code in \cite{VS}.\newline
+
 
 \begin{figure}[h!]
 \centering
@@ -401,37 +402,37 @@ The Table \ref{tab:syntDFT} contains the results for the frequency marking: the 
 The same study is proposed for the spatial marking: from a video marked with additive gaussian noise have been generated three synthetized views for each pair of marked frames, respectively one in the middle and the other two at 1/4 and 3/4 of distance from the left.\newline The ROC curves in figures \ref{fig:g1vs25}-\ref{fig:g3vs75}  show the results for the different intermediate synthetic views.\newline 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_1_25.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_25.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 1 }}
 \label{fig:g1vs25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_1_50.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_50.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 1 }}
 \label{fig:g1vs50}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_1_75.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_75.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 1 }}
 \label{fig:g1vs75}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_3_25.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_25.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 3 }}
 \label{fig:g3vs25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_3_50.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_50.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 3 }}
 \label{fig:g3vs50}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{./img/ROC/ROC_gauss_synt_3_75.png}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_75.png}
 \caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 3 }}
 \label{fig:g3vs75}
 \end{figure}
@@ -445,8 +446,8 @@ With the proposed method the detection of the watermark in the right view works 
 \clearpage
 \section{Perceptual impact}
 
-As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al.
-Based on the fact that the edges/contours of the depth map can be considered for measuring structural degradation, it is proposed a metric which is a modified version of the SSIM metric. The metrics is supposed to be computed on the degradated view and the corresponding disparity map, in our case we measured either the degradataion on the left and right view.
+As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al.\\
+Based on the fact that the edges/contours of the depth map can be considered for measuring structural degradation, it is proposed a metric which is a modified version of the SSIM metric. This measure is supposed to be computed on the degradated view and the corresponding disparity map, in our case we measured either the degradataion on the left and right view.
 
 Figure \ref{fig:sobel} gives graphical illustration of contour extraction in order to compute the RR metrics on the left view, in this case the image has been marked with power equal to 0.3 and it can be noted that this kind of watermarking doesn't affect the contours of the scene.
    
@@ -575,10 +576,10 @@ The frequency watermarking proved to be robust up to a compression rate of 25, a
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
-
 The quality of the watermarked video has been studied with RR quality metrics, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
+
 
 
 
