@@ -10,14 +10,40 @@ Now we proposed a variant of the described watermarking process, which works in 
 The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" \cite{PIVA}, where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility.\newline
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/blocchi.png}
-\caption{\small{Piva et. al watermarking workflow}}
-\label{fig:blocchi}
+\begin{subfigure}[]{\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/casting.png}
+\caption{\scriptsize{Watermark casting process}\label{fig:cast}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/detection.png}
+\caption{\scriptsize{Watermark detection process}\label{fig:det}}
+\end{subfigure}%
+\caption{\small{Piva et. al watermarking workflow}\label{fig:blocchi}}
 \end{figure}
 
-For the stereo watermarking task this process has been simplified and cut to the basic frequency watermaking.
+For our stereo watermarking task this process has been simplified and cut to the basic frequency watermaking; the implemented steps are described below.
 
-\subsection{Watermark embedding}
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[]{\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/casting.png}
+\caption{\scriptsize{Watermark casting process}\label{fig:cast}}
+\end{subfigure} 
+~\quad
+\begin{subfigure}[]{\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/detection.png}
+\caption{\scriptsize{Watermark detection process}\label{fig:det}}
+\end{subfigure}%
+\caption{\small{Piva et. al watermarking workflow}\label{fig:blocchi}}
+\end{figure}
+
+\subsection{Watermark embedding} 
+\label{wat_emb}
 
 In \cite{PIVA} the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
 To garantee a blind detection system the number and position of the coefficient are fixed a priori: based on the size of the image to watermark, the coefficient are choosen in the medium frequencies of the spectrum to achieve a compromise between robustness and invisibillity.\newline 
@@ -64,7 +90,7 @@ The decoder can detect the watermark presence also in highly degraded images. In
 
 \section{Stereo watermarking embedding}
 
-For the stero-marking process its been taken under consideration a 512x512 subset of pixel of the image, in particular we focused in marking the part of the scene which is common to both the left and right view.
+For the stereo-marking process it has been taken under consideration a 512x512 subset of pixels of the image, in particular we focused in marking the part of the scene which is common to both the left and right view.
 
 \begin{figure}[h!]
 \centering
@@ -73,7 +99,11 @@ For the stero-marking process its been taken under consideration a 512x512 subse
 \label{fig:cropped}
 \end{figure}
 
-The left view is then processed with the algorithm discribed above.\newline 
+The left view has been processed with the algorithm described in \ref{wat_emb}.\newline 
+
+
+FIGURA WORKFLOW LEFT
+
 
 In order to mark the left and right view with the same watermark, but in a disparity-coherent way a study on the left marking process has been conducted.
 The $NXM$ left image $l$ can be written as a function of its DFT transform $L$:
@@ -83,12 +113,13 @@ which can be written by:
 $$ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(\phi_{L}+\phi_{w})\}\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 the signal alteration is therefore given by:
 $$ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
-where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,\pi\}.
+where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,$\pi$\}.
 
 To obtain the same additive multiplicative alteration on the right view coefficients we created the watermark ad-hoc with the following formula: 
 $$ \alpha|R^{*}||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
 the subscript * indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image, and generte the correct mark.
 The created mark is the brought in then spatial domain and warped according to the left-to right disparity previous to spatial insertion in the right view.
+
 
 The complete formula can then be written as: 
 $$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
@@ -120,6 +151,7 @@ The subscript ** indicates the warping according to the left-to-right disparity.
 \caption{\small{Stereo image marked with DFT algorithm with power equal to 0.7}}
 \label{fig:dft07}
 \end{figure}
+
 \section{Stereo detection algorithm}
 
 The detection of the watermark is performed with the detector implemented by Piva et al.\newline
