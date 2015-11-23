@@ -3,9 +3,9 @@
 \label{dft}
 \phantomsection
 
-Now we proposed a variant of the described watermarking process, which works in the frequency domain.
+Now we proposed a variant of the described watermarking process, which works in the frequency domain. It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security. Designing watermarking algorithms in the transform domain is not as simple as in the spatial domain. However, there are many block DCT-domain algorithms, because this transform is used by many compression standards such as JPEG, MPEG2, and H.263, and etc.
 
-\section{Watermark in Fourier domain}
+\section{Watermarking in Fourier domain}
 
 The strategy is based on the technique presented by Piva et al in "Improving DFT Watermarking robustness through optimum detection and synchronisation" \cite{PIVA}, where a watermarking algorithm for digital images operating in the frequency domain is presented: the method embeds a pseudo-random sequence of real numbers in a selected set of DFT coefficients of the image. Moreover, a synchronisation pattern is embedded into the watermarked image, to cope with geometrical attacks, like resizing and rotation. After embedding, the watermark is adapted to the image by exploiting the masking characteristics of the Human Visual System, thus ensuring the watermark invisibility.\newline
 \begin{figure}[h!]
@@ -46,7 +46,8 @@ For our stereo watermarking task this process has been simplified and cut to the
 \label{wat_emb}
 
 In \cite{PIVA} the watermark is embedded in a subset of DFT coefficients of the luminance $Y$.\newline Since a traslation of the scene will only change the phase values of the DFT, leaving unaltered the magnitude values, the watermak only concernes the latter, to achieve robustness against image traslation.\newline
-To garantee a blind detection system the number and position of the coefficient are fixed a priori: based on the size of the image to watermark, the coefficient are choosen in the medium frequencies of the spectrum to achieve a compromise between robustness and invisibillity.\newline 
+In order to build a blind system, which do not require the original image in detection, the position and the number of coefficients to be modified is fixed a priori. In particular, the elements belonging to the medium range of the
+spectrum are chosen, in order to achieve a compromise between robustness and invisibility.
 The watermark embedding rule is the following:
 \begin{equation}\label{eq:wat}
 y_{i}^{'} = y_{i}+\alpha m_{i}y_{i} 
@@ -58,10 +59,10 @@ The inverted DFT is then applied to obtain the watermarked luminance $Y^{'}$.
 \subsection{Watermark detection}
 
 To determine if a given image luminance $Y$ either embedds or not the reference watermark in \cite{PIVA} a threshold-based detection is used.\newline
-The luminance of the received image is extracted and its DFT trasform is computed; from the obtained magnitude matrix the right coefficents can be selected since their positions are known as said above.\newline
-Knowing the seed (in the shape of two strings, one numeric one alphanumeric) the watermark can be reproduced.\newline
+The luminance of the received image is extracted and its DFT trasform is computed; from the obtained magnitude matrix the right coefficents can be selected since their positions are known, as said above.\newline
+Knowing the seed (in the shape of two strings, one numeric and one alphanumeric) the watermark can be reproduced.\newline
 
-To verify if the selected coefficients have been altered by means of the watermark it is used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses $H_{1}$) or the image does not contain this mark (hypotheses $H_{0}$). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is minimum Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:\newline
+To verify if the selected coefficients have been altered by means of the watermark it is used a statistical decision theory: two hypotheses are defined, the image contains the reference watermark (hypotheses $H_{1}$) or the image does not contain this mark (hypotheses $H_{0}$). Relying on Bayes theory of hypothesis testing, the optimum criterion to test H1 versus H0 is to minimize Bayes risk; the test function results to be the likelihood ratio function L that has to be compared to a threshold:\newline
 \begin{itemize}
 \item if $L > \lambda$ ,  the watermark $m^{*}$ is present;
 \item if $L < \lambda$ , the watermark  $m^{*}$ is absent.
@@ -73,8 +74,8 @@ $$ L(y)=\sum_{i=0}^{N-1} [-\beta ln(1+\alpha_{m}m_{i}^{*})]+\sum_{i=0}^{N-1}[-(\
 and
 $$\lambda=3.3\sqrt{2\sum_{i=0}^{N-1}[\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}]} + \sum_{i=0}^{N-1}\{\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}-1]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}\} - \sum_{i=0}^{N-1}[\beta_{i}ln(1+\alpha_{m}m_{i}^{*})]$$
 
-In ()  $m^{*} = \{ m^{*}_{i} \} i= 0,1,...N-1$ is the watermark, $\alpha_{m}$ the mean watermark energy, $\alpha_{i}$ and $\beta_{i}$ are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficients $y_{i}$.\newline 
-The values of this parameters are choosen by means of Maximum Likelihood criterion, based on the the fact that the coefficients belonging to small
+where  $m^{*} = \{ m^{*}_{i} \} i= 0,1,...N-1$ is the watermark, $\alpha_{m}$ the mean watermark energy, $\alpha_{i}$ and $\beta_{i}$ are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficients $y_{i}$.\newline 
+The values of this parameters are choosen by means of Maximum Likelihood criterion, based on the fact that the coefficients belonging to small
 sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution, modeled as:
 $$ f(y_{i}) = \frac{\beta}{\alpha}(\frac{y_{i}}{\alpha})^{\beta-1}\exp\{-(\frac{y_{i}}{\alpha})^{\beta}\}$$
 In summary, the detection process can be decomposed in the following steps:
@@ -86,7 +87,7 @@ In summary, the detection process can be decomposed in the following steps:
 \item decision.
 \end{itemize}
 
-The decoder can detect the watermark presence also in highly degraded images. In particular, the system is robust to sequences of different attacks, such as rotation, resizing, and JPEG compression, or such as cropping, resizing and median filtering.
+The decoder can detect the presence of the watermark also in highly degraded images. In particular, the system is robust to sequences of different attacks, such as rotation, resizing, and JPEG compression, or such as cropping, resizing and median filtering \cite{PIVA}.
 
 \section{Stereo watermarking embedding}
 
@@ -105,27 +106,27 @@ The left view has been processed with the algorithm described in \ref{wat_emb}.\
 FIGURA WORKFLOW LEFT
 
 
-In order to mark the left and right view with the same watermark, but in a disparity-coherent way a study on the left marking process has been conducted.
+In order to mark the left and right view with the same watermark, but in a disparity-coherent way, a study on the left marking process has been conducted.
 The $NXM$ left image $l$ can be written as a function of its DFT transform $L$:
-$$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\}  $$
+$$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\}  $$
 The marking process alters the DFT coefficients according to the Equation in \ref{eq:wat}
-which can be written by:
-$$ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(\phi_{L}+\phi_{w})\}\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+which can be written as:
+$$ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(\phi_{L}+\phi_{w})\}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 the signal alteration is therefore given by:
 $$ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
-where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,$\pi$\}.
+where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,$\pi$\}, according to the sign of the watermark.
 
-To obtain the same additive multiplicative alteration on the right view coefficients we created the watermark ad-hoc with the following formula: 
+To obtain the same additive multiplicative alteration on the right view coefficients, we created an ad-hoc watermark with the following formula: 
 $$ \alpha|R^{*}||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
-the subscript * indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image, and generte the correct mark.
-The created mark is the brought in then spatial domain and warped according to the left-to right disparity previous to spatial insertion in the right view.
+where the superscript * indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image.
+The created mark is then brought in the spatial domain and warped according to the left-to right disparity, before the spatial insertion in the right view.
 
 
 The complete formula can then be written as: 
-$$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
-$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{*}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{**}\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+$$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{*}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{**}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 
-The subscript ** indicates the warping according to the left-to-right disparity.
+The superscript ** indicates the warping according to the left-to-right disparity, to achive disparity-coherence and mark a pixel in the 3D space with the watermark.
 
 \begin{figure}[h!]
 \centering
@@ -158,8 +159,8 @@ The detection of the watermark is performed with the detector implemented by Piv
 
 As for the embedding process, the algorithm is applied to the left view without changes, meanwhile, some adaptations are needed for the right view detection.\newline
 
-First the detection algorithm computes the right-to-left disparity, then the right view is warped accordingly to ricreate the phase of the inserted watermark; to mantain the correctt phase the occluded zones are filled with the pixels of the recieved left view (taking under consideration that this little amount of image's pixel would not influence the detection).\newline
-The created image is then processed by the threshold-based detection algorithm.\newline 
+First the detection algorithm computes the right-to-left disparity by the graph cuts algorithm; then the right view is warped accordingly to ricreate the phase of the inserted watermark. To mantain the correct phase the occluded zones are filled with the pixels of the recieved left view (taking into account that this little amount of image's pixel would not influence the detection).\newline
+The created image is then processed by the threshold-based detection algorithm as in the case of the left view.\newline 
 
 \begin{figure}[h!]
 \centering
