@@ -105,7 +105,7 @@ FIGURA WORKFLOW LEFT
 
 
 
-To watermark the right view the pattern is created ad-hoc: the watermak signal is generated using the phase of the left image and the phase of the reference watermark and  the coefficients of the right view.\newline  
+To watermark the right view the pattern is created ad-hoc: the watermak's signal is generated using the phase of the left image and the phase of the reference watermark and  the coefficients of the right view.\newline  
 This way the right view will be marked with its coefficient, but with the correct phase, and the corresponding pixel in the left and right view will present the same alteration, not to cause visual distorsions.
 
 $$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{l}+\phi_{w})\})\exp\{+j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
