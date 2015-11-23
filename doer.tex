@@ -6,8 +6,8 @@
 
 
 
-As said in the previous chapter, a number of works focused on how to incorporate depth information into the perceptual shaping process of the embedded watermark.\newline This process allows to achive disparity-coherence and makes sure that a physical point of the captured scene carries the same watermark sample regardless of where it appears in the left and right view.\newline
-
+As said in the previous Chapter, a number of works focused on how to incorporate depth information into the perceptual shaping process of the embedded watermark.\newline 
+This process allows to achive disparity-coherence and makes sure that a physical point of the captured scene carries the same watermark sample regardless of where it appears in the left and right view.\newline
 This process brings two advantages: it produces stereoscopic views more in line with reality, therefore yields less visual discomfort; and it is expected to have superior robustness against view synthesis.\newline
 
 \section{Prior work} 
@@ -35,10 +35,10 @@ $$\rho_{max}= \max_{s}\rho[s] $$
 $$ \sum_{s}\rho[s] $$
 $$ \sum_{|rho[s]|>\tau_{\rho}}|\rho[s]| $$
 
-\section{ Gaussian-noise disparity-coherent watermarking} 
+\section{Gaussian-noise disparity-coherent watermarking} 
 
 Based on the described technique, we propose a new spatial watermarking technique. \newline
-For the spatial watermark its been taken under consideration the insertion of a Gaussian-noise reference watermark in an additive way.\newline
+For the spatial watermark it's been taken under consideration the insertion of a Gaussian-noise reference watermark in an additive way.\newline
 As in Doerr et al, the left view is processed in the conventional way, with spred-spectrum equations (riferimento all'equazione); the watermark is then warped according to the disparity value and inserted in the right view (rif all'eq), taking under consideration that the occluded zones shoudn't be processed.\newline
 The added pattern and the reference images have the same size, so it should be noted that the warping process will generate a loss of marked pixel, due to the baseline's lenght.\newline
 \begin{figure}[h!]

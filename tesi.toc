@@ -21,8 +21,8 @@
 \contentsline {subsubsection}{Lossy compression}{30}{section*.42}
 \contentsline {subsubsection}{View synthesis}{31}{section*.43}
 \contentsline {chapter}{\numberline {3}Spatial disparity-coherent watermarking}{33}{chapter.3}
-\contentsline {section}{\numberline {3.1}Prior work}{34}{section.3.1}
-\contentsline {section}{\numberline {3.2} Gaussian-noise disparity-coherent watermarking}{35}{section.3.2}
+\contentsline {section}{\numberline {3.1}Prior work}{33}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gaussian-noise disparity-coherent watermarking}{35}{section.3.2}
 \contentsline {chapter}{\numberline {4}Frequency disparity-coherent watermarking}{40}{chapter.4}
 \contentsline {section}{\numberline {4.1}Watermark in Fourier domain}{40}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Watermark embedding}{41}{subsection.4.1.1}
@@ -37,6 +37,6 @@
 \contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{64}{section.5.3}
 \contentsline {section}{\numberline {5.4}Perceptual impact}{71}{section.5.4}
 \contentsline {section}{\numberline {5.5}Remarks}{75}{section.5.5}
-\contentsline {chapter}{\numberline {6}Conclusions}{77}{chapter.6}
-\contentsline {chapter}{\numberline {A}Libraries and codes}{79}{appendix.A}
-\contentsline {chapter}{Bibliografia}{80}{section*.100}
+\contentsline {chapter}{\numberline {6}Conclusions}{76}{chapter.6}
+\contentsline {chapter}{\numberline {A}Libraries and codes}{78}{appendix.A}
+\contentsline {chapter}{Bibliografia}{79}{section*.101}
