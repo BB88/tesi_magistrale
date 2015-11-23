@@ -171,7 +171,8 @@ with
 \mathbb{B} &= [B_{I}(i,j)-B_{\tilde{I}}(i,j)]^{2}
 \end{align}
 
-where, $MAX_{I}$ is the maximum possible pixel value of the image ( when the pixels are represented using 8 bits per sample, this is 255).\\
+where $I$ and $\tilde{I}$ are the $MxN$ reference image and the noisy approximation, respectively, and $MAX_{I}$ is the maximum possible pixel value of the image (when the pixels are represented using 8 bits per sample, this is 255).\\
+For video sequence, the average value of all frames' PNSR value is computed.
 Typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 
 \subsection{Robustness}

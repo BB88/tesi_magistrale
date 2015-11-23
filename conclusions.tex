@@ -4,16 +4,16 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{Conclusions}
 
-In this thesis a disparity-coherent watermarking algorithm has been implemented. While prior works only inserted the mark in the spatial domain, in this case both the frequency and spatial domain are considered. The marking process can be summerized in two steps: (i) a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image, (ii) the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\ 
-Also a new detection process is proposed which is also based on the disparity map: (i) the detection on the left view is performed without changes with respect to the typical frequency spread spectrum techniques, (ii) the detection on the right view is performed by first warping it accordindin to the right-to-left disparity, this way the watermark is resynchronized to its initial shape.
+In this thesis a blind disparity-coherent watermarking algorithm has been implemented. While prior works only inserted the mark in the spatial domain, in this case both the frequency and spatial domain are considered. \\
+The marking process can be summerized in two steps: (i) a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image, (ii) the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\ 
+A new detection process is then proposed, which is also based on the disparity map: (i) the detection on the left view is performed according to \cite{PIVA}, where the decision criterion is derived based on statistical decision theory, (ii) the detection on the right view is performed by first warping it according to the right-to-left disparity, this way the watermark is resynchronized to its initial shape.
  
-The method has been tested against compression attack and web uploading. It emerged that the watermark can resist until a compression of crf equal to 25 with good detection statistics, besides the fact that the mark become less visible the more the compression rate increases, so it can be embedded with a higher power.\\
+The method has been tested against compression attack and web uploading. It emerged that the watermark can resist until a compression with crf equal to 25 with good detection statistics, besides the fact that the mark become less visible the more the compression rate increases, so it can be embedded with a higher power.\\
 The web uploading although doesn't prevent the mark with good statistics, this is why an important future development would be to hide the mark with a mask, so it can be inserted with higher power.
 
-The method has proved to be robust against view synthesis, thanks to the fact that the detection process resynchronize the watermark on the right view before performing the detection.
+The method has also proved to be robust against view synthesis, thanks to the fact that the detection process resynchronize the watermark on the right view before performing the detection.
 
-To evaluate the quality of the watermarked video sequence PSNR value and new measures based on SSIM value have been used. The experimental results shows that the video quality degradates inversely with the power of the watermark but it mantain a good measure when marking with power lower than 0.6.\\
-MANCA DISCORSO PSNR
+To evaluate the quality of the watermarked video sequence PSNR value and new measures based on SSIM value have been used. The experimental results shows that the video quality degradates inversely with the power of the watermark but it mantain a good measure when marking with power lower than 0.6; PSNR reaches a maximum of  $44.438$ with a power value of $0.3$.\\
 
 Future works could provide a visual mask to improve the quality of the waterkmarked video sequence, and add a synchronization pattern to make the watermak robust against geometrical attacks. 
 
