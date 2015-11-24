@@ -515,7 +515,7 @@ Figure \ref{fig:sobel} gives graphical illustration of contour extraction in ord
 \caption{\small{(a) Reference left image. (b) Extracted edge information from reference left image. (c) Watermarked left image. (d) Extracted edge information from the watermarked left image. (e) Left disparity map obtain from the non watermarked stereo pair. (f) Extracted edge information from the left disparity map obtain from the non watermarked stereo pair. (g)  Left disparity map obtain from the watermarked stereo pair.(h) Extracted edge information from the left disparity map obtain from the watermarked stereo pair. }\label{fig:sobel}}
 \end{figure}
 \clearpage
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the increasing value of the watermark power. 
+For different watermarking power both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, either for the spatial and frequency domain. In Figures \ref{fig:qml}-\ref{fig:gqmd} its shown the value of the quality measure with respect to the increasing value of the watermark power. 
 
 \begin{figure*}[h!]
     \centering
@@ -533,7 +533,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
            \caption{\small{Color quality metrics on the right view}}
 \label{fig:qmdl}
     \end{subfigure}
-    \caption{Color Quality metrics}
+    \caption{Color Quality metrics in frequency domain}
     \label{fig:qml}
 \end{figure*}
 
@@ -553,12 +553,52 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
            \caption{\small{Depth quality metrics on the right view}}
 \label{fig:qmdr}
     \end{subfigure}
-    \caption{Depth quality metrics }
+    \caption{Depth quality metrics in frequency domain }
         \label{fig:qmr}
 \end{figure*}
 \clearpage
 
-In figures \ref{fig:qml}-\ref{fig:qmr} we can see how the quality metrics decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low, however with power lower the 0.6 the degradation mantain an acceptable level with respect to the value generated from the non marked image (power equal to 0).
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_left.png}
+          \caption{\small{Color quality metrics on the left view}}
+\label{fig:gqmcl}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_right.png}
+           \caption{\small{Color quality metrics on the right view}}
+\label{fig:gqmdl}
+    \end{subfigure}
+    \caption{Color Quality metrics in spatial domain}
+    \label{fig:gqmc}
+\end{figure*}
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_ldisp.png}
+          \caption{\small{Depth quality metrics on the left view}}
+\label{fig:gqmcr}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_rdisp.png}
+           \caption{\small{Depth quality metrics on the right view}}
+\label{fig:gqmdr}
+    \end{subfigure}
+    \caption{Depth quality metrics in spatial domain }
+        \label{fig:gqmd}
+\end{figure*}
+
+From the graphs of the $MQColor$ metric in Figures \ref{fig:qml} and \ref{fig:gqmc} we can see how the quality metric decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low.
 
 \subsection{PSNR test}
 
@@ -595,29 +635,9 @@ Regarding the spatial technique, results show that when the watermark is added w
 
 The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.
 
-The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, based on the $MQcolor$ graph we can make the following observations: in the frequency domain, if we fix a loss of quality of $1\%$ with respect to the non marked video, we obtain an embedding power of $0.3$, in Table \ref{tab:03} are shown the detection statistic in this case. If we accept a degradation of $3\%$ we obtain an acceptable embedding power of $0.6$, this statistics are shown in Table  \ref{tab:06}. 
+The quality of the watermarked videos has been studied with Reduced Reference quality metrics \cite{QMETRICS} and based on the $MQcolor$ graph we can make the following observations: in the frequency domain, if we fix a loss of quality of $1\%$ with respect to the non marked video, we obtain an embedding power of $0.3$, in Table \ref{tab:03} are shown the detection statistic in this case. If we accept a degradation of $3\%$ we obtain an acceptable embedding power of $0.6$, this statistics are shown in Table  \ref{tab:06}. 
 
-From the study conducted for the spatial domain it emerges that an acceptable degratation can only be obtained with embedding strenght equal to 1, in this case we study the distribution of True Positive detection with respect to increasing compression powwer; results are shown in Table \ref{tab:G1}.
-
-
-\begin{table}[htbp]
- 
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
-
-1& 1 &  \\
-15& 1 & \\
-25& 1 & \\
-30& 1 & \\
- \hline
- \end{tabular}
- }
- \caption{\label{tab:G1}}
- \end{center}
- \end{table}
+From the study conducted for the spatial domain it emerges that an acceptable degratation can only be obtained with embedding strenght equal to 1; in this case we study the distribution of True Positive detection, for a fixed value of False Positive of $1\%$, with respect to increasing compression power; results are shown in Table \ref{tab:G1}.
 
 
 \begin{table}[htbp]
@@ -635,7 +655,7 @@ From the study conducted for the spatial domain it emerges that an acceptable de
  \hline
  \end{tabular}
  }
- \caption{\label{tab:03}}
+ \caption{Detection statistic for a quality degradation of $1\%$\label{tab:03}}
  \end{center}
  \end{table}
  
@@ -653,13 +673,29 @@ From the study conducted for the spatial domain it emerges that an acceptable de
  \hline
  \end{tabular}
  }
- \caption{\label{tab:06}}
+ \caption{Detection statistic for a quality degradation of $3\%$\label{tab:06}}
+ \end{center}
+ \end{table}
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+
+1& 1 & 0.7 \\
+15& 1 & 0.4 \\
+25& 1 & 0.1 \\
+30& 1 & 0.1 \\
+ \hline
+ \end{tabular}
+ }
+ \caption{Detection statistic for a quality degradation of $1\%$ and accepted fall-out of $1\%$ \label{tab:G1}}
  \end{center}
  \end{table}
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
-
-
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
 
