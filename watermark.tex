@@ -1,8 +1,13 @@
-\chapter{Stereo video watermarking}
-\markright{Stereo video watermarking}
+\chapter{Principles of watermarking}
+\markright{Principles of watermarking}
 \label{wat}
 \phantomsection
 %\addcontentsline{toc}{chapter}{Stereoscopic Video}
+
+Digital watermarking is the process of embedding information, the watermark, into digital multimedia content such that this information can later be extracted or detected to investigate the copyright of the original content
+and its possible manipulations.\\
+In the first part of this Chapter the basic principles of image watermarking are introduced; then we present the state of the art of stereoscopic video watermarking.
+
 
 \section{Watermaking}
 
@@ -22,7 +27,7 @@ Three parameters are required to evaluate watermarking technique performances:
 \item[-] robustness, i.e.,the capability of the hidden data to survive host signal manipulation including compression, signal processing, geometric manipulations;
 \item[-] data payload, that is the amount of data of information bits that it is able to convey.
 \end{itemize}
-These requirements are though inversely proportional (Figure \ref{fig:properties}): the more information is embedded, the more the watermark is visible and viceversa; the more robusteness is encreased, the more the watermark is visible and viceversa.\\
+These requirements are though inversely proportional (Figure \ref{fig:properties}): the more information is embedded, the more the watermark is visible and viceversa; the more robusteness is increased, the more the watermark is visible and viceversa.\\
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\textwidth]{./img/properties.png}
@@ -41,8 +46,7 @@ can recover it or if anyone to read the watermark, respectively;
 
 
 \subsection{Embedding domains}
-Host features modified during embedding can
-belong to 
+The embedding process requires the selection of a set of features of the digital data in which to host the watermarked signal. In general two main domains are identified:
 \begin{itemize}
 \item[-] spatial domain: the watermark is embedded by directly modifying the pixel values;
 \begin{figure}[h!]
@@ -51,7 +55,7 @@ belong to
 \caption{\small{Spatial domain watermark insertion}}
 \label{fig:dom1}
 \end{figure}
-\item[-] frequency domain: the image is transformed through a mathematical transformation, some coefficients are modified and finally the inverse transform is carried out;
+\item[-] frequency domain: the image is transformed through a mathematical transformation (DCT, DFT or DWT), some coefficients are modified and finally the inverse transform is carried out;
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{./img/domain2.png}
@@ -90,9 +94,10 @@ Sometimes hybrid watermarking methods combining spread spectrum and side informa
 \section{Stereoscopic video watermarking}
 
 In the literature, stereoscopic video watermarking has been initially approached as a direct extension of still image watermarking, i.e. by considering the right and the left views as two independent images. This way, the stereo data can be straightforward exploited with basic 2D methods. However, such straightforward application does not consider the peculiarities of the stereoscopic video content, therefore a second modality considers derived representations from the stereo pair, as a disparity map.\\ 
-A new approach, however, has been recently introduced in stereoscopic view-based methods: disparity-coherent watermarking \cite{DOER}.
+A new approach, however, has been recently introduced by Faridul et al. \cite{DOER} in stereoscopic view-based methods, based on disparity-coherent, that refers to the fact that a physical point of the captured scene should always carry the same watermark sample regardless of where it appears in the left/right views.\\
+The work carried on in this thesis aims to improve this new type of stereoscopic video watermarking in terms of robustness and visual quality.
 
-\subsection{Embedding domain}
+\subsection{State of the art}
 In stereoscopic video context the studies can be structured in two other categories in addition to spacial and frequency domain:
 \begin{itemize}
 \item[-] view-based methods \cite{16,17,18,19,20,21};
@@ -176,7 +181,7 @@ For video sequence, the average value of all frames' PNSR value is computed.
 Typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 
 \subsection{Robustness}
-The robustness refers to the ability of detecting the watermark after applying some signal modifications
+The robustness refers to t he ability of detecting the watermark after applying some signal modifications
 and malicious attacks on the marked content, such as spatial filtering, additive noise, geometric  transformations, lossy compression and, in stereoscopic context, view synthesis.
 
 \subsubsection{Spatial filtering}
@@ -279,11 +284,12 @@ Since in stereoscopic video context it is rather common practice to generate int
 \caption{\small{View synthesis}\label{fig:vs}}
 \end{figure}
 
+\subsection{Challenges}
 
+Even though the study proposed in \cite{DOER} lead  an improvement in the stereoscopic video watermarking scenario, the work presents some issues. The watermarking algorithm works in the spatial domain, that is known to be less robust against compression and geometric attacks with respect to transform domain watermarking.\\
+Another issue is that this study doesn't provide any investigation on the visual impact of the watermak on the host content (i.e. stereoscopic sequences).\\
+With this thesis we try to tackle these issues providing a new disparity-coherent watermarking framework.
 
-In this thesis a blind disparity-coherent watermarking algorithm has been implemented. It works in the frequency and spatial domain: a pseudo-random sequence of real numbers is embedded in a selected set of DFT coefficients of the left image then the reference watermark is spatially inserted in a disparity-coherent way in the right view.\\
-It has shown good results in quality measure tests and roubustness test against view synthesis and compression.\\
-An optimum criterion to verify if a given mark is present in an image is derived based on statistical decision theory, \cite{STAT}, allowing a robust watermark detection without resorting to the original uncorrupted image.\\
 
 
 
