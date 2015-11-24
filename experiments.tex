@@ -4,19 +4,29 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
 
-The proposed method has been tested to verify the uniqueness of the watermark, i.e. if the detector will present a signific significantly higher score only in correspondence of the reference watermark, and its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the frame due to compression, view synthesis etc.\newline 
-Another important feature of a good watermarking method is the perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test both the spatial and frequency disparity-coherent watermarking algorithm performances.\newline
+The proposed method has been tested to verify the uniqueness of the watermark, i.e. if the detector presents a significantly higher score only in correspondence of the reference watermark. Moreover, we tested its validity in terms of robustness, in other words, the ability of the watermark to cope with the degradation of the frames due to malicious attacks such as spatial filtering, geometric transformation, compression and view synthesis. \newline 
+In particular, in this thesis we tested the robustness against compression and view synthesis; in addition to the generated compressed videos, the YouTube video compression has been investigated. This choice has been made on the basis that nowadays YouTube is one of the most used video-sharing platform, representing a typical scenario of video distribution.\\
+Another important feature of a good watermarking method is the perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline
+In this chapter will be presented the results carried out to test both the spatial and frequency disparity-coherent watermarking algorithm performances.\newline
 
-The experimental results have been proposed on a 1' stereo video sequence created starting from the left and right view of the New Tsukuba dataset \cite{tsu}, with Group Of Picture (GOP) of 60 frames and 30 fps.\newline 
-In video coding, a Group Of Picture, or GOP structure, specifies the order in which intra- and inter-frames are arranged. The GOP is a group of successive pictures within a coded video stream. Each coded video stream consists of successive GOPs. From the pictures contained in it, the visible frames are generated.\\A
+The experimental results have been proposed on a 1' stereo video sequence with a resolution of 1280x480. The video has been created with the \texttt{ffmpeg} library \cite{ffmpeg} and the input images are the stereo pairs in the New Tsukuba dataset \cite{tsu}; this dataset contains 1800 stereo pairs of resolution 640x480, with ground truth disparity maps, occlusion maps and discontinuity maps.\\
+Ffmpeg is a library of the multimedia framework FFmpeg, able to decode, encode, transcode, mux, demux, stream, filter and play; ffmpeg is a command-line tool that converts audio or video formats and allows, among a various number of options, to choose the number of Group Of Picture's frame, the Constant Rate Factor value, the pixel format, the video coding format and the frame rate.\\
+In video coding the Group Of Picture (GOP) is a group of successive pictures within a coded video stream. Each coded video stream consists of successive GOPs. From the pictures contained in it, the visible frames are generated.\\
 GOP can contain the following picture types:
 I frame (intra coded picture) is  a picture that is coded independently of all other pictures. Each GOP begins (in decoding order) with this type of picture; P frame (predictive coded picture) – contains motion-compensated difference information relative to previously decoded pictures;  B frame (bipredictive coded picture) contains motion-compensated difference information relative to previously decoded pictures. An I frame indicates the beginning of a GOP. Afterwards several P and B frames follow.\\
+Constant Rate Factor (CRF) is the default quality setting for the x264 encoder; its value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). Sane values are between 18 and 28. \\
+Pixel format specifies the format of the color data for each pixel in the image, such as rgb24, yuv422p, yuva420p.\\
+Video coding format is a content representation format for storage or transmission of digital video content; examples of video coding formats include MPEG-2 Part 2, MPEG-4 Part 2, H.264.\\
+Frame rate is the frequency (rate) at which an imaging device displays frames.\\
 
-In this work it has been chosen to mark the video every 60 frames, i.e. only the I frame of each GOP.\newline 
-The frames of the reference video have been marked with increasing values of the power and then the watermarked videos have been compressed with different levels of compression; higher values of the power lead in video visual degradation but make the watermark more robust against compression. \newline 
+In this work a Group Of Picture (GOP) of 60 frames, a frame rate of 30 fps, a pixel format yuv420p, the video codec H.264 and a CRF initial value of 1 have been chosen.\newline 
+The video sequence has been marked every 60 frames, i.e. only the I frame of each GOP are marked.\newline 
+With these settings a total number of 30 frame has been marked.\\
+The watermark has been inserted with increasing values of the power and then the watermarked videos have been compressed with different levels of compression; higher values of the power lead in video visual degradation but make the watermark more robust against compression. \newline 
+The compressed videos are obtain by changing the CRF value in the ffmpeg command line.
 
 
-The videos are compressed with the \texttt{ffmpeg} library \cite{ffmpeg}, a library for handling multimedia data, at various Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
+
 
 \section{Uniqueness of the watermark}
 
@@ -257,7 +267,7 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
  \hline
  \end{tabular}
  }
- \caption{ detection table when graph cuts disparity is used \label{tab:compkz}}
+ \caption{Detection table when graph cuts disparity is used \label{tab:compkz}}
  \end{center}
  \end{table}
  
@@ -562,7 +572,7 @@ Power & PSNR(dB) \\ \hline
 \hline 
 \end{tabularx}
  }
-\caption{ \label{tab:psnr_wm}}
+\caption{\small{Average PSNR values between original video and watermarked videos with increasing value of the power.} \label{tab:psnr_wm}}
 \end{center}
 \end{table}
 
