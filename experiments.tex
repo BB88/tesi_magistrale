@@ -4,12 +4,12 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
 
-The proposed method has been tested to verify, besides the uniqueness of the watermark, its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the image due to compression, view synthesis etc.\newline 
-Another important feature of a good watermarking method is perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test the algorithm performances.\newline
+The proposed method has been tested to verify, besides the uniqueness of the watermark, its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the frame due to compression, view synthesis etc.\newline 
+Another important feature of a good watermarking method is the perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test the algorithm performances.\newline
 
 
-The marking process has been applied to a 1 minute stereo-video sequence created starting from the left and right view of the New Tsukuba dataset \cite{tsu}, with GOP of 60 frames and 30 fps.\newline 
-Its been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
+The experimental results have been proposed in a 1 minute stereo-video sequence created starting from the left and right view of the New Tsukuba dataset \cite{tsu}, with Group of Picture (GOP) of 60 frames and 30 fps.\newline 
+It has been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
 The frames of the reference video has been marked with different power and new marked videos has been created with different levels of compression.\newline 
 
 The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmpeg}, changing the Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
