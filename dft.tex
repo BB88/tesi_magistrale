@@ -77,7 +77,7 @@ The decoder can detect the presence of the watermark also in highly degraded ima
 
 \section{Stereo watermarking embedding}
 
-For the stereo-marking process a 512x512 subset of pixels of the image has been considered, in particular we focused in marking the part of the scene which is common to both the left and right view.
+The frequency method works on squared images, for this reason a subset of pixel of the original frame is cropped and padded to reach the right dimension (in this case 512x512), in particular we focused in marking the part of the scene which is common to both the left and right view.
 
 \begin{figure}[h!]
 \centering
@@ -106,7 +106,7 @@ The left view has been processed with the algorithm described in \ref{wat_emb} (
 
 
 In order to mark the left and right view with the same watermark, but in a disparity-coherent way, a study on the left marking process has been conducted.\\
-The $NxM$ left image $l$ can be written as a function of its DFT transform $L$:
+The NxM left image $l$ can be written as a function of its DFT transform $L$:
 $$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\}  $$
 The marking process alters the DFT coefficients according to the Equation in \ref{eq:wat}
 which can be written as:
@@ -117,14 +117,14 @@ where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the le
 
 
 To obtain the same additive multiplicative alteration on the right view coefficients we created the watermark ad-hoc with the following formula: 
-$$ \alpha|R^{*}||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
-where the superscript * indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image.
+$$ \alpha|R^{**}||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
+where the superscript $**$ indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image.
 The created mark is then brought in the spatial domain and warped according to the left-to right disparity, before the spatial insertion in the right view.
 The complete formula can then be written as: 
 $$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
-$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{*}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{**}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{*}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
 
-The superscript ** indicates the warping according to the left-to-right disparity, to achive disparity-coherence and mark a pixel in the 3D space with the watermark.
+The superscript $*$ indicates the warping according to the left-to-right disparity, to achive disparity-coherence and mark a pixel in the 3D space with the watermark.
 
 \begin{figure}[h!]
 \centering

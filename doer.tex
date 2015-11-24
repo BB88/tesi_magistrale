@@ -23,7 +23,7 @@ f_{l}^{w} = f_{l}+\alpha w_{K}
 \rho(f_{l}+\epsilon\alpha w_{K},w_{K})= \frac{1}{wh}\sum_{x,y}(f_{l}(x,y)+\epsilon\alpha w_{K}(x,y))w_{K}(x,y)\approx\epsilon\alpha
 \end{equation}
 
-where the superscript w indicates watermarked quantities, the subscript l (resp. r ) denotes quantities related to the left (resp. right) view, $\alpha > 0$ is the embedding strength, and w is normally distributed with zero mean and unit variance.\newline
+where the superscript $w$ indicates watermarked quantities, the subscript $l$ (resp. $r$ ) denotes quantities related to the left (resp. right) view, $\alpha > 0$ is the embedding strength, and $w$ is normally distributed with zero mean and unit variance.\newline
 The embedding strenght used in \cite{DOER2} to keep the embedding distortion imperceptible is $\alpha = 3$.\newline 
 
 For the right view, the watermarking equation is the same, except that the watermark pattern $w_{K}$ is warped according to the depth information prior to insertion.
@@ -40,7 +40,7 @@ The watermark detection on the right view relies on the computation of a horizon
 $$ \rho = \epsilon\alpha [D_{smin},..,D_{0},..,S_{smax}]$$
 
 
-where $D_{s}$ is the proportion of pixels whose disparity value is exactly equal to s.\newline
+where $D_{s}$ is the proportion of pixels whose disparity value is exactly equal to $s$.\newline
 The correlation array is then mapped into a scalar value in order to compare it with a threshold and to decide whether the tested content contains the watermark. Authors proposed three possible mapping functions:
 \begin{equation}
 \rho_{max}= \max_{s}\rho[s]
@@ -55,9 +55,9 @@ The correlation array is then mapped into a scalar value in order to compare it 
 \section{Gaussian-noise disparity-coherent watermarking} 
 
 Starting from previous work, we propose a new spatial watermarking technique. \newline
-For the spatial watermark it's been taken under consideration the insertion of a Gaussian-noise reference watermark in an additive way.\newline
-As in Doerr et al, the left view is processed in the conventional way, with spred-spectrum equations \ref{eq:doerl1}; the watermark is then warped according to the disparity value and inserted in the right view \ref{eq:doerr3}, taking under consideration that the occluded zones shoudn't be processed.\newline
-The added pattern and the reference images have the same size, so it should be noted that the warping process will generate a loss of marked pixel, due to the baseline's lenght.\newline
+For the spatial watermark it has been taken under consideration the insertion of a Gaussian-noise reference watermark in an additive way.\newline
+As in Doerr et al, the left view is processed in the conventional way, with spred-spectrum equations \ref{eq:doerl1}; the watermark is then warped according to the disparity value and inserted in the right view \ref{eq:doerr3}, considering that the occluded zones shoudn't be processed.\newline
+The added pattern and the reference images have the same size, so it should be noted that the warping process will generate a loss of marked pixel, dipending on the baseline's lenght.\newline
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{./img/disp_left_to_right.png}
@@ -67,17 +67,17 @@ The added pattern and the reference images have the same size, so it should be n
 Since the disparity map and the occlusion map are usually not available, it has to be estimated through the KZ algorithm, before the warping process.\newline
 The embedding strenght is $\alpha=1$; it should be noted that this baseline watermarking framework could be enriched with conventional add-ons, e.g. perceptually modulate the embedding strength to better accommodate for the human visual system or canceling host interference for improved detection statistics.\newline
 
-In the detection process, it has been used a conventional correlation-based detector for the left view \ref{eq:doerl2}.\newline 
+In the detection process, it has been used a conventional correlation-based detector for the left view (\ref{eq:doerl2}).\newline 
 On the other hand, to detect the watermark in the right view two differet correlation-based strategies are proposed:
-in the first strategy we computed the correlation value between the non-distorted watermark and the right view warped according to the right-to-left disparity; this way the priviously warped watermark is restored, even if there are discontinuities depending on the occluded zones. In formula:
-$$\rho((f_{r}+\epsilon\alpha w_{K}^{*})^{*},w_{K})= \frac{1}{wh}\sum_{x,y}(f_{r}(x,y)+\epsilon\alpha w_{K}^{*}(x,y))^{*}w_{K}(x,y)\approx\epsilon\alpha $$
-where the superscript * indicates the warped mark/image.\newline
+in the first strategy we computed the correlation value between the non-distorted watermark and the right view warped according to the right-to-left disparity; in this way the priviously warped watermark is restored, even if there are discontinuities depending on the occluded zones. In formula:
+$$\rho((f_{r}+\epsilon\alpha w_{K}^{*})^{**},w_{K})= \frac{1}{wh}\sum_{x,y}(f_{r}(x,y)+\epsilon\alpha w_{K}^{*}(x,y))^{**}w_{K}(x,y)\approx\epsilon\alpha $$
+where the superscript $*$ indicates the warping process according to the left-to-right disparity and the superscript $**$ indicates the warping process according the right-to-left disparity .\newline
 
 The second strategy is again a simple correlation-based detector, but the correlation value is computed between the right view and the warped watermark instead of the original one, based on the fact that the right view should contain this, rather than the reference pattern and that the receiver can compute the disparity map that is needed to warp the mark and perform the detection.
 
 $$\rho(f_{r}+\epsilon\alpha w_{K}^{*},w_{K}^{*})= \frac{1}{wh}\sum_{x,y}(f_{r}(x,y)+\epsilon\alpha w_{K}^{*}(x,y))w_{K}^{*}(x,y)\approx\epsilon\alpha $$
 
-To illustrates the performance of the binary classifier system as its discrimination threshold is varied it has been drawn the corresponding ROC curve.\newline  The ROC curve is a representation of the sensitivity as a function of fall-out (1-specificity).\newline  The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings.\newline The true-positive rate is also known as sensitivity and the false-positive rate is also known as the fall-out.\newline  
+To illustrates the performance of the binary classifier system as its discrimination threshold is varied it has been drawn the corresponding ROC curve.\newline  The ROC curve is a representation of the sensitivity as a function of fall-out (1-specificity).\newline  The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings.\newline The true-positive rate is also known as sensitivity and the false-positive rate is also known as the fall-out, which is equal to 1-specificity.\newline  
 
 \begin{figure}[h!]
 \centering
