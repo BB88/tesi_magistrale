@@ -31,14 +31,14 @@ The compressed videos are obtain by changing the CRF value in the ffmpeg command
 
 The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. 
 
-Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of loglikelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the loglikelihood value when the image does not contain the watermark.
+Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of loglikelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the loglikelihood value when the images do not contain any watermark.
 
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
        \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
-          \caption{\small{detection on the left view}}
+          \caption{\small{Detection on the left view}}
           \label{fig:Ll03}
 
     \end{subfigure}%
@@ -46,7 +46,7 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
-           \caption{\small{detection on the right view}}
+           \caption{\small{Detection on the right view}}
            \label{fig:Lr03}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.3}
@@ -57,7 +57,7 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
 \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
-          \caption{\small{detection on the left view}}
+          \caption{\small{Detection on the left view}}
 \label{fig:Ll06}
 
     \end{subfigure}%
@@ -65,7 +65,7 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
 \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
-           \caption{\small{detection on the right view}}
+           \caption{\small{Detection on the right view}}
 \label{fig:Lr06}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.6}
@@ -78,7 +78,7 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
 \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
-          \caption{\small{detection on the left view}}
+          \caption{\small{Detection on the left view}}
 \label{fig:Llnm}
 
     \end{subfigure}%
@@ -86,7 +86,7 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
 \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
-           \caption{\small{detection on the right view}}
+           \caption{\small{Detection on the right view}}
 \label{fig:Lrnm}
     \end{subfigure}
     \caption{Detector response on the left and right views where the images hasn't been marked}
@@ -94,10 +94,73 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
 \end{figure*}
 
 
-Figures \ref{fig:Gl1}-\ref{fig:Gr3} show the response of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark.\\
+Figures \ref{fig:gauss11}-\ref{fig:gauss3} show the response, for different values of the power, of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark. The correlation has been computed between the watermarked left view and the reference watermark (Figures \ref{fig:gl1} \ref{fig:gl3} ), bewteen the watermarked left reconstructed view and the reference watermark (Figures \ref{fig:grw1} \ref{fig:grw3} ) and between the watermarked right view and the warped reference watermark (Figures \ref{fig:gr1} \ref{fig:gr3}).\\
+Figure \ref{fig:gauss} shows the response of the spatial watermarking detector to 100 randomly generated watermarks when the images don't contain any watermark.
 
-It is worth noting that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_1.png}
+  \caption{\small{Detection on the left view}\label{fig:gl1}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_1.png}
+\caption{\small{Detection on the reconstructed left view}\label{fig:grw1}}
 
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_1.png}
+   \caption{\small{Detection on the right view}\label{fig:gr1}}
+\end{subfigure}
+\caption{Detector response on the watermarked left view, reconstructed left view and right view with a power of 1\label{fig:gauss11}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_3.png}
+  \caption{\small{Detection on the left view}\label{fig:gl3}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_3.png}
+\caption{\small{Detection on the reconstructed left view}\label{fig:grw3}}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_3.png}
+   \caption{\small{Detection on the right view}\label{fig:gr3}}
+\end{subfigure}
+\caption{Detector response on the watermarked left view, reconstructed left view and right view with a power of 3\label{fig:gauss3}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_NM.png}
+  \caption{\small{Detection on the left view}\label{fig:gl}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_NM.png}
+\caption{\small{Detection on the reconstructed left view}\label{fig:grw}}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_NM.png}
+   \caption{\small{Detection on the right view}\label{fig:gr}}
+\end{subfigure}
+\caption{Detector response on the left view, reconstructed left view and right view when the mark is not present\label{fig:gauss}}
+\end{figure}
+
+
+It is worth noting that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection(Figure \ref{fig:Ll03}, \ref{fig:Ll06}, \ref{fig:gl1} and \ref{fig:gl3}) and for the right detection(Figure \ref{fig:Lr03}, \ref{fig:Lr06}, \ref{fig:grw1}, \ref{fig:gr1}, \ref{fig:grw3} and \ref{fig:gr3}). Figures \ref{fig:Llnm},  \ref{fig:Lrnm}, \ref{fig:gl}, \ref{fig:grw} and \ref{fig:gr} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
+\clearpage
 \section{Robustness against compression attack}
 
 In video analysis, compression helps to reduce resource usage, such as data storage space or transmission capacity.\newline This process is considered an attack since while bringing to a degradation of the image due to the compression ratio, it degradates also the watermark readability.\newline 
