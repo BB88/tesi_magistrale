@@ -593,28 +593,14 @@ First we proved the uniqueness of the watermark needed in order to have a reliab
 
 The created stereo video sequence was than watermarked and compressed under different compression rates, to test the visibility of the watermark as well as its robustness against lossy compression.
 
-Regarding the spatial technique results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression of crf 30. 
+Regarding the spatial technique, results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression of crf 30. 
 
-The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.  
+The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.
 
-\begin{table}[htbp]
- 
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, based on the $MQcolor$ graph we can make the following observations: in the frequency domain, if we fix a loss of quality of $1\%$ with respect to the non marked video, we obtain an embedding power of $0.3$, in Table \ref{tab:03} are shown the detection statistic in this case. If we accept a degradation of $3\%$ we obtain an acceptable embedding power of $0.6$, this statistics are shown in Table  \ref{tab:06}. 
 
-1& 0.3 &  \\
-15& 0.3 & \\
-25& 0.3 & \\
-30& 0.3 & \\
- \hline
- \end{tabular}
- }
- \caption{\label{tab:}}
- \end{center}
- \end{table}
+From the study conducted for the spatial domain it emerges that an acceptable degratation can only be obtained with embedding strenght equal to 1, in this case we study the distribution of True Positive detection with respect to increasing compression powwer; results are shown in Table \ref{tab:G1}.
+
 
 \begin{table}[htbp]
  
@@ -624,14 +610,14 @@ The frequency watermarking proved to be robust up to a compression rate of 25, a
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
 
-1& 0.6 &  \\
-15& 0.6 & \\
-25& 0.6 & \\
-30& 0.6 & \\
+1& 1 &  \\
+15& 1 & \\
+25& 1 & \\
+30& 1 & \\
  \hline
  \end{tabular}
  }
- \caption{\label{tab:}}
+ \caption{\label{tab:G1}}
  \end{center}
  \end{table}
 
@@ -651,9 +637,10 @@ The frequency watermarking proved to be robust up to a compression rate of 25, a
  \hline
  \end{tabular}
  }
- \caption{\label{tab:}}
+ \caption{\label{tab:03}}
  \end{center}
  \end{table}
+ 
  \begin{table}[htbp]
  \begin{center}
  \scalebox{0.9}{ 
@@ -668,13 +655,13 @@ The frequency watermarking proved to be robust up to a compression rate of 25, a
  \hline
  \end{tabular}
  }
- \caption{\label{tab:}}
+ \caption{\label{tab:06}}
  \end{center}
  \end{table}
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
-The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
+
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
 
