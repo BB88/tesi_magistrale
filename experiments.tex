@@ -29,7 +29,10 @@ The compressed videos are obtain by changing the CRF value in the ffmpeg command
 
 \section{Uniqueness of the watermark}
 
-The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark.  
+The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. 
+
+Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of loglikelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the loglikelihood value when the image does not contain the watermark.
+
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
@@ -47,9 +50,8 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
            \label{fig:Lr03}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.3}
+     \label{fig:Lr}
 \end{figure*}
-
-
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
@@ -67,6 +69,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 \label{fig:Lr06}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.6}
+     \label{fig:Ll}
 \end{figure*}
 
 
@@ -87,11 +90,13 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 \label{fig:Lrnm}
     \end{subfigure}
     \caption{Detector response on the left and right views where the images hasn't been marked}
+    \label{fig:Lnm}
 \end{figure*}
 
 
-\clearpage
-It is worth noting be noted that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
+Figures \ref{fig:Gl1}-\ref{fig:Gr3} show the response of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark.\\
+
+It is worth noting that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 
 \section{Robustness against compression attack}
 
@@ -516,7 +521,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_left.png}
+\includegraphics[width=1\textwidth]{./img/qm/qm_left.png}
           \caption{\small{Color quality metrics on the left view}}
 \label{fig:qmcl}
 
@@ -524,7 +529,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_disp_left.png}
+\includegraphics[width=1\textwidth]{./img/qm/qm_disp_left.png}
            \caption{\small{Color quality metrics on the right view}}
 \label{fig:qmdl}
     \end{subfigure}
@@ -536,7 +541,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_right.png}
+\includegraphics[width=1\textwidth]{./img/qm/qm_right.png}
           \caption{\small{Depth quality metrics on the left view}}
 \label{fig:qmcr}
 
@@ -544,7 +549,7 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_disp_right.png}
+\includegraphics[width=1\textwidth]{./img/qm/qm_disp_right.png}
            \caption{\small{Depth quality metrics on the right view}}
 \label{fig:qmdr}
     \end{subfigure}
@@ -590,17 +595,85 @@ Regarding the spatial technique results show that when the watermark is added wi
 
 The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.  
 
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+
+1& 0.3 &  \\
+15& 0.3 & \\
+25& 0.3 & \\
+30& 0.3 & \\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+
+1& 0.6 &  \\
+15& 0.6 & \\
+25& 0.6 & \\
+30& 0.6 & \\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
+
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
+
+1& 0.3 & 30  \\
+15& 0.3 & 29 \\
+25& 0.3 & 11 \\
+30& 0.3 & 2\\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+ \begin{table}[htbp]
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
+
+1& 0.6 &  30\\
+15& 0.6 & 30 \\
+25& 0.6 & 26\\
+30& 0.6 & 15\\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
 The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
-
-
-
-
-
-
-
 
 
