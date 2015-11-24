@@ -759,6 +759,36 @@ From the study conducted for the spatial domain it emerges that an acceptable de
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
-Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
+Then the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results.
+
+A definitive study on the PSNR value has been contacted to investigate the video sequence degradation considering both the watermarking and the compression. The results are shown in Table \ref{tab:psnr_glob} and we can conclude that, after a compression level of CRF 25, the quality of the video sequence depends only on compression.\\
+
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.8}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Compression Level & Power & PSNR(dB) \\ \hline
+1 & 0.3 & 44.4380 \\  	
+1 & 0.5 & 42.5976 \\  
+1 & 0.6 & 41.7071 \\   \hline				
+15 & 0.3 & 42.5494 \\
+15 & 0.5 & 41.2859 \\
+15 & 0.6 & 40.6131 \\ \hline
+25 & 0.3 & 39.4063  \\
+25 & 0.5 & 38.9882  \\
+25 & 0.6 &  38.7416 \\ \hline
+YT & 0.3 & 37.8233  \\
+YT & 0.5 & 37.7302  \\
+YT & 0.6 & 37.6820  \\ \hline
+30 & 0.3 & 36.9870  \\
+30 & 0.5 & 36.7520  \\
+30 & 0.6 & 36.6574 \\
+\hline 
+\end{tabularx}
+ }
+\caption{\small{Average PSNR values between original video and watermarked compressed videos with increasing value of compression and power.}\label{tab:psnr_glob}}
+\end{center}
+\end{table}
 
 
