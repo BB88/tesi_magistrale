@@ -597,17 +597,85 @@ Regarding the spatial technique results show that when the watermark is added wi
 
 The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.  
 
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+
+1& 0.3 &  \\
+15& 0.3 & \\
+25& 0.3 & \\
+30& 0.3 & \\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
+
+1& 0.6 &  \\
+15& 0.6 & \\
+25& 0.6 & \\
+30& 0.6 & \\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
+
+\begin{table}[htbp]
+ 
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
+
+1& 0.3 & 30  \\
+15& 0.3 & 29 \\
+25& 0.3 & 11 \\
+30& 0.3 & 2\\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+ \begin{table}[htbp]
+ \begin{center}
+ \scalebox{0.9}{ 
+ \begin{tabular}{c|c c c }
+ \hline\hline
+ \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
+
+1& 0.6 &  30\\
+15& 0.6 & 30 \\
+25& 0.6 & 26\\
+30& 0.6 & 15\\
+ \hline
+ \end{tabular}
+ }
+ \caption{\label{tab:}}
+ \end{center}
+ \end{table}
+
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
 The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
-
-
-
-
-
-
-
 
 
