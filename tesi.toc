@@ -38,8 +38,8 @@
 \contentsline {subsection}{\numberline {5.2.3}PSNR test}{72}{subsection.5.2.3}
 \contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{73}{section.5.3}
 \contentsline {section}{\numberline {5.4}Perceptual impact}{81}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}PSNR test}{84}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}Remarks}{85}{section.5.5}
-\contentsline {chapter}{\numberline {6}Conclusions}{88}{chapter.6}
-\contentsline {chapter}{\numberline {A}Libraries and codes}{90}{appendix.A}
-\contentsline {chapter}{Bibliografia}{91}{section*.111}
+\contentsline {subsection}{\numberline {5.4.1}PSNR test}{85}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}Remarks}{86}{section.5.5}
+\contentsline {chapter}{\numberline {6}Conclusions}{89}{chapter.6}
+\contentsline {chapter}{\numberline {A}Libraries and codes}{91}{appendix.A}
+\contentsline {chapter}{Bibliografia}{92}{section*.113}
