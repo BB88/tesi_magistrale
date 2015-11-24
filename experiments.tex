@@ -29,7 +29,10 @@ The compressed videos are obtain by changing the CRF value in the ffmpeg command
 
 \section{Uniqueness of the watermark}
 
-The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark.  
+The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. 
+
+Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of loglikelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the loglikelihood value when the image does not contain the watermark.
+
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
@@ -47,6 +50,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
            \label{fig:Lr03}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.3}
+     \label{fig:Lr}
 \end{figure*}
 
 
@@ -67,6 +71,7 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 \label{fig:Lr06}
     \end{subfigure}
     \caption{Detector response on the left and right views marked with power equal to 0.6}
+     \label{fig:Ll}
 \end{figure*}
 
 
@@ -87,11 +92,13 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 \label{fig:Lrnm}
     \end{subfigure}
     \caption{Detector response on the left and right views where the images hasn't been marked}
+    \label{fig:Lnm}
 \end{figure*}
 
 
-\clearpage
-It is worth noting be noted that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
+Figures \ref{fig:Gl1}-\ref{fig:Gr3} show the response of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark.\\
+
+It is worth noting that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 
 \section{Robustness against compression attack}
 

@@ -4,9 +4,8 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{Stereoscopic Video}
 
-Depth information is essential for an accurate image analysis or for enhancing the realism.\\
 In a wide variety of image processing applications, explicit depth information is required in
-addition to general image informations, such as intensities, color, densities.\\
+addition to general image informations, such as intensities, color, densities.
 Examples of such applications are found in 3D vision (robot vision, photogrammetry, remote sensing systems), in medical imaging (computer tomography,
 magnetic resonance imaging, microsurgery), in remote handling of objects (random bin picking), in space exploration (mobile robotics navigation) or 3D movies and videogames (Figures \ref{appl0} and \ref{appl}).\\
 In remote sensing the terrain's elevation needs to be accurately determined for map production, in remote handling an operator needs to have precise knowledge of the threedimensional organization of the area to avoid collisions and misplacements.\\
@@ -41,7 +40,7 @@ In remote sensing the terrain's elevation needs to be accurately determined for 
 \end{subfigure} 
 \caption{\small{Stereoscopy application's fields}\label{appl}}
 \end{figure}
-Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound. However it's usually undesirable to have separate systems for acquiring the intensity and the depth information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
+Depth in real world scenes can be explicitly measured by a number of range sensing devices such as by laser range sensors, by structured light or by ultrasound. Most of such devices are not able to capture simultaneously both the depth and the bright intensity of the scene; however it's usually undesirable to have separate systems for acquiring the intensity and the depth information because of the relative low resolution of the range sensing devices and because it's not an easy task to fuse information from different type of sensors; for these reasons and for a non-negligible economic factor stereoscopic vision has becoming the technology of choice in these type of applications.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[]{0.4\textwidth}
@@ -104,10 +103,11 @@ To hold and align the cameras, a stereo-rig is used; the rigs can be of two main
 \end{subfigure}%
 \caption{\small{Professional technologies for 3D TV }}
 \end{figure}
-\item[-] the beamsplitter rig (Figure \ref{fig:beam}), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy).\\
+\item[-] the beamsplitter rig (Figure \ref{fig:beam}), where one camera films through a semi-transparent mirror, and the other films the reflection in the mirror. These rigs allow small and medium interaxials, useful for most shots, but not the very large interaxials (because the equipment would be too large and heavy);
+\item[-] monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
+and are perfectly aligned, which avoids cameras desynchronization (Figure \ref{fig:mono}).
 \end{itemize}
-Monoblock cameras have been designed as well, where the two cameras are presented in a fixed block
-and are perfectly aligned, which avoids cameras desynchronization (Figure \ref{fig:mono}).\\
+
 A second category of 3D shooting devices is presented in Figure \ref{fig:mobile}. These electronic devices are less expensive and are targeting the user-created stereoscopic picture/movie distribution.\\
 \begin{figure}[h!]
 \centering
@@ -163,7 +163,7 @@ cameras.\\
 \end{subfigure}
 \begin{subfigure}[b]{0.35\textwidth}
         \includegraphics[width=\textwidth]{./img/stereo.png}
-        \caption{\scriptsize{Stereoscopic system}}
+        \caption{\scriptsize{Stereo vision}}
         \label{fig:stereo}
 \end{subfigure} 
 \caption{\small{Binocular human vision vs. stereoscopic content acquisition.}}
@@ -204,7 +204,7 @@ These parameters can be used to rectify a stereo pair of images to make them app
 \end{figure}
 
 \newpage
-\subsection{Disparity map computation}
+\subsubsection{Disparity map computation}
 
 With the stereo rig in standard form and by considering similar triangles in Figure \ref{fig:depth} (PO$_{L}$O$_{R}$ and Ppp') the following relations hold: 
 \begin{equation}
