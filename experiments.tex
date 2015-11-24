@@ -27,7 +27,6 @@ The compressed videos are obtain by changing the CRF value in the ffmpeg command
 
 
 
-
 \section{Uniqueness of the watermark}
 
 The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. Figures \ref{fig:Ll03}-\ref{fig:Lr06} show the response of the watermark detector to 100 randomly generated watermarks of which only one matches the reference watermark.  
@@ -92,12 +91,12 @@ The first experiment we present aims to demonstrate the uniqueness of the waterm
 
 
 \clearpage
-It can be noted that the response due to the correct watermark is very much stronger with respect to the response to incorrect watermarks, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
+It is worth noting be noted that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection (figure \ref{fig:Ll03} and \ref{fig:Ll06}) and for the right detection(figure \ref{fig:Lr03} and \ref{fig:Lr06}). \newline Figures \ref{fig:Llnm} and  \ref{fig:Lrnm} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 
 \section{Robustness against compression attack}
 
-In video analysis, compression is useful because it helps reduce resource usage, such as data storage space or transmission capacity.\newline This process is considered an attack since it brings to a degradation of the image due to the compression ratio, thus a degradation of the watermark.\newline 
-This problem can be addressed improving the strenght of the embedded watermark, so it can resist the image degradation, but it is necessary to mantain an acceptable trade-off between robustness and the perceptual impact of the watermark. \newline
+In video analysis, compression helps to reduce resource usage, such as data storage space or transmission capacity.\newline This process is considered an attack since while bringing to a degradation of the image due to the compression ratio, it degradates also the watermark readability.\newline 
+This problem can be coped improving the strenght of the embedded watermark, to resist the image degradation,while mantaining an acceptable trade-off between robustness and the perceptual impact of the watermark. \newline
 
 Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due to compression and watermark power.
 
@@ -150,11 +149,11 @@ Yet in figures \ref{fig:06crf1}-\ref{fig:06crf30} it can be noted that when the 
 
 \subsection{Spatial watermarking robustness}
 
-In spatial domain watermarking systems, the watermark is embedded directly in the spatial domain (pixel domain).\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
+In spatial domain watermarking systems, the watermark is embedded directly in the pixel domain.\newline  Many of the spatial watermarking techniques provide simple and effective schemes for embedding an invisible watermark into an image, but are less robust to common attacks such as lossy compression.
 
 The evaluation of this detection system has been studied through the ROC curve, which show the performance of a binary classifier system as its discrimination threshold is varied. The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. The best possible prediction method would yield a point in the upper left corner or coordinate (0,1) of the ROC space, representing 100$\%$ sensitivity (no false negatives) and 100$\%$ specificity (no false positives). The (0,1) point is also called a perfect classification. A completely random guess would give a point along a diagonal line from the left bottom to the top right corners.
 
-The results are in figures \ref{fig:g1crf1}-\ref{fig:g3crf30}.
+Figures \ref{fig:g1crf1}-\ref{fig:g3crf30} show the results for this experiment; each curve is the result of the study conducted on 30 marked frames when the positive score is assigned to : (i) the correlation value between the left view and the watermark, (ii) the correlation between the warped right view and the watermark, (iii) the correlation between the right view and the warped watermark.\\ The negative score is assigned to the correlation value produced by the right view and the reference watermark.
 
 \begin{figure}[h!]
 \centering
@@ -210,13 +209,10 @@ The ROC functions above reveal that the more the image is compressed the more th
 
 \subsection{DFT watermaking robustess}
 
-In transform domain watermarking systems, watermark insertion is done by transforming the image into the frequency domain using a discrete Fourier transform (DFT), full-image DCT, block-wise DCT, wavelet, Hadamard, Fourier-Mellin, or other transforms.\newline  It is often claimed that embedding in the transform domain is advantageous in terms of visibility and security.
- 
 Two studies are presented in this section: the first one concernes the power of the watermark needed in order to achieve robustness against different levels of compression; the latter focus on youtube, and tries to find the right power to achive robustness in a downloaded video.
  
-Each test has been made with both the ground truth and graph-cuts disparities.
- 
-Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find the watermark in a compressed video, in particular it is shown if the mark is detected in the left/right view or both images. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
+Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find the watermark in a compressed video, in particular it is shown in how many stereo frame the mark is detected in both left and right view, and the total of correct detection on the left view and right view separately. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
+
 \clearpage
 
 \begin{table}[htbp]
@@ -227,14 +223,18 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
  
- 0.3 & 1 & 30 & 0 & 0 \\
- 0.3 & 15 & 30 & 0 & 0 \\
- 0.3 & 25 & 10 & 5 & 0 \\
- 0.3 & 30 & 1 & 1 & 0 \\
- 0.6 & 1 & 30 & 0 & 0 \\
- 0.6 & 15 & 30 & 0 & 0 \\
- 0.6 & 25 & 28 & 0 & 0 \\
- 0.6 & 30 & 16 & 2 & 0 \\
+0.3 & 1 & 30 & 30 & 30 \\
+0.3 & 15 & 30 & 30 & 30 \\
+0.3 & 25 & 10 & 15 & 10 \\
+0.3 & 30 & 1 & 2 & 1 \\
+0.5 & 1 & 30 & 30 & 30 \\
+0.5 & 15 & 30 & 30 & 30 \\
+0.5 & 25 & 23 & 25 & 24 \\
+0.5 & 30 & 10 & 14 & 10 \\
+0.6 & 1 & 30 & 30 & 30 \\
+0.6 & 15 & 30 & 30 & 30 \\
+0.6 & 25 & 28 & 28 & 28 \\
+0.6 & 30 & 16 & 18 & 16 \\
            
  \hline
  \end{tabular}
@@ -251,18 +251,18 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
  
- 0.3 & 1 & 30 & 0 & 0 \\
- 0.3 & 15 & 29 & 1 & 0 \\
- 0.3 & 25 & 11 & 1 & 0 \\
- 0.3 & 30 & 2 & 1 & 0 \\
- 0.5 & 1 & 30 & 0 & 0 \\
- 0.5 & 15 & 30 & 0 & 0 \\
- 0.5 & 25 & 24 & 2 & 0 \\
- 0.5 & 30 & 9 & 2 & 0 \\
- 0.6 & 1 & 30 & 0 & 0 \\
- 0.6 & 15 & 30 & 0 & 0 \\
- 0.6 & 25 & 26 & 1 & 1 \\
- 0.6 & 30 & 15 & 4 & 0 \\
+ 0.3 & 1 & 30 & 30 & 30 \\
+ 0.3 & 15 & 29 & 30 & 29 \\
+ 0.3 & 25 & 11 & 12 & 11 \\
+ 0.3 & 30 & 2 & 3 & 2 \\
+ 0.5 & 1 & 30 & 30 & 30 \\
+ 0.5 & 15 & 30 & 30 & 30 \\
+ 0.5 & 25 & 24 & 26 & 24 \\
+ 0.5 & 30 & 9 & 11 & 9 \\
+ 0.6 & 1 & 30 & 30 & 30 \\
+ 0.6 & 15 & 30 & 30 & 30 \\
+ 0.6 & 25 & 26 & 27 & 27 \\
+ 0.6 & 30 & 15 & 19 & 15 \\
            
  \hline
  \end{tabular}
@@ -313,10 +313,9 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
   \begin{tabular}{c|c c c }
   \hline\hline
   \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
- 0.3 & 1 & 0 & 0\\
- 0.6 & 9 & 1 & 0\\
- 0.7 & 12& 2 & 0\\
- 0.8 & 16& 0 & 1\\ 
+ 0.3 & 1 & 1 & 0\\
+ 0.6 & 9 & 10 & 9\\
+ 0.7 & 12& 14 & 12\\
   \hline
   \end{tabular}
   }
@@ -332,9 +331,9 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
 
-0.3& 1& 0& 0\\
-0.5& 6 & 1& 0\\
-0.6& 11 & 0 & 0\\
+0.3& 1 & 1& 0\\
+0.5& 6 & 7& 6\\
+0.6& 11 & 11 & 0\\
  \hline
  \end{tabular}
  }
@@ -342,7 +341,7 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
  \end{center}
  \end{table}
  
- 
+\subsection{PSNR test}
 To validate this results the average PSNR value has been computed between original and compressed  stereoscopic videos at diffent compression levels.\\
 PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 The results of this study are shown in Table \ref{tab:psnr}: PSNR value decreases with the increment of the compression level. This implicates a decrement of the true positive rate after compression due to the image degradation as shown in Tables \ref{tab:compgt}-\ref{tab:compkz} and \ref{tab:ytgt}-\ref{tab:ytkz}.\\
@@ -460,8 +459,9 @@ With the proposed method the detection of the watermark in the right view works 
 \clearpage
 \section{Perceptual impact}
 
-As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al.\\
-Based on the fact that the edges/contours of the depth map can be considered for measuring structural degradation, it is proposed a metric which is a modified version of the SSIM metric. This measure is supposed to be computed on the degradated view and the corresponding disparity map, in our case we measured either the degradataion on the left and right view.
+As said in Chapter \ref{wat} the perceptual impact, i.e. the imperceptivity of the watermark to the human eye, has been measure with the metrics proposed by Chaminda et al \cite{QMETRICS}.\\ 
+This test is motivated by the fact that researchers have found out that there is a strong correlation between subjective 3D video quality ratings and candidate objective quality measures (e.g., video quality metric (VQM), peak-signal-to-noise ratio (PSNR), structure similarity metric (SSIM)) of individual image components of 3D video, e.g., PSNR values of color image and corresponding depth map or average PSNR of left and right view images. This means that we can use individual objective quality ratings of 3D video components in place of time consuming subjective test procedures for most of the system parameter changes with a reasonable accuracy.\\
+In particular the study in \cite{QMETRICS} is based on the fact that the edges/contours of the depth map can be considered for measuring structural degradation, it is proposed a metric which is a modified version of the SSIM metric. In  \cite{QMETRICS} this measure is computed on the degradated view and the corresponding disparity map, in our case we measured either the degradataion on the left and right view.
 
 Figure \ref{fig:sobel} gives graphical illustration of contour extraction in order to compute the RR metrics on the left view, in this case the image has been marked with power equal to 0.3 and it can be noted that this kind of watermarking doesn't affect the contours of the scene.
    
@@ -510,7 +510,7 @@ Figure \ref{fig:sobel} gives graphical illustration of contour extraction in ord
 \caption{\small{(a) Reference left image. (b) Extracted edge information from reference left image. (c) Watermarked left image. (d) Extracted edge information from the watermarked left image. (e) Left disparity map obtain from the non watermarked stereo pair. (f) Extracted edge information from the left disparity map obtain from the non watermarked stereo pair. (g)  Left disparity map obtain from the watermarked stereo pair.(h) Extracted edge information from the left disparity map obtain from the watermarked stereo pair. }\label{fig:sobel}}
 \end{figure}
 \clearpage
-For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the power of the embedded watermark. 
+For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, and in figures \ref{fig:qml}-\ref{fig:qmr} its shown the value of the quality measure with respect to the increasing value of the watermark power. 
 
 \begin{figure*}[h!]
     \centering
@@ -553,14 +553,16 @@ For different power of watermarking both the $MQ_{depth}$ and $MQ_{color}$ metri
 \end{figure*}
 \clearpage
 
-In figures \ref{fig:qml}-\ref{fig:qmr} we can see how the quality metrics decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low, however with power lower the 0.6 the degradation mantain an acceptable level with respect to the value generated from the non marked image (power equal to 0).\newline
+In figures \ref{fig:qml}-\ref{fig:qmr} we can see how the quality metrics decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low, however with power lower the 0.6 the degradation mantain an acceptable level with respect to the value generated from the non marked image (power equal to 0).
 
-Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between the I frames of the original stereoscopic video and the watermarked stereoscopic videos with different values of the power(that is 30 pairs of stereoscopic frames)\\ .
+\subsection{PSNR test}
+
+Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between the I frames of the original stereoscopic video and the watermarked stereoscopic videos with different values of the power(that is 30 pairs of stereoscopic frames).\\
 As said before typical values for the PSNR in video watermarking are between 30 and 50 dB.
 The results of this study are shown in Table \ref{tab:psnr_wm}: with a power value of $0.3$ PSNR reaches a maximum value of $44.438$, which indicates a good quality of the watermarked stereo pair. \\
-As expected the PSNR value decrease with the increment of the watermaking power, indicating a degratation of the watermarked videos.\\. This analysis is in line with the one conducted with the quality metrics in \cite{QMETRICS}.\\
+As expected the PSNR value decrease with the increment of the watermaking power, indicating a degratation of the watermarked videos.\\ This analysis is in line with the one conducted with the quality metrics in \cite{QMETRICS}.
 
-\begin{table}[htbp]
+\begin{table}[h!]
 \begin{center}
 \scalebox{0.9}{ 
 \begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
@@ -575,22 +577,22 @@ Power & PSNR(dB) \\ \hline
 \caption{\small{Average PSNR values between original video and watermarked videos with increasing value of the power.} \label{tab:psnr_wm}}
 \end{center}
 \end{table}
-
+\clearpage
 \section{Remarks}
 
 In this chapter the experiments conducted to test the proposed watermarking technique have been presented.
 
 First we proved the uniqueness of the watermark needed in order to have a reliable marking process.
 
-The created stereo video sequence was than marked and compressed under different compression rates, to test the visibility of the watermark as well as its robustness against lossy compression.
+The created stereo video sequence was than watermarked and compressed under different compression rates, to test the visibility of the watermark as well as its robustness against lossy compression.
 
-Regarding the spatial technique results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression. 
+Regarding the spatial technique results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression of crf 30. 
 
 The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.  
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
-The quality of the watermarked video has been studied with RR quality metrics, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
+The quality of the watermarked video has been studied with Reduced Reference quality metrics \cite{QMETRICS}, and it emerges that the stereo frame degradation mantains a good value when marking with power lower than 0.6. 
 
 Finally the average PSNR value has been computed to analyse compression and visual impact of the watermark; the study supports the previous results. 
 
