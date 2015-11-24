@@ -4,15 +4,19 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
 
-The proposed method has been tested to verify, besides the uniqueness of the watermark, its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the image due to compression, view synthesis etc.\newline 
-Another important feature of a good watermarking method is perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test the algorithm performances.\newline
+The proposed method has been tested to verify the uniqueness of the watermark, i.e. if the detector will present a signific significantly higher score only in correspondence of the reference watermark, and its validity in terms of robustness and perceptual impact.\newline As said before, robustness is the ability of the watermark to cope with the degradation of the frame due to compression, view synthesis etc.\newline 
+Another important feature of a good watermarking method is the perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline In this chapter will be presented the results carried out to test both the spatial and frequency disparity-coherent watermarking algorithm performances.\newline
+
+The experimental results have been proposed on a 1' stereo video sequence created starting from the left and right view of the New Tsukuba dataset \cite{tsu}, with Group Of Picture (GOP) of 60 frames and 30 fps.\newline 
+In video coding, a Group Of Picture, or GOP structure, specifies the order in which intra- and inter-frames are arranged. The GOP is a group of successive pictures within a coded video stream. Each coded video stream consists of successive GOPs. From the pictures contained in it, the visible frames are generated.\\A
+GOP can contain the following picture types:
+I frame (intra coded picture) is  a picture that is coded independently of all other pictures. Each GOP begins (in decoding order) with this type of picture; P frame (predictive coded picture) – contains motion-compensated difference information relative to previously decoded pictures;  B frame (bipredictive coded picture) contains motion-compensated difference information relative to previously decoded pictures. An I frame indicates the beginning of a GOP. Afterwards several P and B frames follow.\\
+
+In this work it has been chosen to mark the video every 60 frames, i.e. only the I frame of each GOP.\newline 
+The frames of the reference video have been marked with increasing values of the power and then the watermarked videos have been compressed with different levels of compression; higher values of the power lead in video visual degradation but make the watermark more robust against compression. \newline 
 
 
-The marking process has been applied to a 1 minute stereo-video sequence created starting from the left and right view of the New Tsukuba dataset \cite{tsu}, with GOP of 60 frames and 30 fps.\newline 
-Its been chosen to mark every 60 frames, i.e. only the I frame of each GOP.\newline 
-The frames of the reference video has been marked with different power and new marked videos has been created with different levels of compression.\newline 
-
-The compressed videos are made with the \texttt{ffmpeg} library \cite{ffmpeg}, changing the Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
+The videos are compressed with the \texttt{ffmpeg} library \cite{ffmpeg}, a library for handling multimedia data, at various Constant Rate Factor (CRF), the default quality setting for the x264 encoder. The value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). 
 
 \section{Uniqueness of the watermark}
 
@@ -208,7 +212,7 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
 \begin{table}[htbp]
 
  \begin{center}
- \scalebox{0.6}{ 
+ \scalebox{0.9}{ 
  \begin{tabular}{c|c|c c c }
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
@@ -232,7 +236,7 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
 \begin{table}[htbp]
 
  \begin{center}
- \scalebox{0.6}{ 
+ \scalebox{0.9}{ 
  \begin{tabular}{c|c|c c c }
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
@@ -295,7 +299,7 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
  \begin{table}[htbp]
 
   \begin{center}
-  \scalebox{0.6}{ 
+  \scalebox{0.9}{ 
   \begin{tabular}{c|c c c }
   \hline\hline
   \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
@@ -313,7 +317,7 @@ Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and su
 \begin{table}[htbp]
  
  \begin{center}
- \scalebox{0.6}{ 
+ \scalebox{0.9}{ 
  \begin{tabular}{c|c c c }
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
@@ -334,7 +338,7 @@ PSNR is the ratio between the maximum possible power of a signal and the power o
 The results of this study are shown in Table \ref{tab:psnr}: PSNR value decreases with the increment of the compression level. This implicates a decrement of the true positive rate after compression due to the image degradation as shown in Tables \ref{tab:compgt}-\ref{tab:compkz} and \ref{tab:ytgt}-\ref{tab:ytkz}.\\
 \begin{table}[htbp]
 \begin{center}
-\scalebox{0.6}{ 
+\scalebox{0.9}{ 
 \begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
 \hline \hline
 Compression Level(CRF) & PSNR(dB) \\ \hline
@@ -383,7 +387,7 @@ The Table \ref{tab:syntDFT} contains the results for the frequency marking: the 
 \begin{table}[htbp]
 
  \begin{center}
- \scalebox{0.6}{ 
+ \scalebox{0.9}{ 
  \begin{tabular}{c|c c c }
  \hline\hline
  \multirow{1}{2.5cm}{\textbf{position}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
@@ -548,7 +552,7 @@ As expected the PSNR value decrease with the increment of the watermaking power,
 
 \begin{table}[htbp]
 \begin{center}
-\scalebox{0.6}{ 
+\scalebox{0.9}{ 
 \begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
 \hline \hline
 Power & PSNR(dB) \\ \hline
