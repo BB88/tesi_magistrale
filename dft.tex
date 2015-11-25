@@ -14,16 +14,16 @@ The strategy is based on the technique presented by Piva et al in "Improving DFT
 \centering
 \begin{subfigure}[]{\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{./img/casting.png}
-\caption{\scriptsize{Watermark casting process}\label{fig:cast}}
+\includegraphics[width=1\textwidth]{./img/casting.jpg}
+\caption{\scriptsize{Watermark casting process.}\label{fig:cast}}
 \end{subfigure} 
 ~\quad
 \begin{subfigure}[]{\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{./img/detection.png}
-\caption{\scriptsize{Watermark detection process}\label{fig:det}}
+\includegraphics[width=1\textwidth]{./img/detection.jpg}
+\caption{\scriptsize{Watermark detection process.}\label{fig:det}}
 \end{subfigure}%
-\caption{\small{Piva et. al watermarking workflow}\label{fig:blocchi}}
+\caption{\small{Piva et. al watermarking workflow.}\label{fig:blocchi}}
 \end{figure}
 
 For our stereo watermarking task this process has been simplified and cut to the basic frequency watermaking; the implemented steps are described below.
@@ -56,14 +56,14 @@ To verify if the selected coefficients have been altered by means of the waterma
 
 To choose a proper threshold, it has been chosen to fix a constraint on the maximum false positive probability and the optimum decoder is designed refferring to the Neyman-Pearson criterion, as: \newline
 
-$$ L(y)=\sum_{i=0}^{N-1} [-\beta ln(1+\alpha_{m}m_{i}^{*})]+\sum_{i=0}^{N-1}[-(\frac{y_{i}}{\alpha_{i}(1+\alpha_{m}m_{i}^{*})}))^{\beta_{i}}+(\frac{y_{i}}{\alpha_{i}})^{\beta_{i}}] $$
+$$ L(y)=\sum_{i=0}^{N-1} \Big[-\beta ln(1+\alpha_{m}m_{i}^{*})\Big]+\sum_{i=0}^{N-1}\Big[-\Big(\frac{y_{i}}{\alpha_{i}(1+\alpha_{m}m_{i}^{*})}\Big)^{\beta_{i}}+\Big(\frac{y_{i}}{\alpha_{i}}\Big)^{\beta_{i}}\Big] $$
 and
-$$\lambda=3.3\sqrt{2\sum_{i=0}^{N-1}[\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}]} + \sum_{i=0}^{N-1}\{\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}-1]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}\} - \sum_{i=0}^{N-1}[\beta_{i}ln(1+\alpha_{m}m_{i}^{*})]$$
+$$\lambda=3.3\sqrt{2\sum_{i=0}^{N-1}\Big[\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}\Big]} + \sum_{i=0}^{N-1}\Big\{\frac{[(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}-1]}{(1+\alpha_{m}m_{i}^{*})^{\beta_{i}}}\Big\} - \sum_{i=0}^{N-1}[\beta_{i}ln(1+\alpha_{m}m_{i}^{*})]$$
 
 where  $m^{*} = \{ m^{*}_{i} \} i= 0,1,...N-1$ is the watermark, $\alpha_{m}$ the mean watermark energy, $\alpha_{i}$ and $\beta_{i}$ are statistic parameters describing the probability density function shape of the magnitude of the watermarked DFT coefficients $y_{i}$.\newline 
 The values of this parameters are choosen by means of Maximum Likelihood criterion, based on the fact that the coefficients belonging to small
 sub-regions of the spectrum are characterised by the same statistic parameters and follows a Weibull distribution, modeled as:
-$$ f(y_{i}) = \frac{\beta}{\alpha}(\frac{y_{i}}{\alpha})^{\beta-1}\exp\{-(\frac{y_{i}}{\alpha})^{\beta}\}$$
+$$ f(y_{i}) = \frac{\beta}{\alpha}\Big(\frac{y_{i}}{\alpha}\Big)^{\beta-1}\exp\Big\{-\Big(\frac{y_{i}}{\alpha}\Big)^{\beta}\Big\}$$
 In summary, the detection process can be decomposed in the following steps:
 \begin{itemize}
 \item generation of the watermark $m^{*}$;
@@ -81,8 +81,8 @@ The frequency method works on squared images, for this reason a subset of pixel 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/cropping.png}
-\caption{\small{Cropping of the original image}}
+\includegraphics[width=1\textwidth]{./img/cropping.jpg}
+\caption{\small{Cropping of the original image.}}
 \label{fig:cropped}
 \end{figure}
 
@@ -91,26 +91,26 @@ The left view has been processed with the algorithm described in \ref{wat_emb} (
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/left_wat.png}
-\caption{\small{DFT watermark casting workflow of the left image}\label{fig:left_wat}}
+\includegraphics[width=1\textwidth]{./img/left_wat.jpg}
+\caption{\small{DFT watermark casting workflow of the left image.}\label{fig:left_wat}}
 
 \end{figure}
 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/pros.png}
-\caption{\small{Disparity-coherent watermark casting workflow of the right view}}
+\includegraphics[width=1\textwidth]{./img/pros.jpg}
+\caption{\small{Disparity-coherent watermark casting workflow of the right view.}}
 \label{fig:right_wat}
 \end{figure}
 
 
 In order to mark the left and right view with the same watermark, but in a disparity-coherent way, a study on the left marking process has been conducted.\\
 The NxM left image $l$ can be written as a function of its DFT transform $L$:
-$$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\}  $$
+$$ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\big\{-j2\pi\Big(\frac{ux}{M}+\frac{vy}{N}\Big)\big\}  $$
 The marking process alters the DFT coefficients according to the Equation in \ref{eq:wat}
 which can be written as:
-$$ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(\phi_{L}+\phi_{w})\}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+$$ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\big\{j(\phi_{L}+\phi_{w})\big\}\exp\{-j2\pi\Big(\frac{ux}{M}+\frac{vy}{N}\Big)\} $$
 the signal alteration is therefore given by:
 $$ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\} $$ 
 where $|w|$ is the magnitude of the watermark, $\phi_{L}$ is the phase of the left view and $ \phi_{w}$ the phase of the watermark which takes value in \{0,$\pi$\}, according to the sign of the watermark.
@@ -121,33 +121,33 @@ $$ \alpha|R^{**}||w|exp\{j(\phi_{L}+\phi{w})\} $$
 where the superscript $**$ indicates that the right image has been warped according to he right-to -left disparity to have the same phase of the left image.
 The created mark is then brought in the spatial domain and warped according to the left-to right disparity, before the spatial insertion in the right view.
 The complete formula can then be written as: 
-$$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
-$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{*}\exp\{-j2\pi(\frac{ux}{M}\frac{vy}{N})\} $$
+$$ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\big\{-j2\pi\Big(\frac{ux}{M}+\frac{vy}{N}\Big)\big\} $$
+$$ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|\exp\{j(\phi_{L}+\phi_{w})\})^{*}\exp\big\{-j2\pi\Big(\frac{ux}{M}+\frac{vy}{N}\Big)\big\} $$
 
 The superscript $*$ indicates the warping according to the left-to-right disparity, to achive disparity-coherence and mark a pixel in the 3D space with the watermark.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/marked_03_DFT.png}
-\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.3}}
+\includegraphics[width=1\textwidth]{./img/marked_03_DFT.jpg}
+\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.3.}}
 \label{fig:dft03}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/marked_05_DFT.png}
-\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.5}}
+\includegraphics[width=1\textwidth]{./img/marked_05_DFT.jpg}
+\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.5.}}
 \label{fig:dft05}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/marked_06_DFT.png}
-\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.6}}
+\includegraphics[width=1\textwidth]{./img/marked_06_DFT.jpg}
+\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.6.}}
 \label{fig:dft06}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/marked_07_DFT.png}
-\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.7}}
+\includegraphics[width=1\textwidth]{./img/marked_07_DFT.jpg}
+\caption{\small{Stereo image marked with DFT algorithm with power equal to 0.7.}}
 \label{fig:dft07}
 \end{figure}
 
@@ -159,15 +159,15 @@ As for the embedding process, the algorithm is applied to the left view without 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/left_det.png}
-\caption{\small{Watermark detection process for left image}\label{fig:left_dec}}
+\includegraphics[width=1\textwidth]{./img/left_det.jpg}
+\caption{\small{Watermark detection process for left image.}\label{fig:left_dec}}
 
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/right_det.png}
-\caption{\small{Watermark detection process for right image}\label{fig:right_dec}}
+\includegraphics[width=1\textwidth]{./img/right_det.jpg}
+\caption{\small{Watermark detection process for right image.}\label{fig:right_dec}}
 
 \end{figure}
 
@@ -178,8 +178,8 @@ The created image is then processed by the threshold-based detection algorithm a
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/detection_workflow.png}
-\caption{\small{Workflow of the processing of watermarked right image before detection}}
+\includegraphics[width=1\textwidth]{./img/detection_workflow.jpg}
+\caption{\small{Workflow of the processing of watermarked right image before detection.}}
 \label{fig:detflow}
 \end{figure}
 

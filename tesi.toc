@@ -32,14 +32,14 @@
 \contentsline {section}{\numberline {4.3}Stereo detection algorithm}{48}{section.4.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{51}{chapter.5}
 \contentsline {section}{\numberline {5.1}Uniqueness of the watermark}{53}{section.5.1}
-\contentsline {section}{\numberline {5.2}Robustness against compression attack}{59}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Spatial watermarking robustness}{62}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}DFT watermaking robustess}{67}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}PSNR test}{72}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.2}Robustness against compression attack}{60}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Spatial watermarking robustness}{63}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}DFT watermaking robustess}{68}{subsection.5.2.2}
+\contentsline {subsubsection}{PSNR test}{72}{section*.91}
 \contentsline {section}{\numberline {5.3}Robustness to View Synthesis}{73}{section.5.3}
-\contentsline {section}{\numberline {5.4}Perceptual impact}{81}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}PSNR test}{85}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}Remarks}{86}{section.5.5}
+\contentsline {section}{\numberline {5.4}Perceptual impact}{80}{section.5.4}
+\contentsline {subsubsection}{PSNR test}{84}{section*.108}
+\contentsline {section}{\numberline {5.5}Remarks}{85}{section.5.5}
 \contentsline {chapter}{\numberline {6}Conclusions}{89}{chapter.6}
 \contentsline {chapter}{\numberline {A}Libraries and codes}{91}{appendix.A}
-\contentsline {chapter}{Bibliografia}{92}{section*.114}
+\contentsline {chapter}{Bibliografia}{92}{section*.116}

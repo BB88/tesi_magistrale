@@ -15,8 +15,8 @@ Digital watermarking consists in imperceptiby and persistently associating some 
 The basic watermarking workflow is presented in Figure \ref{fig:workflow}.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/wat_workflow.png}
-\caption{\small{Watermarking workflow}}
+\includegraphics[width=1\textwidth]{./img/wat_workflow.jpg}
+\caption{\small{Watermarking workflow.}}
 \label{fig:workflow}
 \end{figure}
 \clearpage
@@ -30,8 +30,8 @@ Three parameters are required to evaluate watermarking technique performances:
 These requirements are though inversely proportional (Figure \ref{fig:properties}): the more information is embedded, the more the watermark is visible and viceversa; the more robusteness is increased, the more the watermark is visible and viceversa.\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/properties.png}
-\caption{\small{Watermark properties trade-off}}
+\includegraphics[width=0.9\textwidth]{./img/properties.jpg}
+\caption{\small{Watermark properties trade-off.}}
 \label{fig:properties}
 \end{figure}
 Finally, a watermarking technique can be:
@@ -51,23 +51,23 @@ The embedding process requires the selection of a set of features of the digital
 \item[-] spatial domain: the watermark is embedded by directly modifying the pixel values;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/domain1.png}
-\caption{\small{Spatial domain watermark insertion}}
+\includegraphics[width=1\textwidth]{./img/domain1.jpg}
+\caption{\small{Spatial domain watermark insertion.}}
 \label{fig:dom1}
 \end{figure}
 \item[-] frequency domain: the image is transformed through a mathematical transformation (DCT, DFT or DWT), some coefficients are modified and finally the inverse transform is carried out;
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/domain2.png}
-\caption{\small{Frequency domain watermark insertion}}
+\includegraphics[width=1\textwidth]{./img/domain2.jpg}
+\caption{\small{Frequency domain watermark insertion.}}
 \label{fig:dom2}
 \end{figure}
 \item[-] hybrid techniques: a block wise transform is applied, the image is divided
 into blocks and for each block a mathematical transformation is computed, some coefficients are modified and the inverse transform is done.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/domain3.png}
-\caption{\small{Hybrid technique}}
+\includegraphics[width=1\textwidth]{./img/domain3.jpg}
+\caption{\small{Hybrid technique.}}
 \label{fig:dom3}
 \end{figure}
 \end{itemize}
@@ -76,8 +76,8 @@ into blocks and for each block a mathematical transformation is computed, some c
 The most straightforward ways to add a watermark in a given content have been proved to be Spread Spectrum (SS) approach and Side Information (SI).\\
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./img/ss.png}
-\caption{\small{Spread spectrum technique}}
+\includegraphics[width=0.7\textwidth]{./img/ss.jpg}
+\caption{\small{Spread spectrum technique.}}
 \label{fig:ss}
 \end{figure}
 As in spread spectrum communications, the former approach considers the original content as a signal and the watermark as a noise that is spread over very many frequency bins so that the energy in any one bin is very small and certainly undetectable\cite{COX}\cite{COX1}.\\
@@ -86,8 +86,8 @@ The latter takes advantage of the fact that the original content is known at the
 Sometimes hybrid watermarking methods combining spread spectrum and side information concepts can be applied; they try to benefit from both the robustness and transparency of the spread spectrum methods and the increased data payload of the side information methods \cite{QIM}\cite{QIM1}.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{./img/si.png}
-\caption{\small{Side information technique scheme}}
+\includegraphics[width=1\textwidth]{./img/si.jpg}
+\caption{\small{Side information technique scheme.}}
 \label{fig:si}
 \end{figure}
 
@@ -108,14 +108,14 @@ In Figures \ref{fig:view}-\ref{fig:disp} the workflows of both methods are prese
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\textwidth]{./img/views_domain.jpeg}
-\caption{\small{View-based watermarking workflow}}
+\caption{\small{View-based watermarking workflow.}}
 \label{fig:view}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1.05\textwidth]{./img/disparity_domain.png}
-\caption{\small{Disparity-based watermarking workflow}}
+\includegraphics[width=1.05\textwidth]{./img/disparity_domain.jpg}
+\caption{\small{Disparity-based watermarking workflow.}}
 \label{fig:disp}
 \end{figure}
 
@@ -191,17 +191,17 @@ Linear filtering (such as blurring) and non-linear filtering (such as sharpening
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/lena.png}
-\caption{\small{Original image}}
+\includegraphics[width=0.8\textwidth]{./img/lena.jpg}
+\caption{\small{Original image.}}
 \label{fig:lbO}
 \end{subfigure}% 
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/blur.png}
-\caption{\small{Blurred image}}
+\includegraphics[width=0.8\textwidth]{./img/blur.jpg}
+\caption{\small{Blurred image.}}
 \label{fig:blI}
 \end{subfigure}% 
-\caption{\small{Spatial filtering: blurring}\label{bl}}
+\caption{\small{Spatial filtering: blurring.}\label{bl}}
 \end{figure}
 
 \subsubsection{Additive Noise}
@@ -211,17 +211,17 @@ The additive noise can be added to the content when applying some usual processi
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/lena2.png}
-\caption{\small{Original image}}
+\includegraphics[width=0.8\textwidth]{./img/lena2.jpg}
+\caption{\small{Original image.}}
 \label{fig:noise1}
 \end{subfigure}% 
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/noise.png}
+\includegraphics[width=0.8\textwidth]{./img/noise.jpg}
 \caption{\small{Noised image}}
 \label{fig:noise2}
 \end{subfigure}% 
-\caption{\small{Additive noise}\label{noise}}
+\caption{\small{Additive noise.}\label{noise}}
 \end{figure}
 
 \subsubsection{Geometric distortions}
@@ -231,25 +231,25 @@ The geometric distortions include rotations, translations, spatial scaling, crop
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/lena3.png}
-\caption{\small{Original image}}
+\includegraphics[width=0.8\textwidth]{./img/lena3.jpg}
+\caption{\small{Original image.}}
 \label{fig:geom1}
 \end{subfigure}% 
 ~ %add desired spacing between images, e. g. ~, \quad, \qquad,  etc.$  $
   %(or a blank line to force the subfigure onto a new line)
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width= 0.8\textwidth]{./img/crop.png}
-\caption{\small{Cropped image}}
+\includegraphics[width= 0.8\textwidth]{./img/crop.jpg}
+\caption{\small{Cropped image.}}
 \label{fig:geom2}
   \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{./img/rot.png}
-\caption{\small{Rotated image}}
+\includegraphics[width=0.8\textwidth]{./img/rot.jpg}
+\caption{\small{Rotated image.}}
 \label{fig:geom3}
 \end{subfigure}
-\caption{\small{Geometric transformations}\label{geom}}
+\caption{\small{Geometric transformations.}\label{geom}}
 \end{figure}
 
 \subsubsection{Lossy compression}
@@ -263,25 +263,25 @@ Since in stereoscopic video context it is rather common practice to generate int
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{./img/left_watermarked.png}
-\caption{\small{Left image}}
+\includegraphics[width=1\textwidth]{./img/left_watermarked.jpg}
+\caption{\small{Left image.}}
 \label{fig:vs1}
 \end{subfigure}% 
 ~ \quad
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width= 1\textwidth]{./img/right_watermarked.png}
-\caption{\small{Right image}}
+\includegraphics[width= 1\textwidth]{./img/right_watermarked.jpg}
+\caption{\small{Right image.}}
 \label{fig:vs2}
   \end{subfigure}
  
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{./img/synth_view_watermarked.png}
-\caption{\small{Synthetized view}}
+\includegraphics[width=1\textwidth]{./img/synth_view_watermarked.jpg}
+\caption{\small{Synthetized view.}}
 \label{fig:vs3}
 \end{subfigure}
-\caption{\small{View synthesis}\label{fig:vs}}
+\caption{\small{View synthesis.}\label{fig:vs}}
 \end{figure}
 
 \subsection{Challenges}

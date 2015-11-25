@@ -4,14 +4,14 @@
 \phantomsection
 %\addcontentsline{toc}{chapter}{experiments}
 
-The proposed method has been tested to verify the uniqueness of the watermark, i.e. if the detector presents a significantly higher score only in correspondence of the reference watermark. Moreover, we tested its validity in terms of robustness, in other words, the ability of the watermark to cope with the degradation of the frames due to malicious attacks such as spatial filtering, geometric transformation, compression and view synthesis. \newline 
+The proposed methods have been tested to verify the uniqueness of the watermark, i.e. if the detector presents a significantly higher score only in correspondence of the reference watermark. Moreover, we tested the validity in terms of robustness, in other words, the ability of the watermark to cope with the degradation of the frames due to attacks such as spatial filtering, geometric transformation, compression and view synthesis. \newline 
 In particular, in this thesis we tested the robustness against compression and view synthesis; in addition to the generated compressed videos, the YouTube video compression has been investigated. This choice has been made on the basis that nowadays YouTube is one of the most used video-sharing platform, representing a typical scenario of video distribution.\\
-Another important feature of a good watermarking method is the perceptual transparency, such that human eye could not distinguish the dissimilarities between the watermarked image and the original one.\newline
-In this chapter will be presented the results carried out to test both the spatial and frequency disparity-coherent watermarking algorithm performances.\newline
+We also tested the perceptual transparency, which is an important feature of a good watermarking method, such that human eye can not distinguish the dissimilarities between the watermarked image and the original one.\newline
+In this Chapter the tests carried out on both the spatial and frequency disparity-coherent watermarking algorithms are presented. \newline
 
 The experimental results have been proposed on a 1' stereo video sequence with a resolution of 1280x480. The video has been created with the \texttt{ffmpeg} library \cite{ffmpeg} and the input images are the stereo pairs in the New Tsukuba dataset \cite{tsu}; this dataset contains 1800 stereo pairs of resolution 640x480, with ground truth disparity maps, occlusion maps and discontinuity maps.\\
 Ffmpeg is a library of the multimedia framework FFmpeg, able to decode, encode, transcode, mux, demux, stream, filter and play; ffmpeg is a command-line tool that converts audio or video formats and allows, among a various number of options, to choose the number of Group Of Picture's frame, the Constant Rate Factor value, the pixel format, the video coding format and the frame rate.\\
-In video coding the Group Of Picture (GOP) is a group of successive pictures within a coded video stream. Each coded video stream consists of successive GOPs. From the pictures contained in it, the visible frames are generated.\\
+In video coding the Group Of Picture (GOP) is a group of successive pictures within a coded video stream. Each coded video stream consists of successive GOPs.\\
 GOP can contain the following picture types:
 I frame (intra coded picture) is  a picture that is coded independently of all other pictures. Each GOP begins (in decoding order) with this type of picture; P frame (predictive coded picture) – contains motion-compensated difference information relative to previously decoded pictures;  B frame (bipredictive coded picture) contains motion-compensated difference information relative to previously decoded pictures. An I frame indicates the beginning of a GOP. Afterwards several P and B frames follow.\\
 Constant Rate Factor (CRF) is the default quality setting for the x264 encoder; its value can be set in a range between 0 and 51, where lower values would result in better quality (at the expense of higher file sizes). Sane values are between 18 and 28. \\
@@ -21,9 +21,9 @@ Frame rate is the frequency (rate) at which an imaging device displays frames.\\
 
 In this work a Group Of Picture (GOP) of 60 frames, a frame rate of 30 fps, a pixel format yuv420p, the video codec H.264 and a CRF initial value of 1 have been chosen.\newline 
 The video sequence has been marked every 60 frames, i.e. only the I frame of each GOP are marked.\newline 
-With these settings a total number of 30 frame has been marked.\\
-The watermark has been inserted with increasing values of the power and then the watermarked videos have been compressed with different levels of compression; higher values of the power lead in video visual degradation but make the watermark more robust against compression. \newline 
-The compressed videos are obtain by changing the CRF value in the ffmpeg command line.
+With these settings a total number of 30 frames has been marked.\\
+The watermark has been inserted with increasing values of the power and then the watermarked videos have been compressed with different levels of compression; higher values of the power lead in video visual degradation but make the watermark more robust against compression. 
+An initial study conducted on the watermark power led to set its value to a minimum of 0.3, since below this number the watermark can not be detected. The compressed videos are obtain by changing the CRF value in the ffmpeg command line.
 
 
 
@@ -31,44 +31,109 @@ The compressed videos are obtain by changing the CRF value in the ffmpeg command
 
 The first experiment we present aims to demonstrate the uniqueness of the watermark. We can say a mark is unique if the detector will present a significantly higher score only in correspondence of the reference watermark. 
 
-Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of loglikelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the loglikelihood value when the images do not contain any watermark.
+Figures \ref{fig:gauss11}-\ref{fig:gauss3} show the response, for different values of the power, of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark. The correlation has been computed between the watermarked left view and the reference watermark (Figures \ref{fig:gl1} \ref{fig:gl3} ), bewteen the watermarked left reconstructed view and the reference watermark (Figures \ref{fig:grw1} \ref{fig:grw3} ) and between the watermarked right view and the warped reference watermark (Figures \ref{fig:gr1} \ref{fig:gr3}).\\
+Figure \ref{fig:gauss} shows the response of the spatial watermarking detector to 100 randomly generated watermarks when the images don't contain any watermark. 
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_1.jpg}
+  \caption{\small{Detection on the left view.}\label{fig:gl1}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_1.jpg}
+\caption{\small{Detection on the reconstructed left view.}\label{fig:grw1}}
+
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_1.jpg}
+   \caption{\small{Detection on the right view.}\label{fig:gr1}}
+\end{subfigure}
+\caption{Spatial detector response on the watermarked left view, reconstructed left view and right view with a power of 1.\label{fig:gauss11}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_3.jpg}
+  \caption{\small{Detection on the left view.}\label{fig:gl3}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_3.jpg}
+\caption{\small{Detection on the reconstructed left view.}\label{fig:grw3}}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_3.jpg}
+   \caption{\small{Detection on the right view}\label{fig:gr3}}
+\end{subfigure}
+\caption{Spatial detector response on the watermarked left view, reconstructed left view and right view with a power of 3.\label{fig:gauss3}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_NM.jpg}
+  \caption{\small{Detection on the left view.}\label{fig:gl}}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_NM.jpg}
+\caption{\small{Detection on the reconstructed left view.}\label{fig:grw}}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_NM.jpg}
+   \caption{\small{Detection on the right view.}\label{fig:gr}}
+\end{subfigure}
+\caption{Spatial detector response on the left view, reconstructed left view and right view when the mark is not present.\label{fig:gauss}}
+\end{figure}
+
+\clearpage
+Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark detector, in terms of likelihood value, to 100 randomly generated watermarks of which only one matches the reference watermark. Figure \ref{fig:Lnm} show the likelihood values when the images do not contain any watermark.
 
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-       \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_03.png}
-          \caption{\small{Detection on the left view}}
+       \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_03.jpg}
+          \caption{\small{Detection on the left view.}}
           \label{fig:Ll03}
 
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_03.png}
-           \caption{\small{Detection on the right view}}
+        \includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_03.jpg}
+           \caption{\small{Detection on the right view.}}
            \label{fig:Lr03}
     \end{subfigure}
-    \caption{Detector response on the left and right views marked with power equal to 0.3}
+    \caption{frequency detector response on the left and right views marked with power equal to 0.3.}
      \label{fig:Lr}
 \end{figure*}
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_06.png}
-          \caption{\small{Detection on the left view}}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_06.jpg}
+          \caption{\small{Detection on the left view.}}
 \label{fig:Ll06}
 
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_06.png}
-           \caption{\small{Detection on the right view}}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_06.jpg}
+           \caption{\small{Detection on the right view.}}
 \label{fig:Lr06}
     \end{subfigure}
-    \caption{Detector response on the left and right views marked with power equal to 0.6}
+    \caption{Frequency detector response on the left and right views marked with power equal to 0.6.}
      \label{fig:Ll}
 \end{figure*}
 
@@ -77,87 +142,21 @@ Figures \ref{fig:Lr}-\ref{fig:Ll} show the response of the frequency watermark d
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_NM.png}
-          \caption{\small{Detection on the left view}}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodL_NM.jpg}
+          \caption{\small{Detection on the left view.}}
 \label{fig:Llnm}
 
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.png}
-           \caption{\small{Detection on the right view}}
+\includegraphics[width=1\textwidth]{./img/likelihood/correct_LikelihoodLr_NM.jpg}
+           \caption{\small{Detection on the right view.}}
 \label{fig:Lrnm}
     \end{subfigure}
-    \caption{Detector response on the left and right views where the images hasn't been marked}
+    \caption{Frequency detector response on the left and right views where the images hasn't been marked.}
     \label{fig:Lnm}
 \end{figure*}
-
-
-Figures \ref{fig:gauss11}-\ref{fig:gauss3} show the response, for different values of the power, of the spatial watermarking detector, in terms of correlation value, to 100 randomly generated watermarks of which only one matches the reference watermark. The correlation has been computed between the watermarked left view and the reference watermark (Figures \ref{fig:gl1} \ref{fig:gl3} ), bewteen the watermarked left reconstructed view and the reference watermark (Figures \ref{fig:grw1} \ref{fig:grw3} ) and between the watermarked right view and the warped reference watermark (Figures \ref{fig:gr1} \ref{fig:gr3}).\\
-Figure \ref{fig:gauss} shows the response of the spatial watermarking detector to 100 randomly generated watermarks when the images don't contain any watermark.
-
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_1.png}
-  \caption{\small{Detection on the left view}\label{fig:gl1}}
-\end{subfigure}%
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_1.png}
-\caption{\small{Detection on the reconstructed left view}\label{fig:grw1}}
-
-\end{subfigure}
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_1.png}
-   \caption{\small{Detection on the right view}\label{fig:gr1}}
-\end{subfigure}
-\caption{Detector response on the watermarked left view, reconstructed left view and right view with a power of 1\label{fig:gauss11}}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_3.png}
-  \caption{\small{Detection on the left view}\label{fig:gl3}}
-\end{subfigure}%
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_3.png}
-\caption{\small{Detection on the reconstructed left view}\label{fig:grw3}}
-\end{subfigure}
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_3.png}
-   \caption{\small{Detection on the right view}\label{fig:gr3}}
-\end{subfigure}
-\caption{Detector response on the watermarked left view, reconstructed left view and right view with a power of 3\label{fig:gauss3}}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/left_corr_value_NM.png}
-  \caption{\small{Detection on the left view}\label{fig:gl}}
-\end{subfigure}%
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warpedwat_corr_value_NM.png}
-\caption{\small{Detection on the reconstructed left view}\label{fig:grw}}
-\end{subfigure}
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{./img/corr_gauss/right_warped_corr_value_NM.png}
-   \caption{\small{Detection on the right view}\label{fig:gr}}
-\end{subfigure}
-\caption{Detector response on the left view, reconstructed left view and right view when the mark is not present\label{fig:gauss}}
-\end{figure}
-
 
 It is worth noting that the response due to the correct watermark is very much stronger with respect to the response in case of non watermarked video, suggesting that the algotithm has very low false positive (and false negative) response rate. This holds either for the left detection(Figure \ref{fig:Ll03}, \ref{fig:Ll06}, \ref{fig:gl1} and \ref{fig:gl3}) and for the right detection(Figure \ref{fig:Lr03}, \ref{fig:Lr06}, \ref{fig:grw1}, \ref{fig:gr1}, \ref{fig:grw3} and \ref{fig:gr3}). Figures \ref{fig:Llnm},  \ref{fig:Lrnm}, \ref{fig:gl}, \ref{fig:grw} and \ref{fig:gr} prove that when the image under consideration doesn't contain the reference watermark the score array doesn't present any spikes.
 \clearpage
@@ -170,40 +169,40 @@ Figures \ref{fig:03crf1}-\ref{fig:06crf25} show the degradation of the image due
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/03_crf1_gt.png}
-\caption{\small{Stereo image from video marked with power 0.3 and compressed with crf equal to 1 }}
+\includegraphics[width=0.9\textwidth]{./img/03_crf1_gt.jpg}
+\caption{\small{Stereo image from video marked with power 0.3 and compressed with crf equal to 1. }}
 \label{fig:03crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/03_crf25_gt.png}
-\caption{\small{Stereo image from video marked with power 0.3 and compressed with crf equal to 25 }}
+\includegraphics[width=0.9\textwidth]{./img/03_crf25_gt.jpg}
+\caption{\small{Stereo image from video marked with power 0.3 and compressed with CRF equal to 25. }}
 \label{fig:03crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/03_crf30_gt.png}
-\caption{\small{stereo image from video marked with power 0.3 and compressed with crf equal to 30 }}
+\includegraphics[width=0.9\textwidth]{./img/03_crf30_gt.jpg}
+\caption{\small{stereo image from video marked with power 0.3 and compressed with CRF equal to 30. }}
 \label{fig:03crf30}
 \end{figure}
 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/06_crf1_gt.png}
-\caption{\small{Stereo image from video marked with power 0.6 and compressed with crf equal to 1 }}
+\includegraphics[width=0.9\textwidth]{./img/06_crf1_gt.jpg}
+\caption{\small{Stereo image from video marked with power 0.6 and compressed with CRF equal to 1. }}
 \label{fig:06crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/06_crf25_gt.png}
-\caption{\small{Stereo image from video marked with power 0.6 and compressed with crf equal to 25 }}
+\includegraphics[width=0.9\textwidth]{./img/06_crf25_gt.jpg}
+\caption{\small{Stereo image from video marked with power 0.6 and compressed with CRF equal to 25. }}
 \label{fig:06crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/06_crf30_gt.png}
-\caption{\small{stereo image from video marked with power 0.6 and compressed with crf equal to 30 }}
+\includegraphics[width=0.9\textwidth]{./img/06_crf30_gt.jpg}
+\caption{\small{stereo image from video marked with power 0.6 and compressed with CRF equal to 30. }}
 \label{fig:06crf30}
 \end{figure}
 
@@ -224,50 +223,50 @@ Figures \ref{fig:g1crf1}-\ref{fig:g3crf30} show the results for this experiment;
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_1.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 1 and not compressed}}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_1.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and not compressed.}}
 \label{fig:g1crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_15.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 15}}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_15.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with CRF 15.}}
 \label{fig:g1crf15}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_25.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 25}}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_25.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with CRF 25.}}
 \label{fig:g1crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_30.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with crf 30}}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_1_30.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 1 and compressed with CRF 30.}}
 \label{fig:g1crf30}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_1.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 3 and not compressed }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_1.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and not compressed. }}
 \label{fig:g3crf1}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_15.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 15 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_15.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with CRF 15. }}
 \label{fig:g3crf15}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_25.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 25 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_25.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with CRF 25. }}
 \label{fig:g3crf25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_30.png}
-\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with crf 30 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_3_30.jpg}
+\caption{\small{ROC curve of a spatial marked image with power equal to 3 and compressed with CRF 30. }}
 \label{fig:g3crf30}
 \end{figure}
 \clearpage
@@ -281,15 +280,13 @@ Two studies are presented in this section: the first one concernes the power of 
 Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find the watermark in a compressed video, in particular it is shown in how many stereo frame the mark is detected in both left and right view, and the total of correct detection on the left view and right view separately. The first table shows the results when the algorithm is used with the ground truth disparity, the second when using graph cuts.
 
 \clearpage
-
-\begin{table}[htbp]
-
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
  
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.8\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Position & Compression level & Both & Left & Right\\ \hline
 0.3 & 1 & 30 & 30 & 30 \\
 0.3 & 15 & 30 & 30 & 30 \\
 0.3 & 25 & 10 & 15 & 10 \\
@@ -302,41 +299,38 @@ Tables \ref{tab:compgt}-\ref{tab:compkz} shows how the algorithm manage to find 
 0.6 & 15 & 30 & 30 & 30 \\
 0.6 & 25 & 28 & 28 & 28 \\
 0.6 & 30 & 16 & 18 & 16 \\
-           
- \hline
- \end{tabular}
- }
- \caption{ detection table when ground truth disparity is used  \label{tab:compgt}}
- \end{center}
- \end{table}
-
-\begin{table}[htbp]
-
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{power}}&\multirow{1}{4cm}{\textbf{compression level}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+\hline 
+\end{tabularx}
+}
+\caption{Detection table when ground truth disparity is used.  \label{tab:compgt}}
+\end{center}
+\end{table}
  
- 0.3 & 1 & 30 & 30 & 30 \\
- 0.3 & 15 & 29 & 30 & 29 \\
- 0.3 & 25 & 11 & 12 & 11 \\
- 0.3 & 30 & 2 & 3 & 2 \\
- 0.5 & 1 & 30 & 30 & 30 \\
- 0.5 & 15 & 30 & 30 & 30 \\
- 0.5 & 25 & 24 & 26 & 24 \\
- 0.5 & 30 & 9 & 11 & 9 \\
- 0.6 & 1 & 30 & 30 & 30 \\
- 0.6 & 15 & 30 & 30 & 30 \\
- 0.6 & 25 & 26 & 27 & 27 \\
- 0.6 & 30 & 15 & 19 & 15 \\
-           
- \hline
- \end{tabular}
- }
- \caption{Detection table when graph cuts disparity is used \label{tab:compkz}}
- \end{center}
- \end{table}
+ 
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.8\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Position & Compression level & Both & Left & Right\\ \hline
+0.3 & 1 & 30 & 30 & 30 \\
+0.3 & 15 & 29 & 30 & 29 \\
+0.3 & 25 & 11 & 12 & 11 \\
+0.3 & 30 & 2 & 3 & 2 \\
+0.5 & 1 & 30 & 30 & 30 \\
+0.5 & 15 & 30 & 30 & 30 \\
+0.5 & 25 & 24 & 26 & 24 \\
+0.5 & 30 & 9 & 11 & 9 \\
+0.6 & 1 & 30 & 30 & 30 \\
+0.6 & 15 & 30 & 30 & 30 \\
+0.6 & 25 & 26 & 27 & 27 \\
+0.6 & 30 & 15 & 19 & 15 \\
+\hline 
+\end{tabularx}
+}
+\caption{Detection table when graph cuts disparity is used. \label{tab:compkz}}
+\end{center}
+\end{table}
  
 One can notice that, at a global level, detection statistics gradually degrade with the compression ratio. The embedded watermark becomes hardly detectable at the crudest compression levels even with if embedded with a strong power. \newline From the results emerges that when the watermark power is grater than or equal to 0.5 the detection supports a compression level of 25 with good statistics.
 
@@ -344,26 +338,26 @@ Figures \ref{fig:03yt}-\ref{fig:08yt} show how the uploading and the subsequenti
  
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/yt_03_gt.png}
-\caption{\small{Stereo image from video uploaded with power equal to 0.3 }}
+\includegraphics[width=0.9\textwidth]{./img/yt_03_gt.jpg}
+\caption{\small{Stereo image from video uploaded with power equal to 0.3. }}
 \label{fig:03yt}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/yt_06_gt.png}
-\caption{\small{Stereo image from video uploaded with power equal to 0.6 }}
+\includegraphics[width=0.9\textwidth]{./img/yt_06_gt.jpg}
+\caption{\small{Stereo image from video uploaded with power equal to 0.6. }}
 \label{fig:06yt}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/yt_07_gt.png}
-\caption{\small{Stereo image from video uploaded with power equal to 0.7 }}
+\includegraphics[width=0.9\textwidth]{./img/yt_07_gt.jpg}
+\caption{\small{Stereo image from video uploaded with power equal to 0.7. }}
 \label{fig:07yt}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{./img/yt_08_gt.png}
-\caption{\small{Stereo image from video uploaded with power equal to 0.8 }}
+\includegraphics[width=0.9\textwidth]{./img/yt_08_gt.jpg}
+\caption{\small{Stereo image from video uploaded with power equal to 0.8. }}
 \label{fig:08yt}
 \end{figure}
 \clearpage
@@ -372,43 +366,42 @@ From Figures \ref{fig:03yt}-\ref{fig:08yt} it can be noticed that as a consequen
 
 Tables \ref{tab:ytgt}-\ref{tab:ytkz} show how a video uploaded on youtube and subsequentially downloaded can preserve the watermark, respectively when the watermark is inserted with the ground truth disparity and with graph cuts.\newline
  
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Position & Both & Left & Right\\ \hline
+0.3 & 1 & 1 & 0\\
+0.6 & 9 & 10 & 9\\
+0.7 & 12& 14 & 12\\
+\hline 
+\end{tabularx}
+}
+\caption{Detection statistic for a downloaded video marked with ground truth disparity.\label{tab:ytgt}}
+\end{center}
+\end{table}
  
- \begin{table}[htbp]
-
-  \begin{center}
-  \scalebox{0.9}{ 
-  \begin{tabular}{c|c c c }
-  \hline\hline
-  \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
- 0.3 & 1 & 1 & 0\\
- 0.6 & 9 & 10 & 9\\
- 0.7 & 12& 14 & 12\\
-  \hline
-  \end{tabular}
-  }
-  \caption{Detection statistic for a downloaded video marked with ground truth disparity\label{tab:ytgt}}
-  \end{center}
-  \end{table}
  
-\begin{table}[htbp]
- 
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{power}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
-
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+Position & Both & Left & Right\\ \hline
 0.3& 1 & 1& 0\\
 0.5& 6 & 7& 6\\
 0.6& 11 & 11 & 0\\
- \hline
- \end{tabular}
- }
- \caption{Detection statistic for a downloaded video marked with graph cuts disparity\label{tab:ytkz}}
- \end{center}
- \end{table}
+\hline 
+\end{tabularx}
+}
+\caption{Detection statistic for a downloaded video marked with graph cuts disparity.\label{tab:ytkz}}
+\end{center}
+\end{table}
  
-\subsection{PSNR test}
+
+ 
+\subsubsection{PSNR test}
 To validate this results the average PSNR value has been computed between original and compressed  stereoscopic videos at diffent compression levels.\\
 PSNR is the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation; it is usually expressed in terms of the logarithmic decibel scale (dB) and typical values for the PSNR in video compression and watermarking are between 30 and 50 dB.
 The results of this study are shown in Table \ref{tab:psnr}: PSNR value decreases with the increment of the compression level. This implicates a decrement of the true positive rate after compression due to the image degradation as shown in Tables \ref{tab:compgt}-\ref{tab:compkz} and \ref{tab:ytgt}-\ref{tab:ytkz}.\\
@@ -441,79 +434,80 @@ To conduct these experiments, we generated a number of intermediate synthetic vi
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{./img/synth_view1_25.png}
-\caption{\small{Synthetized view at distance 1/4 of the baseline from the left image }}
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_25.jpg}
+\caption{\small{Synthetized view at distance 1/4 of the baseline from the left image.}}
 \label{fig:synt1/4}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{./img/synth_view1_50.png}
-\caption{\small{Synthetized view at distance 1/2 of the baseline from the left image }}
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_50.jpg}
+\caption{\small{Synthetized view at distance 1/2 of the baseline from the left image. }}
 \label{fig:synt1/2}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{./img/synth_view1_75.png}
-\caption{\small{Synthetized view at distance 3/4 of the baseline from the left image }}
+\includegraphics[width=0.5\textwidth]{./img/synth_view1_75.jpg}
+\caption{\small{Synthetized view at distance 3/4 of the baseline from the left image. }}
 \label{fig:synt3/4}
 \end{figure}
 
 The Table \ref{tab:syntDFT} contains the results for the frequency marking: the first column is the distance between the left view and the synthetized one, in terms of fraction of the baseline, then its show in how many synthetized images the mark is detected.
 
-\begin{table}[htbp]
 
+ 
+ \begin{table}[h!]
  \begin{center}
  \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{position}} & \multicolumn{1}{c}{\textbf{both}} & \multicolumn{1}{c}{\textbf{left}} & \multicolumn{1}{c}{\textbf{right}}\\ \hline
+ \begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+ \hline \hline
+ Position & Both & Left & Right\\ \hline
+1/2 & 30& 30& 30\\
+1/4 & 30& 30& 30\\
+3/4 & 29 & 30 & 29\\
+\hline 
+\end{tabularx}
+}
+\caption{Detection in the syntetized views. \label{tab:syntDFT}}
+\end{center}
+\end{table}
 
-1/2 & 30& 0& 0\\
-1/4 & 30& 0& 0\\
-3/4 & 29 & 1 & 0\\
- \hline
- \end{tabular}
- }
- \caption{Detection in the syntetized views \label{tab:syntDFT}}
- \end{center}
- \end{table}
  
   
 The same study is proposed for the spatial marking: from a video marked with additive gaussian noise have been generated three synthetized views for each pair of marked frames, respectively one in the middle and the other two at 1/4 and 3/4 of distance from the left.\newline The ROC curves in figures \ref{fig:g1vs25}-\ref{fig:g3vs75}  show the results for the different intermediate synthetic views.\newline 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_25.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 1 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_25.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 1. }}
 \label{fig:g1vs25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_50.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 1 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_50.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 1. }}
 \label{fig:g1vs50}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_75.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 1 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_1_75.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 1. }}
 \label{fig:g1vs75}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_25.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 3 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_25.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/4 marked with power equal to 3. }}
 \label{fig:g3vs25}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_50.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 3 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_50.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline/2 marked with power equal to 3. }}
 \label{fig:g3vs50}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_75.png}
-\caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 3 }}
+\includegraphics[width=0.6\textwidth]{./img/ROC/ROC_gauss_synt_3_75.jpg}
+\caption{\small{ROC curve of a synthetic view created at distance equal to baseline*3/4 marked with power equal to 3. }}
 \label{fig:g3vs75}
 \end{figure}
 \clearpage
@@ -536,107 +530,66 @@ Figure \ref{fig:sobel} gives graphical illustration of contour extraction in ord
 \centering
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/wat_left.png}
+\includegraphics[width=0.8\textwidth]{./img/wat_left.jpg}
 \caption{\label{fig:lw}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/left_sobel.png}
+\includegraphics[width=0.8\textwidth]{./img/left_sobel.jpg}
 \caption{\label{fig:lws}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/right_wat.png}
+\includegraphics[width=0.8\textwidth]{./img/right_wat.jpg}
 \caption{\label{fig:wr}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/right_sobel.png}
+\includegraphics[width=0.8\textwidth]{./img/right_sobel.jpg}
 \caption{\label{fig:rws}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/ldisp.png}
+\includegraphics[width=0.8\textwidth]{./img/ldisp.jpg}
 \caption{\label{fig:ld}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/ldisp_sobel.png}
+\includegraphics[width=0.8\textwidth]{./img/ldisp_sobel.jpg}
 \caption{\label{fig:lds}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/rdisp.png}
+\includegraphics[width=0.8\textwidth]{./img/rdisp.jpg}
 \caption{\label{fig:rd}}
 \end{subfigure}
 \begin{subfigure}[]{0.4\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{./img/rdisp_sobel.png}
+\includegraphics[width=0.8\textwidth]{./img/rdisp_sobel.jpg}
 \caption{\label{rds}}
 \end{subfigure}
 \caption{\small{(a) Reference left image. (b) Extracted edge information from reference left image. (c) Watermarked left image. (d) Extracted edge information from the watermarked left image. (e) Left disparity map obtain from the non watermarked stereo pair. (f) Extracted edge information from the left disparity map obtain from the non watermarked stereo pair. (g)  Left disparity map obtain from the watermarked stereo pair.(h) Extracted edge information from the left disparity map obtain from the watermarked stereo pair. }\label{fig:sobel}}
 \end{figure}
 \clearpage
-For different watermarking power both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, either for the spatial and frequency domain. In Figures \ref{fig:qml}-\ref{fig:gqmd} its shown the value of the quality measure with respect to the increasing value of the watermark power. 
+For different watermarking power both the $MQ_{depth}$ and $MQ_{color}$ metrics are calculated, either for the spatial and frequency domain. In Figures \ref{fig:gqmc}-\ref{fig:qmr} its shown the value of the quality measure with respect to the increasing value of the watermark power. 
 
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm/qm_left.png}
-          \caption{\small{Color quality metrics on the left view}}
-\label{fig:qmcl}
-
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-\includegraphics[width=1\textwidth]{./img/qm/qm_disp_left.png}
-           \caption{\small{Color quality metrics on the right view}}
-\label{fig:qmdl}
-    \end{subfigure}
-    \caption{Color Quality metrics in frequency domain}
-    \label{fig:qml}
-\end{figure*}
-
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-\includegraphics[width=1\textwidth]{./img/qm/qm_right.png}
-          \caption{\small{Depth quality metrics on the left view}}
-\label{fig:qmcr}
-
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-\includegraphics[width=1\textwidth]{./img/qm/qm_disp_right.png}
-           \caption{\small{Depth quality metrics on the right view}}
-\label{fig:qmdr}
-    \end{subfigure}
-    \caption{Depth quality metrics in frequency domain }
-        \label{fig:qmr}
-\end{figure*}
-\clearpage
-
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_left.png}
-          \caption{\small{Color quality metrics on the left view}}
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_left.jpg}
+          \caption{\small{Color quality metrics on the left view.}}
 \label{fig:gqmcl}
 
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_right.png}
-           \caption{\small{Color quality metrics on the right view}}
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_right.jpg}
+           \caption{\small{Color quality metrics on the right view.}}
 \label{fig:gqmdl}
     \end{subfigure}
-    \caption{Color Quality metrics in spatial domain}
+    \caption{Color Quality metrics in spatial domain.}
     \label{fig:gqmc}
 \end{figure*}
 
@@ -644,25 +597,66 @@ For different watermarking power both the $MQ_{depth}$ and $MQ_{color}$ metrics 
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_ldisp.png}
-          \caption{\small{Depth quality metrics on the left view}}
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_ldisp.jpg}
+          \caption{\small{Depth quality metrics on the left view.}}
 \label{fig:gqmcr}
 
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_rdisp.png}
-           \caption{\small{Depth quality metrics on the right view}}
+\includegraphics[width=1\textwidth]{./img/qm_gauss/gqm_rdisp.jpg}
+           \caption{\small{Depth quality metrics on the right view.}}
 \label{fig:gqmdr}
     \end{subfigure}
-    \caption{Depth quality metrics in spatial domain }
+    \caption{Depth quality metrics in spatial domain. }
         \label{fig:gqmd}
 \end{figure*}
 
-From the graphs of the $MQColor$ metric in Figures \ref{fig:qml} and \ref{fig:gqmc} we can see how the quality metric decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low.
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm/qm_left.jpg}
+          \caption{\small{Color quality metrics on the left view.}}
+\label{fig:qmcl}
 
-\subsection{PSNR test}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm/qm_disp_left.jpg}
+           \caption{\small{Color quality metrics on the right view.}}
+\label{fig:qmdl}
+    \end{subfigure}
+    \caption{Color Quality metrics in frequency domain.}
+    \label{fig:qml}
+\end{figure*}
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm/qm_right.jpg}
+          \caption{\small{Depth quality metrics on the left view.}}
+\label{fig:qmcr}
+
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+\includegraphics[width=1\textwidth]{./img/qm/qm_disp_right.jpg}
+           \caption{\small{Depth quality metrics on the right view.}}
+\label{fig:qmdr}
+    \end{subfigure}
+    \caption{Depth quality metrics in frequency domain. }
+        \label{fig:qmr}
+\end{figure*}
+\clearpage
+
+From the graphs of the $MQColor$ metric in Figures \ref{fig:gqmc} and \ref{fig:qml} we can see how the quality metric decrease when increasing the power of the watermark: it can be noted that the more the power of the watermark is high the more the quality of the perception is low.
+
+\subsubsection{PSNR test}
 
 Another study has been conducted to evaluate the visual impact of the watermark: the average PSNR value has been computed between the I frames of the original stereoscopic video and the watermarked stereoscopic videos with different values of the power(that is 30 pairs of stereoscopic frames).\\
 As said before typical values for the PSNR in video watermarking are between 30 and 50 dB.
@@ -693,69 +687,71 @@ First we proved the uniqueness of the watermark needed in order to have a reliab
 
 The created stereo video sequence was than watermarked and compressed under different compression rates, to test the visibility of the watermark as well as its robustness against lossy compression.
 
-Regarding the spatial technique, results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression of crf 30. 
+Regarding the spatial technique, results show that when the watermark is added with power equal to 1, it is preserved with acceptable statistic at a compression rate of 15; on the other hand when inserted with higher power (3 in this analysis), the detection statistics are optimal even for the crudest compression of CRF 30. 
 
 The frequency watermarking proved to be robust up to a compression rate of 25, and that the degradation introduced by web uploading tends to erase the mark, so in order to cope with this kind of attack a higher embedding power is needed.
 
-The quality of the watermarked videos has been studied with Reduced Reference quality metrics \cite{QMETRICS} and based on the $MQcolor$ graph we can make the following observations: in the frequency domain, if we fix a loss of quality of $1\%$ with respect to the non marked video, we obtain an embedding power of $0.3$, in Table \ref{tab:03} are shown the detection statistic in this case. If we accept a degradation of $3\%$ we obtain an acceptable embedding power of $0.6$, this statistics are shown in Table  \ref{tab:06}. 
+The quality of the watermarked videos has been studied with Reduced Reference quality metrics \cite{QMETRICS} and based on the $MQcolor$ graph we can make the following observations: from the study conducted for the spatial domain it emerges that an acceptable degratation can only be obtained with embedding strenght equal to 1; in this case we study the distribution of True Positive detection, for a fixed value of False Positive of $1\%$, with respect to increasing compression power; results are shown in Table \ref{tab:G1}.
 
-From the study conducted for the spatial domain it emerges that an acceptable degratation can only be obtained with embedding strenght equal to 1; in this case we study the distribution of True Positive detection, for a fixed value of False Positive of $1\%$, with respect to increasing compression power; results are shown in Table \ref{tab:G1}.
+In the frequency domain, if we fix a loss of quality of $1\%$ with respect to the non marked video, we obtain an embedding power of $0.3$; in Table \ref{tab:03} are shown the detection statistic in terms of postive result on both images. If we accept a degradation of $3\%$ we obtain an acceptable embedding power of $0.6$, this statistics are shown in Table  \ref{tab:06}. 
 
 
-\begin{table}[htbp]
- 
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
 
-1& 0.3 & 30  \\
-15& 0.3 & 29 \\
-25& 0.3 & 11 \\
-30& 0.3 & 2\\
- \hline
- \end{tabular}
- }
- \caption{Detection statistic for a quality degradation of $1\%$\label{tab:03}}
- \end{center}
- \end{table}
- 
- \begin{table}[htbp]
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$Detected frames$}} \\ \hline
-
-1& 0.6 &  30\\
-15& 0.6 & 30 \\
-25& 0.6 & 26\\
-30& 0.6 & 15\\
- \hline
- \end{tabular}
- }
- \caption{Detection statistic for a quality degradation of $3\%$\label{tab:06}}
- \end{center}
- \end{table}
-\begin{table}[htbp]
- 
- \begin{center}
- \scalebox{0.9}{ 
- \begin{tabular}{c|c c c }
- \hline\hline
- \multirow{1}{2.5cm}{\textbf{$CRF$}} &  \multirow{1}{2.5cm}{\textbf{$power$}} & \multicolumn{1}{c}{\textbf{$PD_{True Positive}$}} \\ \hline
-
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+CRF & Power & True Positive \\ \hline
 1& 1 & 0.7 \\
 15& 1 & 0.4 \\
 25& 1 & 0.1 \\
 30& 1 & 0.1 \\
- \hline
- \end{tabular}
- }
- \caption{Detection statistic for a quality degradation of $1\%$ and accepted fall-out of $1\%$ \label{tab:G1}}
- \end{center}
- \end{table}
+\hline 
+\end{tabularx}
+}
+\caption{Spatial detection statistic for a quality degradation of $1\%$ and accepted fall-out of $1\%$. \label{tab:G1}}
+\end{center}
+\end{table}
+ 
+ 
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+CRF & Power & Detected frames \\ \hline
+1& 0.3 & 30  \\
+15& 0.3 & 29 \\
+25& 0.3 & 11 \\
+30& 0.3 & 2\\
+\hline 
+\end{tabularx}
+}
+\caption{Frequency detection statistic for a quality degradation of $1\%$.\label{tab:03}}
+\end{center}
+\end{table}
+ 
+ 
+ 
+\begin{table}[h!]
+\begin{center}
+\scalebox{0.9}{ 
+\begin{tabularx}{0.7\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\hline \hline
+CRF & Power & Detected frames \\ \hline
+1& 0.6 &  30\\
+15& 0.6 & 30 \\
+25& 0.6 & 26\\
+30& 0.6 & 15\\
+\hline 
+\end{tabularx}
+}
+\caption{Frequency detection statistic for a quality degradation of $3\%$.\label{tab:06}}
+\end{center}
+\end{table}
+
+
 
 Another important feature to test was the robustness against view synthesis, which was confirm by the results, for both the spatial and frequency techniques.
 
